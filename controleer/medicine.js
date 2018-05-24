@@ -3,11 +3,17 @@ var Medicine = require('../model/medicine');
 var createMedicine = (req, res, next)=>{
 
     var name = req.body.name,
+        generic = req.body.generic,
+        type = req.body.type,
+        company = req.body.company,
         price = req.body.price,
         quantity = req.body.quantity;
 
     var myMedicine = new Medicine({
         name: name,
+        generic: generic,
+        type: type,
+        company: company,
         price: price,
         quantity: quantity
     });
@@ -89,10 +95,16 @@ var updateMedicine = (req, res, next)=>{
         else{
 
             var name = req.body.name,
+                generic = req.body.generic,
+                type = req.body.type,
+                company = req.body.company,
                 price = req.body.price,
                 quantity = req.body.quantity;
 
             medicine.name = name || medicine.name;
+            medicine.generic = generic || medicine.generic;
+            medicine.type = type || medicine.type;
+            medicine.company = company || medicine.company;
             medicine.price = price || medicine.price;
             medicine.quantity =  quantity || medicine.quantity;
 

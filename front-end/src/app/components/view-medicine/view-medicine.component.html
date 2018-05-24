@@ -1,0 +1,32 @@
+
+<div class="bg">
+<div class="container">
+
+  <div class="table-responsice">
+    <table  class="table">
+      <thead>
+        <tr style="background-color: blue; color: white">
+          <th>#</th>
+          <th>Name</th>
+          <th>Generic</th>
+          <th>Type</th>
+          <th>Price</th>
+        </tr>
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let medicine of medicines; let i = index">
+
+          <td>{{i+1}}</td>
+          <td>{{medicine.name}}</td>
+          <td>{{medicine.generic}}</td>
+          <td>{{medicine.type}}</td>
+          <td>{{medicine.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+</div>
