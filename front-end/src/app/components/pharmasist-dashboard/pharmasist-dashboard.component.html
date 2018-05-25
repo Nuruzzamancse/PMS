@@ -1,50 +1,86 @@
-<div class="topnav">
-  <h1 style="margin-left: 2%; font-family: 'Times New Roman'">PMS</h1>
-</div>
-<div class="sidenav">
-  <br>
-  <button style="font-size:24px">
-    <span class="glyphicon glyphicon-dashboard"></span> Dashboard
-  </button>
+<div class="bg">
 
-  <br><br>
-  <button style="font-size:24px;margin-left: 1%;width: 80%"><i class="fa fa-medkit"></i> Medicine</button>
-
-
-</div>
-
-
-
-<div class="main">
-  <h2 style="font-family: 'Times New Roman';margin-left: 10%">Dashboard Pharmacy Management System</h2>
-
-  <div>
-    <div class="container">
-      <div class="text-center">
-        <!--<h1>Angular 2 - Pagination Example with logic like Google</h1>-->
-
-        <!-- items being paged -->
-        <div *ngFor="let item of pagedItems">{{item.name}}</div>
-
-        <!-- pager -->
-        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-          <li [ngClass]="{disabled:pager.currentPage === 1}">
-            <a (click)="setPage(1)">First</a>
-          </li>
-          <li [ngClass]="{disabled:pager.currentPage === 1}">
-            <a (click)="setPage(pager.currentPage - 1)">Previous</a>
-          </li>
-          <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
-            <a (click)="setPage(page)">{{page}}</a>
-          </li>
-          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-            <a (click)="setPage(pager.currentPage + 1)">Next</a>
-          </li>
-          <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-            <a (click)="setPage(pager.totalPages)">Last</a>
-          </li>
-        </ul>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><span style="font-family: 'Times New Roman'">PMS</span></a>
       </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+      </ul>
+      <form  class="navbar-form navbar-right" action="/action_page.php">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search" name="search">
+          <div class="input-group-btn">
+            <button class="btn btn-default" type="submit">
+              <i class="glyphicon glyphicon-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </nav>
+
+  <div style="margin-top: 4%;margin-left: 25%">
+    <h2 style="font-family: 'Times New Roman';margin-left: 10%;margin-top: 1%; color: white">Dashboard Pharmacy Management System</h2>
+  </div>
+
+  <div  class="container">
+
+
+
+    <!--<h1>Angular 2 - Pagination Example with logic like Google</h1>-->
+
+    <div class="table-responsice">
+      <table  class="table">
+        <thead>
+        <tr style="background-color: blue; color: white">
+          <th>#</th>
+          <th>Name</th>
+          <th>Generic</th>
+          <th>Type</th>
+          <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let medicine of pagedItems; let i = index">
+
+          <td>{{i+1}}</td>
+          <td>{{medicine.name}}</td>
+          <td>{{medicine.generic}}</td>
+          <td>{{medicine.type}}</td>
+          <td>{{medicine.price}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- items being paged -->
+    <!--<div *ngFor="let item of pagedItems">-->
+    <!--{{item.name}}-->
+    <!--</div>-->
+
+    <div class="text-center">
+      <!-- pager -->
+      <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+        <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(1)">First</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+        </li>
+        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+          <a (click)="setPage(page)">{{page}}</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.currentPage + 1)">Next</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.totalPages)">Last</a>
+        </li>
+      </ul>
     </div>
   </div>
 
