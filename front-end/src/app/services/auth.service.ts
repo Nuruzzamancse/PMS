@@ -22,4 +22,13 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  getCategory(){
+
+    let headers = new Headers();
+    headers.append('Content-type','application/json');
+
+    return this.http.get(`${environment.baseUrl}/category`,{headers:headers})
+      .map(res => res.json());
+  }
+
 }

@@ -12,6 +12,8 @@ import {HttpModule} from "@angular/http";
 import {AuthService} from "./services/auth.service";
 import { ViewMedicineComponent } from './components/view-medicine/view-medicine.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
+import { PharmasistDashboardComponent } from './components/pharmasist-dashboard/pharmasist-dashboard.component';
+import {PagerServicesService} from "./services/pager-services.service";
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { AddUserComponent } from './components/add-user/add-user.component';
     MedicineComponent,
     LoginComponent,
     ViewMedicineComponent,
-    AddUserComponent
+    AddUserComponent,
+    PharmasistDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +34,8 @@ import { AddUserComponent } from './components/add-user/add-user.component';
   ],
   providers: [
     MedicineService,
-    AuthService
+    AuthService,
+    PagerServicesService
   ],
   bootstrap: [AppComponent]
 })

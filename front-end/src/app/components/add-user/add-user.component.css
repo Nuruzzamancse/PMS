@@ -1,0 +1,13 @@
+.bg {
+  /* The image used */
+  background-image: url('../../../assets/images/medicine-background-7.jpg');
+
+  /* Full height */
+
+  height: 80%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: repeat;
+  background-size: cover;
+}

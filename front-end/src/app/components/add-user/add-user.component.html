@@ -1,3 +1,111 @@
-<p>
-  add-user works!
-</p>
+<div  class="bg">
+  <div class="container">
+
+    <h1 style="margin-top: 3%;text-align: center; font-family: 'Times New Roman'; color: azure">Pharmacy Management System</h1>
+
+    <h3 style="text-align: center;font-family: Verdana; color: azure">Add User</h3>
+    <div class="row" style="margin-top:20px">
+      <div style="margin-left: 15%" class="col-xs-8 col-sm-8 col-md-8 ">
+        <form role="form" [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)" novalidate autocomplete="off">
+
+          <div class="form-group" [ngClass]="{'has-error': registerForm.get('firstName').invalid && registerForm.get('firstName').dirty}">
+            <label style="color: white" for="firstName" class="col-sm-2 control-label">First Name <sup>*</sup></label>
+            <div class="input-group col-sm-10">
+              <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
+              <input type="text" class="form-control" [formControl]="firstName" id="firstName" placeholder="First Name" required>
+            </div>
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error': registerForm.get('lastName').invalid && registerForm.get('lastName').dirty}">
+            <label style="color: white" for="lastName" class="col-sm-2 control-label">Last Name <sup>*</sup></label>
+            <div class="input-group col-sm-10">
+              <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
+              <input type="text" class="form-control" [formControl]="lastName" id="lastName" placeholder="Last Name" required>
+            </div>
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error': registerForm.get('staffId').invalid && registerForm.get('staffId').dirty}">
+            <label style="color: white" for="staffId" class="col-sm-2 control-label">Staff Id <sup>*</sup></label>
+            <div class="input-group col-sm-10">
+              <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
+              <input type="text" class="form-control" [formControl]="staffId" id="staffId" placeholder="Staff Id" required>
+            </div>
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error': registerForm.get('address').invalid && registerForm.get('address').dirty}">
+            <label style="color: white" for="address" class="col-sm-2 control-label">Address <sup>*</sup></label>
+            <div class="input-group col-sm-10">
+              <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
+              <input type="text" class="form-control" [formControl]="address" id="address" placeholder="Address" required>
+            </div>
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error': registerForm.get('phone').invalid && registerForm.get('phone').dirty}">
+            <label style="color: white" for="phone" class="col-sm-2 control-label">Phone <sup>*</sup></label>
+            <div class="input-group col-sm-10">
+              <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
+              <input type="text" class="form-control" [formControl]="phone" id="phone" placeholder="Phone" required>
+            </div>
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error': registerForm.get('email').invalid && registerForm.get('email').dirty}">
+            <label style="color: white" for="phone" class="col-sm-2 control-label">Email <sup>*</sup></label>
+            <div class="input-group col-sm-10">
+              <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
+              <input type="text" class="form-control" [formControl]="email" id="email" placeholder="Email" required>
+            </div>
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error': registerForm.get('username').invalid && registerForm.get('username').dirty}">
+            <label style="color: white" for="username" class="col-sm-2 control-label">Username <sup>*</sup></label>
+            <div class="input-group col-sm-10">
+              <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
+              <input type="text" class="form-control" [formControl]="username" id="username" placeholder="Username" required>
+            </div>
+          </div>
+
+
+          <div class="form-group" [ngClass]="{'has-error': registerForm.get('password').invalid && registerForm.get('password').dirty}">
+            <label style="color: white" for="password" class="col-sm-2 control-label">Password <sup>*</sup></label>
+            <div class="input-group col-sm-10">
+              <div class="input-group-addon"><i class="fas fa-key"></i></div>
+              <input type="password" class="form-control" [formControl]="password" id="password" placeholder="Password" required>
+            </div>
+          </div>
+
+          <div class="form-group" [ngClass]="{'has-error': registerForm.get('category').invalid && registerForm.get('category').dirty}">
+            <label style="color: white" for="category" class="col-sm-2 control-label">Category<sup>*</sup></label>
+            <div class="input-group col-sm-10">
+              <div class="input-group-addon"><i class="fas fa-key"></i></div>
+              <!--<input type="password" class="form-control" [formControl]="category" id="category" placeholder="Category" required>-->
+
+              <select type="text" [formControl]="category" id="category" class="form-control">
+
+                <option *ngFor="let cat of Category" >{{cat.category}}</option>
+
+              </select>
+
+            </div>
+          </div>
+
+
+
+
+          <div class="text-center">
+            <button style="margin-left: 3%" type="submit" class="btn btn-primary">register</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div style="height:20px">
+
+  </div>
+
+</div>
+
