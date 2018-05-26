@@ -73,26 +73,26 @@
             </div>
           </div>
 
-          <div class="form-group" [ngClass]="{'has-error': registerForm.get('category').invalid && registerForm.get('category').dirty}">
-            <label style="color: white" for="category" class="col-sm-2 control-label">Category<sup>*</sup></label>
-            <div class="input-group col-sm-10">
-              <div class="input-group-addon"><i class="fas fa-key"></i></div>
-              <!--<input type="password" class="form-control" [formControl]="category" id="category" placeholder="Category" required>-->
+          <!--<div class="form-group" [ngClass]="{'has-error': registerForm.get('category').invalid && registerForm.get('category').dirty}">-->
+            <!--<label style="color: white" for="category" class="col-sm-2 control-label">Category<sup>*</sup></label>-->
+            <!--<div class="input-group col-sm-10">-->
+              <!--<div class="input-group-addon"><i class="fas fa-key"></i></div>-->
+              <!--&lt;!&ndash;<input type="password" class="form-control" [formControl]="category" id="category" placeholder="Category" required>&ndash;&gt;-->
 
-              <select type="text" [formControl]="category" id="category" class="form-control">
+              <!--<select type="text" [formControl]="category" id="category" class="form-control">-->
 
-                <option *ngFor="let cat of Category" >{{cat.category}}</option>
+                <!--<option *ngFor="let cat of Category" >{{cat.category}}</option>-->
 
-              </select>
+              <!--</select>-->
 
-            </div>
-          </div>
+            <!--</div>-->
+          <!--</div>-->
 
 
 
 
           <div class="text-center">
-            <button style="margin-left: 3%" type="submit" class="btn btn-primary">register</button>
+            <button style="margin-left: 3%" type="submit" class="btn btn-primary">Register {{Category}}</button>
           </div>
 
         </form>

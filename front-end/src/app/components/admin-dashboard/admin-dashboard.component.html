@@ -28,22 +28,22 @@
   <div class="container">
     <div class="col-md-3">
       <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
-        <i class="fas fa-shopping-cart" id="icone_grande"></i><span> <b style="font-size: 48px; margin-left: 10px">0</b></span><br><br>
+        <i class="fas fa-shopping-cart" id="icone_grande"></i><span> <b style="font-size: 48px; margin-left: 10px"></b></span><br><br>
         <span class="texto_grande"> Total Sales</span></a>
     </div>
     <div class="col-md-3">
       <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
-        <i class="fa fa-user" id="icone_grande"></i> <span> <b style="font-size: 48px; margin-left: 10px">0</b></span><br><br>
+        <i class="fa fa-user" id="icone_grande"></i> <span> <b style="font-size: 48px; margin-left: 10px">{{numberOfManager}}</b></span><br><br>
         <span class="texto_grande"> Manager</span></a>
     </div>
     <div class="col-md-3">
       <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
-        <i class="fas fa-users" id="icone_grande"></i><span> <b style="font-size: 48px; margin-left: 10px">0</b></span> <br><br>
+        <i class="fas fa-users" id="icone_grande"></i><span> <b style="font-size: 48px; margin-left: 10px">{{numberOfPharmasist}}</b></span> <br><br>
         <span class="texto_grande"> Pharmasist</span></a>
     </div>
     <div class="col-md-3">
       <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
-        <i class="fas fa-users" id="icone_grande"></i> <span> <b style="font-size: 48px; margin-left: 10px">0</b></span><br><br>
+        <i class="fas fa-users" id="icone_grande"></i> <span> <b style="font-size: 48px; margin-left: 10px">{{numberOfSaleman}}</b></span><br><br>
         <span class="texto_grande"> Salesman</span></a>
     </div>
   </div>
@@ -52,25 +52,25 @@
 
   <div class="container">
     <div class="col-md-3">
-      <a class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
+      <a (click)="managerAdd()" class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
         <i class="fas fa-users-cog" id="icone_grande"></i> <br><br>
-        <span class="texto_grande"><i class="fa fa-plus-circle"></i> Add Manager</span></a>
+        <span  class="texto_grande"><i class="fa fa-plus-circle"></i> Add Manager</span></a>
     </div>
 
     <div class="col-md-3">
-      <a class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
+      <a (click)="pharmasistAdd()" class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
         <i class="fas fa-user-md" id="icone_grande"></i> <br><br>
         <span class="texto_grande"><i class="fa fa-plus-circle"></i> Add Pharmasist</span></a>
     </div>
 
     <div class="col-md-3">
-      <a class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
+      <a (click)="salesManAdd()" class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
         <i class="fas fa-user-tie" id="icone_grande"></i> <br><br>
         <span class="texto_grande"><i class="fa fa-plus-circle"></i> Add Salesman</span></a>
     </div>
 
     <div class="col-md-3">
-      <a class="btn btn-block btn-lg btn-danger" data-toggle="modal" data-target="#mymodal">
+      <a  class="btn btn-block btn-lg btn-danger" data-toggle="modal" data-target="#mymodal">
         <i class="fas fa-search" id="icone_grande"></i> <br><br>
         <span class="texto_grande"> Report</span></a>
     </div>

@@ -31,4 +31,27 @@ export class AuthService {
       .map(res => res.json());
   }
 
+  getAllUser()
+  {
+
+    let headers = new Headers();
+
+    headers.append('Content-type','application/json');
+
+    return this.http.get(`${environment.baseUrl}/user`,{headers:headers})
+      .map(res => res.json());
+
+  }
+
+  postUser(user)
+  {
+
+    let headers = new Headers();
+
+    headers.append('Content-type','application/json');
+
+    return this.http.post(`${environment.baseUrl}/user`,user,{headers:headers})
+      .map(res => res.json());
+  }
+
 }

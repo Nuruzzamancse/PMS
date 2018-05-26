@@ -12,6 +12,7 @@ const routes: Routes = [
   {path:'login', component: LoginComponent},
   {path:'viewMedicine', component: ViewMedicineComponent},
   {path:'addUser', component:AddUserComponent},
+  {path:'addUser/:id', component:AddUserComponent},
   {path:'pDashboard', component: PharmasistDashboardComponent},
   {path:'aDashboard', component: AdminDashboardComponent}
 ];

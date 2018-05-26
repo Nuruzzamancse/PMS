@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {User} from "../../model/user";
-import {Router} from "@angular/router";
+import {Router, Routes} from "@angular/router";
+import { ActivatedRoute} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
 
 
@@ -34,16 +35,19 @@ export class AddUserComponent implements OnInit {
 
     private authService: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
 
-    this.authService.getCategory().subscribe(response=>{
-      this.Category = response.data;
+    // this.authService.getCategory().subscribe(response=>{
+    //   this.Category = response.data;
+    //
+    //   console.log(this.Category);
+    // })
 
-      // console.log(this.Category);
-    })
+    this.Category = this.route.snapshot.params.id;
 
     this.registerForm = this.formBuilder.group({
       username: this.username,
@@ -54,7 +58,7 @@ export class AddUserComponent implements OnInit {
       address: this.address,
       phone: this.phone,
       email: this.email,
-      category: this.category
+      category: this.Category
     })
   }
 
@@ -62,8 +66,18 @@ export class AddUserComponent implements OnInit {
 
     this.user = new User();
     this.user.username = formData.value.username;
+    this.user.password = formData.value.password;
+    this.user.firstName = formData.value.firstName;
+    this.user.lastName = formData.value.lastName;
+    this.user.staffId = formData.value.staffId;
+    this.user.address = formData.value.address;
+    this.user.phone = formData.value.phone;
+    this.user.email = formData.value.email;
+    this.user.category = this.Category;
 
-    console.log(formData.value);
+    this.authService.postUser(this.user).subscribe(res=>{
+      console.log(res);
+    })
 
   }
 
