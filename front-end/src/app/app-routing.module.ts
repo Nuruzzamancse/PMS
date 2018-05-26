@@ -5,13 +5,15 @@ import {LoginComponent} from "./components/login/login.component";
 import {ViewMedicineComponent} from "./components/view-medicine/view-medicine.component";
 import {AddUserComponent} from "./components/add-user/add-user.component";
 import {PharmasistDashboardComponent} from "./components/pharmasist-dashboard/pharmasist-dashboard.component";
+import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashboard.component";
 
 const routes: Routes = [
   {path:'medicine', component: MedicineComponent},
   {path:'login', component: LoginComponent},
   {path:'viewMedicine', component: ViewMedicineComponent},
   {path:'addUser', component:AddUserComponent},
-  {path:'pDashboard', component: PharmasistDashboardComponent}
+  {path:'pDashboard', component: PharmasistDashboardComponent},
+  {path:'aDashboard', component: AdminDashboardComponent}
 ];
 
 @NgModule({

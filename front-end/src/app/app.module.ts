@@ -14,6 +14,7 @@ import { ViewMedicineComponent } from './components/view-medicine/view-medicine.
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { PharmasistDashboardComponent } from './components/pharmasist-dashboard/pharmasist-dashboard.component';
 import {PagerServicesService} from "./services/pager-services.service";
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {PagerServicesService} from "./services/pager-services.service";
     LoginComponent,
     ViewMedicineComponent,
     AddUserComponent,
-    PharmasistDashboardComponent
+    PharmasistDashboardComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,

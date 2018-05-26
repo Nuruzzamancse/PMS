@@ -1,22 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, Headers, RequestOptions, Response} from "@angular/http";
-import 'rxjs/add/operator/map';
-
-import { PagerServicesService} from "../../services/pager-services.service";
 import { MedicineService} from "../../services/medicine.service";
+import { PagerServicesService} from "../../services/pager-services.service";
 
 @Component({
-  selector: 'app-pharmasist-dashboard',
-  templateUrl: './pharmasist-dashboard.component.html',
-  styleUrls: ['./pharmasist-dashboard.component.css']
+  selector: 'app-admin-dashboard',
+  templateUrl: './admin-dashboard.component.html',
+  styleUrls: ['./admin-dashboard.component.css']
 })
-export class PharmasistDashboardComponent implements OnInit {
+export class AdminDashboardComponent implements OnInit {
 
   constructor(
-    private http: Http,
-    private pagerService: PagerServicesService,
-    private medicineService: MedicineService
+    private medicineService: MedicineService,
+    private pagerService: PagerServicesService
   ) { }
+
+
 
   // array of all items to be paged
   private allItems: any[];
