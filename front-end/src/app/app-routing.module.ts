@@ -10,6 +10,7 @@ import {ManagerComponent} from "./components/manager/manager.component";
 import {UpdateManagerComponent} from "./components/update-manager/update-manager.component";
 import {PharmasistComponent} from "./components/pharmasist/pharmasist.component";
 import {SalesmanComponent} from "./components/salesman/salesman.component";
+import {UpdateMedicineComponent} from "./components/update-medicine/update-medicine.component";
 
 const routes: Routes = [
   {path:'medicine', component: MedicineComponent},
@@ -22,7 +23,8 @@ const routes: Routes = [
   {path: 'manager', component: ManagerComponent},
   {path: 'update-manager/:id', component: UpdateManagerComponent},
   {path: 'pharmasist', component: PharmasistComponent},
-  {path: 'salesman', component: SalesmanComponent}
+  {path: 'salesman', component: SalesmanComponent},
+  {path: 'update-medicine/:id', component: UpdateMedicineComponent}
 ];
 
 @NgModule({

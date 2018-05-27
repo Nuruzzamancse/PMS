@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 
 import { PagerServicesService} from "../../services/pager-services.service";
 import { MedicineService} from "../../services/medicine.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-pharmasist-dashboard',
@@ -15,7 +16,8 @@ export class PharmasistDashboardComponent implements OnInit {
   constructor(
     private http: Http,
     private pagerService: PagerServicesService,
-    private medicineService: MedicineService
+    private medicineService: MedicineService,
+    private router: Router
   ) { }
 
   // array of all items to be paged
@@ -46,6 +48,14 @@ export class PharmasistDashboardComponent implements OnInit {
 
     // get current page of items
     this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
+  }
+
+  updateMedicine(id){
+    this.router.navigate([`update-medicine/${id}`])
+  }
+
+  medicineAdd(){
+    this.router.navigate(['/medicine']);
   }
 
 }

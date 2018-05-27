@@ -1,0 +1,57 @@
+<div  class="bg">
+  <div *ngIf="medicine" class="container">
+
+    <h1 style="margin-top: 1%;text-align: center; font-family: 'Times New Roman'; color: blue">Update {{medicine.name}}</h1>
+
+    <div class="row" style="margin-top:20px">
+      <div style="margin-left: 15%" class="col-xs-8 col-sm-8 col-md-8 ">
+        <form *ngIf="medicine" (submit)="onUpdate(medicine)" role="form">
+
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" [(ngModel)]="medicine.name" name="name" class="form-control input-sm" >
+          </div>
+
+          <div class="form-group">
+            <label>Generic</label>
+            <input type="text" [(ngModel)]="medicine.generic" name="generic" class="form-control input-sm" >
+          </div>
+
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" [(ngModel)]="medicine.company" name="company" class="form-control input-sm" >
+          </div>
+
+          <div class="form-group">
+            <label>Price</label>
+            <input type="text" [(ngModel)]="medicine.price" name="price" class="form-control input-sm" >
+          </div>
+
+          <div class="form-group">
+            <label>Quantity</label>
+            <input type="text" [(ngModel)]="medicine.quantity" name="quantity" class="form-control input-sm" placeholder="First Name">
+          </div>
+
+          <div class="form-group">
+            <label>Type</label>
+            <input type="text" [(ngModel)]="medicine.type" name="Type" class="form-control input-sm" placeholder="First Name">
+          </div>
+
+
+
+          <input type="submit" value="Update" class="btn btn-info btn-block">
+
+        </form>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div style="height:20px">
+
+  </div>
+
+</div>
+

@@ -9,7 +9,7 @@ table tr:nth-child(odd) {
 
 .bg {
   /* The image used */
-  background-image: url('../../../assets/images/medicine-background-7.jpg');
+  /*background-image: url('../../../assets/images/medicine-background-7.jpg');*/
 
   /* Full height */
 
@@ -29,7 +29,7 @@ table tr:nth-child(odd) {
   height: auto;
 
   /* Set up positioning */
-  position: fixed;
+  /*position: fixed;*/
   top: 0;
   left: 0;
 }

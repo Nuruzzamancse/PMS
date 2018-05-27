@@ -29,6 +29,25 @@ export class MedicineService {
       .map(res => res.json());
   }
 
+  getSingleMedicine(id){
+
+    let headers = new Headers();
+    headers.append('Content-type','application/json');
+
+    return this.http.get(`${environment.baseUrl}/medicine/${id}`,{headers:headers})
+      .map(res => res.json());
+  }
+
+  updateMedicine(medicine)
+  {
+
+    let headers = new Headers();
+    headers.append('Content-type','application/json');
+
+    return this.http.patch(`${environment.baseUrl}/medicine/${medicine._id}`,medicine,{headers:headers})
+      .map(res => res.json());
+  }
+
 
 
 }
