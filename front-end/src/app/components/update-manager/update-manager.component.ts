@@ -13,6 +13,7 @@ export class UpdateManagerComponent implements OnInit {
 
 
 
+  user = new User();
 
   constructor(
     private authService: AuthService,
@@ -24,7 +25,18 @@ export class UpdateManagerComponent implements OnInit {
   ngOnInit() {
     let id = this.route.snapshot.params.id;
 
-    
+    this.authService.getSingleUser(id).subscribe(res=>{
+        this.user = res.data;
+        console.log(this.user.firstName);
+    })
+
+
+  }
+
+  onUpdate(user){
+      this.authService.updateUser(user).subscribe( res=>{
+        console.log(res);
+      })
   }
 
 }

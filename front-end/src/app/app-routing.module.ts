@@ -8,6 +8,8 @@ import {PharmasistDashboardComponent} from "./components/pharmasist-dashboard/ph
 import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashboard.component";
 import {ManagerComponent} from "./components/manager/manager.component";
 import {UpdateManagerComponent} from "./components/update-manager/update-manager.component";
+import {PharmasistComponent} from "./components/pharmasist/pharmasist.component";
+import {SalesmanComponent} from "./components/salesman/salesman.component";
 
 const routes: Routes = [
   {path:'medicine', component: MedicineComponent},
@@ -18,7 +20,9 @@ const routes: Routes = [
   {path:'pDashboard', component: PharmasistDashboardComponent},
   {path:'aDashboard', component: AdminDashboardComponent},
   {path: 'manager', component: ManagerComponent},
-  {path: 'update-manager/:id', component: UpdateManagerComponent}
+  {path: 'update-manager/:id', component: UpdateManagerComponent},
+  {path: 'pharmasist', component: PharmasistComponent},
+  {path: 'salesman', component: SalesmanComponent}
 ];
 
 @NgModule({

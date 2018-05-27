@@ -96,14 +96,15 @@ var updateUser = (req, res, next) => {
 
     console.log('In Update User');
 
-    var name = req.body.name,
+    var firstName = req.body.firstName,
+        lastName = req.body.lastName,
+        staffId = req.body.staffId,
+        address = req.body.address,
+        phone = req.body.phone,
         email = req.body.email,
-        userName = req.body.username,
-        wishList = req.body.wishList,
-        buyList = req.body.buyList;
-
-    console.log('WIshList' +wishList);
-    console.log('Buy List' +buyList);
+        username = req.body.username,
+        password = req.body.password,
+        category =req.body.category;
 
     User.findById(req.params.id, (err, User) => {
         if(err){
@@ -113,14 +114,16 @@ var updateUser = (req, res, next) => {
             });
         }
         else {
-            User.name = name || User.name;
-            User.email = email || User.email;
-            User.username = userName || User.username;
-            User.wishList = wishList ;
-            User.buyList = buyList || User.buyList;
+            User.firstName = firstName || User.firstName;
+            User.lastName = lastName || User.lastName;
+            User.staffId = staffId || User.staffId;
+            User.address = address || User.address;
+            User.phone = staffId || User.phone;
+            User.email = staffId || User.email;
+            User.username = username || User.username;
+            User.password = password || User.password;
+            User.category = category || User.category;
 
-            console.log("Wish" + User.wishList);
-            console.log("Buy" + User.buyList);
 
             User.save((err, User) => {
                 if(err){

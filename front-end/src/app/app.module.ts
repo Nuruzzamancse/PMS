@@ -17,6 +17,8 @@ import {PagerServicesService} from "./services/pager-services.service";
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { ManagerComponent } from './components/manager/manager.component';
 import { UpdateManagerComponent } from './components/update-manager/update-manager.component';
+import { PharmasistComponent } from './components/pharmasist/pharmasist.component';
+import { SalesmanComponent } from './components/salesman/salesman.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { UpdateManagerComponent } from './components/update-manager/update-manag
     PharmasistDashboardComponent,
     AdminDashboardComponent,
     ManagerComponent,
-    UpdateManagerComponent
+    UpdateManagerComponent,
+    PharmasistComponent,
+    SalesmanComponent
   ],
   imports: [
     BrowserModule,

@@ -43,6 +43,18 @@ export class AuthService {
 
   }
 
+  getSingleUser(id)
+  {
+
+    let headers = new Headers();
+
+    headers.append('Content-type','application/json');
+
+    return this.http.get(`${environment.baseUrl}/user/${id}`,{headers:headers})
+      .map(res => res.json());
+
+  }
+
   postUser(user)
   {
 
@@ -52,6 +64,18 @@ export class AuthService {
 
     return this.http.post(`${environment.baseUrl}/user`,user,{headers:headers})
       .map(res => res.json());
+  }
+
+  updateUser(user){
+
+
+    let headers = new Headers();
+
+    headers.append('Content-type','application/json');
+
+    return this.http.patch(`${environment.baseUrl}/user/${user._id}`,user,{headers:headers})
+      .map(res => res.json());
+
   }
 
 }
