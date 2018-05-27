@@ -6,6 +6,8 @@ import {ViewMedicineComponent} from "./components/view-medicine/view-medicine.co
 import {AddUserComponent} from "./components/add-user/add-user.component";
 import {PharmasistDashboardComponent} from "./components/pharmasist-dashboard/pharmasist-dashboard.component";
 import {AdminDashboardComponent} from "./components/admin-dashboard/admin-dashboard.component";
+import {ManagerComponent} from "./components/manager/manager.component";
+import {UpdateManagerComponent} from "./components/update-manager/update-manager.component";
 
 const routes: Routes = [
   {path:'medicine', component: MedicineComponent},
@@ -14,7 +16,9 @@ const routes: Routes = [
   {path:'addUser', component:AddUserComponent},
   {path:'addUser/:id', component:AddUserComponent},
   {path:'pDashboard', component: PharmasistDashboardComponent},
-  {path:'aDashboard', component: AdminDashboardComponent}
+  {path:'aDashboard', component: AdminDashboardComponent},
+  {path: 'manager', component: ManagerComponent},
+  {path: 'update-manager/:id', component: UpdateManagerComponent}
 ];
 
 @NgModule({

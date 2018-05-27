@@ -1,0 +1,11 @@
+.texto_grande {
+  font-size: 2rem;
+  color: white;
+}
+#icone_grande {
+  font-size: 4rem;
+  color:#fff;
+}
+td{
+  font-size: 3rem;
+}
