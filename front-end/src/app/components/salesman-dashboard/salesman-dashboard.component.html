@@ -1,7 +1,7 @@
 <br>
 <div class="container" style="background-color: white">
 
-<br>
+  <h3 style="text-align: center">Item Buy List</h3>
   <div class="table-responsive">
     <table class="table">
 
@@ -17,7 +17,7 @@
       <tbody *ngFor="let medicine of medicines; let i = index">
       <tr *ngIf="medicine.name">
 
-        <td>{{i}}</td>
+        <td>{{i+1}}</td>
         <td>{{medicine.name}}</td>
         <td>{{medicine.quantity}}</td>
         <td>{{medicine.price*medicine.quantity}}</td>
@@ -32,6 +32,7 @@
 
           <a (click)="removeAllFromCart(medicine)" class="btn  btn-sm btn-danger">
             <i style="font-size: 18px" class="fas fa-times-circle"></i></a>
+          <button (click)="updateTheMedicine(medicine)"  type="button" class="btn btn-info">Update</button>
         </td>
 
 

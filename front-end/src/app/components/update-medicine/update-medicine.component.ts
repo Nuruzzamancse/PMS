@@ -18,12 +18,34 @@ export class UpdateMedicineComponent implements OnInit {
 
   medicine =  new Medicine();
 
+  private quantity:any = 0;
+
   ngOnInit() {
-    let id = this.route.snapshot.params.id;
+
+    let id2;
+
+    this.route.queryParams.subscribe(params => {
+      console.log(params["_id"]);
+      id2 = params["_id"];
+      console.log(params["quantity"]);
+      this.quantity = params["quantity"];
+    });
+
+    let id = this.route.snapshot.params.id || id2;
     this.medicienService.getSingleMedicine(id).subscribe(res=>{
       this.medicine = res.data;
-      console.log(this.medicine);
+      this.medicine.quantity -= this.quantity;
+      if(this.quantity>0){
+        this.medicienService.updateMedicine(this.medicine).subscribe(res=>{
+          // console.log('In update' + res.data);
+
+          this.router.navigate(['/sDashboard']);
+        })
+      }
     })
+
+
+
   }
 
   onUpdate(medicine)

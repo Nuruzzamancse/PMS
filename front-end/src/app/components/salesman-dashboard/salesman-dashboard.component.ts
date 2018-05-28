@@ -3,10 +3,7 @@ import { MedicineService} from "../../services/medicine.service";
 import { PagerServicesService} from "../../services/pager-services.service";
 import { Medicine} from "../../model/medicine";
 import { Cart} from "../../model/cart";
-import {connectableObservableDescriptor} from "rxjs/observable/ConnectableObservable";
-import {elementStart} from "@angular/core/src/render3/instructions";
-import {until} from "selenium-webdriver";
-import elementIsSelected = until.elementIsSelected;
+import { Router, NavigationExtras} from "@angular/router";
 
 @Component({
   selector: 'app-salesman-dashboard',
@@ -17,7 +14,8 @@ export class SalesmanDashboardComponent implements OnInit {
 
   constructor(
     private medicineService: MedicineService,
-    private pagerService: PagerServicesService
+    private pagerService: PagerServicesService,
+    private router: Router
   ) { }
 
   //medicines = [new Cart()];
@@ -37,6 +35,8 @@ export class SalesmanDashboardComponent implements OnInit {
   pagedItems: any[];
 
   ngOnInit() {
+
+
     this.medicineService.getMedicine().subscribe(res=>{
 
 
@@ -46,6 +46,17 @@ export class SalesmanDashboardComponent implements OnInit {
       this.setPage(1);
 
     })
+
+    if(localStorage.getItem('cart'))
+    this.medicines = JSON.parse(localStorage.getItem('cart'));
+    this.sum = 0;
+
+    if(this.medicines)
+    for (let i = 0; i < this.medicines.length; i++)
+    {
+      this.sum = this.sum + this.medicines[i].price * this.medicines[i].quantity;//here price and quantity of type number
+
+    }
   }
 
 
@@ -81,6 +92,7 @@ export class SalesmanDashboardComponent implements OnInit {
       }
     }
     else {
+      this.medicine._id = medicine._id;
       this.medicine.name = medicine.name;
       this.medicine.price = medicine.price;
       this.medicine.quantity = 1;
@@ -104,6 +116,7 @@ export class SalesmanDashboardComponent implements OnInit {
       // console.log(this.medicines);
 
 
+    localStorage.setItem('cart',JSON.stringify(this.medicines));
 
 
 
@@ -127,6 +140,8 @@ export class SalesmanDashboardComponent implements OnInit {
 
       console.log(typeof this.sum);//but this print NaN
     }
+    localStorage.setItem('cart',JSON.stringify(this.medicines));
+
   }
 
   removeAllFromCart(medicine){
@@ -145,6 +160,43 @@ export class SalesmanDashboardComponent implements OnInit {
 
       console.log(typeof this.sum);//but this print NaN
     }
+
+    localStorage.setItem('cart',JSON.stringify(this.medicines));
+
+  }
+
+  updateTheMedicine(medicine){
+    console.log(medicine._id);
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        "_id": medicine._id,
+        "quantity": medicine.quantity
+      }
+    };
+
+
+
+    for (let i = 0; i < this.medicines.length; i++)
+      if (this.medicines[i].name == medicine.name) {
+
+        this.medicines[i].quantity = 0;
+        if(this.medicines[i].quantity<=0)
+          this.medicines.splice(i,1);
+        // console.log(this.medicines[i].quantity)
+      }
+
+    this.sum = 0;
+
+    for (let i = 0; i < this.medicines.length; i++)
+    {
+      this.sum = this.sum + this.medicines[i].price * this.medicines[i].quantity;//here price and quantity of type number
+
+      console.log(typeof this.sum);//but this print NaN
+    }
+    localStorage.setItem('cart',JSON.stringify(this.medicines));
+
+    this.router.navigate(['update-medicine'], navigationExtras);
   }
 
 }

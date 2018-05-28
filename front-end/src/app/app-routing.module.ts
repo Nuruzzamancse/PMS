@@ -26,6 +26,7 @@ const routes: Routes = [
   {path: 'pharmasist', component: PharmasistComponent},
   {path: 'salesman', component: SalesmanComponent},
   {path: 'update-medicine/:id', component: UpdateMedicineComponent},
+  {path: 'update-medicine', component: UpdateMedicineComponent},
   {path: 'sDashboard', component: SalesmanDashboardComponent}
 ];
 

@@ -5,5 +5,5 @@ export class Medicine{
   type: String;
   company: String;
   price: String;
-  quantity: String;
+  quantity: any;
 }
