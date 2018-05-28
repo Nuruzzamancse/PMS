@@ -33,6 +33,8 @@ export class AdminDashboardComponent implements OnInit {
   //Salesman
   private numberOfSaleman: any =0;
 
+  private outOfStock:any = [];
+
   // pager object
   pager: any = {};
 
@@ -45,6 +47,10 @@ export class AdminDashboardComponent implements OnInit {
       // console.log(res.data);
 
       this.allItems = res.data;;
+
+      for(let i=0; i<this.allItems.length; i++)
+        if(this.allItems[i].quantity==0)
+          this.outOfStock.push(this.allItems[i]);
 
       // initialize to page 1
       this.setPage(1);

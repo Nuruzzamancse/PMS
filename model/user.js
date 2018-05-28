@@ -9,7 +9,7 @@ var userSchema = new Schema({
     address: {type: String},
     phone: { type: String},
     email: { type: String},
-    username: { type: String},
+    username: { type: String,  unique : true },
     password: { type: String},
     isAdmin: { type: Boolean, default: false },
     category: { type: String}

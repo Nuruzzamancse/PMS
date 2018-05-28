@@ -30,7 +30,7 @@ var createUser = (req, res, next) => {
     User.addUser(myUser, (err, user) => {
         if (err) {
             res.status(404).json({
-                'message': err
+                message: 'Hello ' + err
             })
         } else {
             res.status(201).json({

@@ -18,6 +18,29 @@ export class SalesmanDashboardComponent implements OnInit {
     private router: Router
   ) { }
 
+
+  print(): void {
+    let printContents, popupWin;
+    printContents = document.getElementById('print-section').innerHTML;
+    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
+    popupWin.document.open();
+    popupWin.document.write(`
+      <html>
+        <head>
+          <title style="font-size: 16px">Invoice List</title>
+          <style>
+          //........Customized style.......
+          tr{
+          margin-left: 20px;
+          }
+          </style>
+        </head>
+    <body onload="window.print();window.close()">${printContents}</body>
+      </html>`
+    );
+    popupWin.document.close();
+  }
+
   //medicines = [new Cart()];
 
   medicines: Array<Cart> = new Array<Cart>();
@@ -33,6 +56,9 @@ export class SalesmanDashboardComponent implements OnInit {
 
   // paged items
   pagedItems: any[];
+
+  private customerName;
+  private customerNumber;
 
   ngOnInit() {
 
