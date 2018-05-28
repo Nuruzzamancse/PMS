@@ -11,6 +11,7 @@ import {UpdateManagerComponent} from "./components/update-manager/update-manager
 import {PharmasistComponent} from "./components/pharmasist/pharmasist.component";
 import {SalesmanComponent} from "./components/salesman/salesman.component";
 import {UpdateMedicineComponent} from "./components/update-medicine/update-medicine.component";
+import {SalesmanDashboardComponent} from "./components/salesman-dashboard/salesman-dashboard.component";
 
 const routes: Routes = [
   {path:'medicine', component: MedicineComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path: 'update-manager/:id', component: UpdateManagerComponent},
   {path: 'pharmasist', component: PharmasistComponent},
   {path: 'salesman', component: SalesmanComponent},
-  {path: 'update-medicine/:id', component: UpdateMedicineComponent}
+  {path: 'update-medicine/:id', component: UpdateMedicineComponent},
+  {path: 'sDashboard', component: SalesmanDashboardComponent}
 ];
 
 @NgModule({
