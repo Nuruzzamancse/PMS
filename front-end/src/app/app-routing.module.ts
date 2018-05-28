@@ -14,6 +14,7 @@ import {UpdateMedicineComponent} from "./components/update-medicine/update-medic
 import {SalesmanDashboardComponent} from "./components/salesman-dashboard/salesman-dashboard.component";
 
 const routes: Routes = [
+  {path:'',component:LoginComponent},
   {path:'medicine', component: MedicineComponent},
   {path:'login', component: LoginComponent},
   {path:'viewMedicine', component: ViewMedicineComponent},

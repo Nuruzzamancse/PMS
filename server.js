@@ -23,18 +23,24 @@ app.use(cors());
 
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 const medicine = require('./routes/medicine');
-app.use('/medicine', medicine);
+app.use('/api/medicine', medicine);
 
 var categoryRouter = require('./routes/category');
-app.use('/category',categoryRouter);
+app.use('/api/category',categoryRouter);
 
 var user = require('./routes/user');
-app.use('/user',user);
+app.use('/api/user',user);
 
 var auth = require('./routes/auth');
-app.use('/auth',auth);
+app.use('/api/auth',auth);
+
+app.use('*', (req, res, next) => {
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 app.listen(PORT, ()=>{
     console.log('Serve has been started at port '+ PORT);
