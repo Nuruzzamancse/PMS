@@ -20,6 +20,7 @@ export class AdminDashboardComponent implements OnInit {
   ) { }
 
 
+ private adminOrManager:any;
 
   // array of all items to be paged
   private allItems: any[];
@@ -43,6 +44,11 @@ export class AdminDashboardComponent implements OnInit {
 
   ngOnInit() {
 
+    this.adminOrManager  = localStorage.getItem('category');
+
+    console.log(this.adminOrManager);
+
+
     this.medicineService.getMedicine().subscribe(res=>{
       // console.log(res.data);
 
@@ -64,7 +70,7 @@ export class AdminDashboardComponent implements OnInit {
       {
             if(res.data[i].category=='Manager') {
               this.numberOfManager++;
-                console.log(res.data[i].category);
+                // console.log(res.data[i].category);
 
             }
 
@@ -72,20 +78,20 @@ export class AdminDashboardComponent implements OnInit {
 
         if(res.data[i].category=='Pharmasist') {
           this.numberOfPharmasist++;
-          console.log(res.data[i].category);
+          // console.log(res.data[i].category);
         }
 
         if(res.data[i].category=='Salesman'){
-          console.log(i + ' =>'+res.data[i].category);
+          // console.log(i + ' =>'+res.data[i].category);
           this.numberOfSaleman++;
         }
 
 
       }
 
-      console.log(this.numberOfManager);
-      console.log(this.numberOfSaleman);
-      console.log(this.numberOfPharmasist);
+      // console.log(this.numberOfManager);
+      // console.log(this.numberOfSaleman);
+      // console.log(this.numberOfPharmasist);
 
     })
 

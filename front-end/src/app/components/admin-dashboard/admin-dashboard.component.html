@@ -7,7 +7,7 @@
         <a class="navbar-brand" href="#"><span style="font-family: 'Times New Roman'">PMS</span></a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Admin Home</a></li>
+        <li class="active" *ngIf="adminOrManager=='Admin'"><a href="#">Admin Home</a></li>
         <li><a href="/pharmasist">Pharmasist</a></li>
         <li><a href="/manager">Manager</a></li>
         <li><a href="/salesman">Salesman</a></li>
@@ -26,22 +26,22 @@
   </nav>
 
   <div class="container">
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
       <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
         <i class="fas fa-shopping-cart" id="icone_grande"></i><span> <b style="font-size: 48px; margin-left: 10px"></b></span><br><br>
         <span class="texto_grande"> Total Sales</span></a>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
       <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
         <i class="fa fa-user" id="icone_grande"></i> <span> <b style="font-size: 48px; margin-left: 10px">{{numberOfManager}}</b></span><br><br>
         <span class="texto_grande"> Manager</span></a>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
       <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
         <i class="fas fa-users" id="icone_grande"></i><span> <b style="font-size: 48px; margin-left: 10px">{{numberOfPharmasist}}</b></span> <br><br>
         <span class="texto_grande"> Pharmasist</span></a>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
       <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
         <i class="fas fa-users" id="icone_grande"></i> <span> <b style="font-size: 48px; margin-left: 10px">{{numberOfSaleman}}</b></span><br><br>
         <span class="texto_grande"> Salesman</span></a>
@@ -50,26 +50,26 @@
 
   <br><br>
 
-  <div class="container">
-    <div class="col-md-3">
+  <div class="container" >
+    <div class="col-md-3 col-sm-3" *ngIf="adminOrManager=='Admin'">
       <a (click)="managerAdd()" class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
         <i class="fas fa-users-cog" id="icone_grande"></i> <br><br>
-        <span  class="texto_grande"><i class="fa fa-plus-circle"></i> Add Manager</span></a>
+        <span  class="texto_grande"><i class="fa fa-plus-circle"></i>Manager</span></a>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
       <a (click)="pharmasistAdd()" class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
         <i class="fas fa-user-md" id="icone_grande"></i> <br><br>
-        <span class="texto_grande"><i class="fa fa-plus-circle"></i> Add Pharmasist</span></a>
+        <span class="texto_grande"><i class="fa fa-plus-circle"></i>Pharmasist</span></a>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
       <a (click)="salesManAdd()" class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
         <i class="fas fa-user-tie" id="icone_grande"></i> <br><br>
-        <span class="texto_grande"><i class="fa fa-plus-circle"></i> Add Salesman</span></a>
+        <span class="texto_grande"><i class="fa fa-plus-circle"></i>Salesman</span></a>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3 col-sm-3">
       <a  class="btn btn-block btn-lg btn-danger" data-toggle="modal" data-target="#mymodal">
         <i class="fas fa-search" id="icone_grande"></i> <br><br>
         <span class="texto_grande"> Report</span></a>

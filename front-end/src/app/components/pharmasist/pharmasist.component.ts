@@ -19,12 +19,20 @@ export class PharmasistComponent implements OnInit {
 
   manager = [new User()];
 
+
+  private category:any;
+  private adminOrManager:any;
+
   ngOnInit() {
+
+    this.adminOrManager = localStorage.getItem('category');
+
     this.authServiec.getAllUser().subscribe( res=>{
       for(let i=0; i<res.data.length; i++)
       {
         if(res.data[i].category==='Pharmasist' && res.data[i].firstName) {
           this.manager.push(res.data[i]);
+          this.category = res.data[i].category;
           console.log(this.manager);
         }
 

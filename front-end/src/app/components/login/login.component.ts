@@ -43,6 +43,15 @@ export class LoginComponent implements OnInit {
 
     this.authService.getUser(this.user).subscribe(response=>{
       console.log(response);
+      localStorage.setItem('category',response.data.category);
+      if(response.data.category=="Pharmasist")
+        this.router.navigate(['/pDashboard']);
+
+      else if(response.data.category=="Salesman")
+        this.router.navigate(['/sDashboard']);
+
+      else if(response.data.category=="Admin" || response.data.category=="Manager")
+        this.router.navigate(['/aDashboard']);
     })
 
   }
