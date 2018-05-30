@@ -1,0 +1,199 @@
+
+<div class="bg">
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#"><span style="font-family: 'Times New Roman'">PMS</span></a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active" *ngIf="adminOrManager=='Admin'"><a href="#">Admin Home</a></li>
+        <li><a href="/pharmasist">Pharmasist</a></li>
+        <li><a href="/manager">Manager</a></li>
+        <li><a href="/salesman">Salesman</a></li>
+        <li><a href="#">Sales Report</a></li>
+      </ul>
+
+      <form  class="navbar-form navbar-right" action="/action_page.php">
+        <div class="input-group">
+          <!--<input type="text" class="form-control" placeholder="Search" name="search">-->
+          <button style="text-decoration: none">Log Out</button>
+
+        </div>
+      </form>
+
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="col-md-3 col-sm-3">
+      <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
+        <i class="fas fa-shopping-cart" id="icone_grande"></i><span> <b style="font-size: 48px; margin-left: 10px"></b></span><br><br>
+        <span class="texto_grande"> Total Sales</span></a>
+    </div>
+    <div class="col-md-3 col-sm-3">
+      <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
+        <i class="fa fa-user" id="icone_grande"></i> <span> <b style="font-size: 48px; margin-left: 10px">{{numberOfManager}}</b></span><br><br>
+        <span class="texto_grande"> Manager</span></a>
+    </div>
+    <div class="col-md-3 col-sm-3">
+      <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
+        <i class="fas fa-users" id="icone_grande"></i><span> <b style="font-size: 48px; margin-left: 10px">{{numberOfPharmasist}}</b></span> <br><br>
+        <span class="texto_grande"> Pharmasist</span></a>
+    </div>
+    <div class="col-md-3 col-sm-3">
+      <a class="btn btn-block btn-lg btn-primary" data-toggle="modal" data-target="#mymodal">
+        <i class="fas fa-users" id="icone_grande"></i> <span> <b style="font-size: 48px; margin-left: 10px">{{numberOfSaleman}}</b></span><br><br>
+        <span class="texto_grande"> Salesman</span></a>
+    </div>
+  </div>
+
+  <br><br>
+
+  <div class="container" >
+    <div class="col-md-3 col-sm-3" *ngIf="adminOrManager=='Admin'">
+      <a (click)="managerAdd()" class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
+        <i class="fas fa-users-cog" id="icone_grande"></i> <br><br>
+        <span  class="texto_grande"><i class="fa fa-plus-circle"></i>Manager</span></a>
+    </div>
+
+    <div class="col-md-3 col-sm-3">
+      <a (click)="pharmasistAdd()" class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
+        <i class="fas fa-user-md" id="icone_grande"></i> <br><br>
+        <span class="texto_grande"><i class="fa fa-plus-circle"></i>Pharmasist</span></a>
+    </div>
+
+    <div class="col-md-3 col-sm-3">
+      <a (click)="salesManAdd()" class="btn btn-block btn-lg btn-success" data-toggle="modal" data-target="#mymodal">
+        <i class="fas fa-user-tie" id="icone_grande"></i> <br><br>
+        <span class="texto_grande"><i class="fa fa-plus-circle"></i>Salesman</span></a>
+    </div>
+
+    <div class="col-md-3 col-sm-3">
+      <a  class="btn btn-block btn-lg btn-danger" data-toggle="modal" data-target="#mymodal">
+        <i class="fas fa-search" id="icone_grande"></i> <br><br>
+        <span class="texto_grande"> Report</span></a>
+    </div>
+
+
+
+  </div>
+
+  <br><br>
+
+  <div  class="container" style="background-color: ghostwhite">
+
+    <nav class="navbar" style="background-color: blue; margin-top: 1%">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><span style="font-family: 'Times New Roman'; color: white">Out of Stock Medicines</span></a>
+        </div>
+
+      </div>
+    </nav>
+
+
+    <div class="table-responsice">
+      <table  class="table">
+        <thead>
+        <tr style="background-color: azure;color: black">
+          <th>#</th>
+          <th>Name</th>
+          <th>Generic</th>
+          <th>Type</th>
+          <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let medicine of outOfStock; let i = index">
+
+          <td>{{i+1}}</td>
+          <td>{{medicine.name}}</td>
+          <td>{{medicine.generic}}</td>
+          <td>{{medicine.type}}</td>
+          <td>{{medicine.price}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <br><br>
+
+
+  <div class="container" style="background-color: azure">
+    <nav class="navbar" style="background-color: blue;margin-top: 1%">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><span style="font-family: 'Times New Roman'; color: white">Medicines</span></a>
+        </div>
+
+        <form  class="navbar-form navbar-right" action="/action_page.php">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" name="search">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit">
+                <i class="glyphicon glyphicon-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </nav>
+
+
+    <div class="table-responsice">
+      <table  class="table">
+        <thead>
+        <tr style="background-color: azure;color: black">
+          <th>#</th>
+          <th>Name</th>
+          <th>Generic</th>
+          <th>Type</th>
+          <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let medicine of pagedItems; let i = index">
+
+          <td>{{i+1}}</td>
+          <td>{{medicine.name}}</td>
+          <td>{{medicine.generic}}</td>
+          <td>{{medicine.type}}</td>
+          <td>{{medicine.price}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- items being paged -->
+    <!--<div *ngFor="let item of pagedItems">-->
+    <!--{{item.name}}-->
+    <!--</div>-->
+
+    <div class="text-center">
+      <!-- pager -->
+      <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+        <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(1)">First</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === 1}">
+          <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+        </li>
+        <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+          <a (click)="setPage(page)">{{page}}</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.currentPage + 1)">Next</a>
+        </li>
+        <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+          <a (click)="setPage(pager.totalPages)">Last</a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</div>
+

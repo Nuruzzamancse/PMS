@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, FormControl, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import { User} from "../../model/user";
+import { ToasterServiceService} from "../../services/toaster-service.service";
+import {isSuccess} from "@angular/http/src/http_utils";
 
 @Component({
   selector: 'app-login',
@@ -24,7 +26,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private toasterServie: ToasterServiceService
   ) { }
 
   ngOnInit() {
@@ -42,18 +45,36 @@ export class LoginComponent implements OnInit {
 
 
     this.authService.getUser(this.user).subscribe(response=>{
+
       console.log(response);
-      localStorage.setItem('category',response.data.category);
-      if(response.data.category=="Pharmasist")
-        this.router.navigate(['/pDashboard']);
 
-      else if(response.data.category=="Salesman")
-        this.router.navigate(['/sDashboard']);
+      if(!response.success){
+        this.toasterServie.Warning(response.message);
+      }else{
 
-      else if(response.data.category=="Admin" || response.data.category=="Manager")
-        this.router.navigate(['/aDashboard']);
+        this.toasterServie.Success("Successfully logged in as " + response.data.category);
+
+        this.authService.storeUserData(response.token,response.data);
+
+        localStorage.setItem('category',response.data.category);
+
+        if(response.data.category=="Pharmasist"){
+          this.router.navigate(['/pDashboard']);
+        }
+
+        else if(response.data.category=="Salesman")
+          this.router.navigate(['/sDashboard']);
+
+        else if(response.data.category=="Admin")
+          this.router.navigate(['/aDashboard']);
+
+        else if(response.data.category=="Manager")
+          this.router.navigate(['/mDashboard']);
+      }
+
     })
 
   }
+
 
 }

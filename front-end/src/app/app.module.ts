@@ -21,6 +21,19 @@ import { PharmasistComponent } from './components/pharmasist/pharmasist.componen
 import { SalesmanComponent } from './components/salesman/salesman.component';
 import { UpdateMedicineComponent } from './components/update-medicine/update-medicine.component';
 import { SalesmanDashboardComponent } from './components/salesman-dashboard/salesman-dashboard.component';
+import {ToasterServiceService} from "./services/toaster-service.service";
+import { ManagerDashboardComponent } from './components/manager-dashboard/manager-dashboard.component';
+import {AuthGaurd} from "./gaurds/auth.gaurd";
+import {ManagerGaurd} from "./gaurds/manager.gaurd";
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatButtonModule, MatCheckboxModule, MatInputModule} from "@angular/material"
+import { MatFormFieldModule } from '@angular/material';
+import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import { AutocompleteOptgroupExampleComponent } from './components/autocomplete-optgroup-example/autocomplete-optgroup-example.component';
+import {PharmasistGuard} from "./gaurds/pharmasist.guard";
+import {SalesmanGaurd} from "./gaurds/salesman.gaurd";
+
+
 
 
 @NgModule({
@@ -37,19 +50,34 @@ import { SalesmanDashboardComponent } from './components/salesman-dashboard/sale
     PharmasistComponent,
     SalesmanComponent,
     UpdateMedicineComponent,
-    SalesmanDashboardComponent
+    SalesmanDashboardComponent,
+    ManagerDashboardComponent,
+    AutocompleteOptgroupExampleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    MatAutocompleteModule,
+    MatButtonModule,
+    MatInputModule,
+    MatCheckboxModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule
   ],
   providers: [
     MedicineService,
     AuthService,
-    PagerServicesService
+    PagerServicesService,
+    ToasterServiceService,
+    AuthGaurd,
+    ManagerGaurd,
+    PharmasistGuard,
+    SalesmanGaurd
   ],
   bootstrap: [AppComponent]
 })
