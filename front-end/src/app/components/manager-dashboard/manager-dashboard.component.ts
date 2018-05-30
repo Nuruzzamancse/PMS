@@ -3,6 +3,7 @@ import { MedicineService} from "../../services/medicine.service";
 import { PagerServicesService} from "../../services/pager-services.service";
 import {Router} from "@angular/router";
 import { AuthService} from "../../services/auth.service";
+import {ToasterServiceService} from "../../services/toaster-service.service";
 
 
 @Component({
@@ -16,7 +17,8 @@ export class ManagerDashboardComponent implements OnInit {
     private medicineService: MedicineService,
     private pagerService: PagerServicesService,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private toasterService: ToasterServiceService
   ) { }
       private adminOrManager:any;
 
@@ -116,6 +118,12 @@ export class ManagerDashboardComponent implements OnInit {
         let id="Salesman";
         this.router.navigate([`/addUser/${id}`]);
       }
+
+  logout(){
+    this.authService.logout();
+    this.toasterService.Success('Successfully logout!');
+    this.router.navigate(['/login']);
+  }
 
 
 }

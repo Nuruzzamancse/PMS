@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:'addUser/:id', component:AddUserComponent},
   {path:'pDashboard', component: PharmasistDashboardComponent, canActivate: [PharmasistGuard]},
   {path:'aDashboard', component: AdminDashboardComponent, canActivate: [AuthGaurd]},
-  {path: 'manager', component: ManagerComponent, canActivate: [AuthGaurd]},
+  {path: 'manager', component: ManagerComponent, canActivate: [ManagerGaurd]},
   {path: 'update-manager/:id', component: UpdateManagerComponent},
   {path: 'pharmasist', component: PharmasistComponent},
   {path: 'salesman', component: SalesmanComponent},

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {User} from "../../model/user";
+import { ToasterServiceService} from "../../services/toaster-service.service";
+import { ReactiveFormsModule} from "@angular/forms";
+import { FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-manager',
@@ -12,12 +15,23 @@ export class ManagerComponent implements OnInit {
 
   constructor(
     private authServiec: AuthService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private toasterService: ToasterServiceService
+  ) {
+    if(this.adminOrManager=='Admin')
+      this.buttonDisabled = false;
+  }
+
+  adminOrManager : any;
 
   manager = [new User()];
 
+  buttonDisabled: boolean = true;
+
   ngOnInit() {
+
+    this.adminOrManager = localStorage.getItem('category');
+
     this.authServiec.getAllUser().subscribe( res=>{
       for(let i=0; i<res.data.length; i++)
       {
@@ -45,6 +59,12 @@ export class ManagerComponent implements OnInit {
 
   updateManager(id){
     this.router.navigate([`/update-manager/${id}`])
+  }
+
+  logout(){
+    this.authServiec.logout();
+    this.toasterService.Success('Successfully logout!');
+    this.router.navigate(['/login']);
   }
 
 }

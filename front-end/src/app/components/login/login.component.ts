@@ -38,6 +38,7 @@ export class LoginComponent implements OnInit {
   }
 
   getUser(formData: FormGroup){
+
     this.user = new User();
 
     this.user.username = formData.value.username;

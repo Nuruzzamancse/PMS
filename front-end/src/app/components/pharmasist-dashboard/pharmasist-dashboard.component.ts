@@ -5,6 +5,8 @@ import 'rxjs/add/operator/map';
 import { PagerServicesService} from "../../services/pager-services.service";
 import { MedicineService} from "../../services/medicine.service";
 import {Router} from "@angular/router";
+import {AuthService} from "../../services/auth.service";
+import {ToasterServiceService} from "../../services/toaster-service.service";
 
 @Component({
   selector: 'app-pharmasist-dashboard',
@@ -17,7 +19,9 @@ export class PharmasistDashboardComponent implements OnInit {
     private http: Http,
     private pagerService: PagerServicesService,
     private medicineService: MedicineService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService,
+    private toasterService: ToasterServiceService
   ) { }
 
   // array of all items to be paged
@@ -56,6 +60,12 @@ export class PharmasistDashboardComponent implements OnInit {
 
   medicineAdd(){
     this.router.navigate(['/medicine']);
+  }
+
+  logout(){
+    this.authService.logout();
+    this.toasterService.Success('Successfully logout!');
+    this.router.navigate(['/login']);
   }
 
 }

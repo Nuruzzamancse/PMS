@@ -14,14 +14,14 @@ export class ManagerGaurd implements CanActivate{
   }
 
   canActivate(){
-    if(this.authService.loggedIn()&&localStorage.getItem('category')=='Manager'){
+    if(this.authService.loggedIn()&&localStorage.getItem('category')=='Manager' || localStorage.getItem('category')=='Admin'){
       return true;
     }
 
 
     else {
 
-      window.alert("You don't have permission to view this page, Login as Manager first");
+      window.alert("You don't have permission to view this page, Login as Manager or Admin first");
 
       this.router.navigate(['/login']);
 

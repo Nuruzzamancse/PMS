@@ -32,8 +32,8 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-b
 import { AutocompleteOptgroupExampleComponent } from './components/autocomplete-optgroup-example/autocomplete-optgroup-example.component';
 import {PharmasistGuard} from "./gaurds/pharmasist.guard";
 import {SalesmanGaurd} from "./gaurds/salesman.gaurd";
-
-
+import { AutoCompleteModule} from "ng4-auto-complete";
+import {SearchService} from "./services/search-service.service";
 
 
 @NgModule({
@@ -67,7 +67,8 @@ import {SalesmanGaurd} from "./gaurds/salesman.gaurd";
     MatFormFieldModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    AutoCompleteModule
   ],
   providers: [
     MedicineService,
@@ -77,7 +78,8 @@ import {SalesmanGaurd} from "./gaurds/salesman.gaurd";
     AuthGaurd,
     ManagerGaurd,
     PharmasistGuard,
-    SalesmanGaurd
+    SalesmanGaurd,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })

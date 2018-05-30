@@ -54,11 +54,13 @@ var getAllMedicine = (req, res, next)=>{
 
 var getMedicine = (req, res, next) =>{
     Medicine.findById( req.params.id, (err, medicine)=>{
-        if(err)
+        if(err) {
+            console.log('Here the error' + err);
             return res.status(400).json({
                 success: false,
                 message: err
             })
+        }
         else{
             return res.status(200).json({
                 success: true,
@@ -67,6 +69,35 @@ var getMedicine = (req, res, next) =>{
         }
     })
 }
+
+let searchMedicine = (req, res, next) =>{
+
+    let search = req.params.searchkey;
+
+    if(search)
+    Medicine.find({name: new RegExp(search,'i')},(err,medicines) =>{
+        if(err){
+            console.log('Here the '+err);
+            return res.status(500).json({ success: false, message: 'Fatal Server Error: ' + err});
+
+
+        }
+        else
+        {
+            console.log(medicines);
+
+            return res.status(201).json({ success: true, message: 'Successfully get the searched medicine.', data: medicines });
+
+        }
+    })
+    else
+    {
+        return res.status(201).json({ success: false });
+
+    }
+
+}
+
 
 var deleteMedicine = (req, res, next) =>{
     Medicine.findByIdAndRemove(req.params.id, (err)=>{
@@ -132,5 +163,6 @@ module.exports = {
     getAllMedicine,
     getMedicine,
     deleteMedicine,
-    updateMedicine
+    updateMedicine,
+    searchMedicine
 }

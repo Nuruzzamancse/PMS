@@ -56,7 +56,7 @@ export class AdminDashboardComponent implements OnInit {
       this.allItems = res.data;;
 
       for(let i=0; i<this.allItems.length; i++)
-        if(this.allItems[i].quantity==0)
+        if(this.allItems[i].quantity<=0)
           this.outOfStock.push(this.allItems[i]);
 
       // initialize to page 1

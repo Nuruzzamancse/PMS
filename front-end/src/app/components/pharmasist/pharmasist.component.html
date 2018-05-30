@@ -6,17 +6,20 @@
         <a class="navbar-brand" href="#"><span style="font-family: 'Times New Roman'">PMS</span></a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="/aDashboard">Admin Home</a></li>
-        <li class="active"><a href="#">Pharmasist</a></li>
-        <li ><a href="/manager">Manager</a></li>
+        <li *ngIf="adminOrManager=='Admin'"><a href="/aDashboard">Admin Home</a></li>
+        <li *ngIf="adminOrManager=='Manager'"><a href="/mDashboard">Manger Dashboard</a></li>
+        <li *ngIf="adminOrManager=='Admin' || adminOrManager=='Manager'"><a href="/manager">Manager</a></li>
+        <li class="active"><a href="/pharmasist">Pharmasist</a></li>
         <li><a href="/salesman">Salesman</a></li>
-        <li><a href="#">Sales Report</a></li>
+        <!--<li><a href="#">Sales Report</a></li>-->
       </ul>
 
       <form  class="navbar-form navbar-right" action="/action_page.php">
         <div class="input-group">
           <!--<input type="text" class="form-control" placeholder="Search" name="search">-->
-          <button style="text-decoration: none">Log Out</button>
+          <!--<button style="text-decoration: none">Log Out</button>-->
+
+          <button (click)="logout()" style="text-decoration: none" class="btn btn-warning">Log Out</button>
 
         </div>
       </form>
@@ -32,13 +35,14 @@
         <span  class="texto_grande"><i class="fa fa-plus-circle"></i> Add {{category}} </span></a>
     </div>
 
-    <h3 style="font-family: 'Times New Roman'">List of {{category}}</h3>
-    <br><br>
+    <h3 style="font-family: 'Times New Roman'; color: white">List of {{category}}</h3>
+    <br>
 
   </div>
 
   <div class="container">
 
+    <br>
 
     <div class="table-responsice">
       <table  class="table">
@@ -53,7 +57,7 @@
         </tr>
         </thead>
         <tbody *ngFor="let manger of manager; let i = index">
-        <tr *ngIf="manger.firstName">
+        <tr *ngIf="manger.firstName" style="color: white">
           <td>{{manger.firstName}}</td>
           <td>{{manger.lastName}}</td>
           <td>{{manger.username}}</td>

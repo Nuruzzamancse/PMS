@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {User} from "../../model/user";
+import {ToasterServiceService} from "../../services/toaster-service.service";
 
 @Component({
   selector: 'app-pharmasist',
@@ -13,11 +14,13 @@ export class PharmasistComponent implements OnInit {
   constructor(
 
     private authServiec: AuthService,
-    private router: Router
+    private router: Router,
+    private toasterService: ToasterServiceService
   ) { }
 
 
   manager = [new User()];
+
 
 
   private category:any;
@@ -55,6 +58,12 @@ export class PharmasistComponent implements OnInit {
 
   updateManager(id){
     this.router.navigate([`/update-manager/${id}`])
+  }
+
+  logout(){
+    this.authServiec.logout();
+    this.toasterService.Success('Successfully logout!');
+    this.router.navigate(['/login']);
   }
 
 

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { MedicineService} from "../../services/medicine.service";
 import { PagerServicesService} from "../../services/pager-services.service";
 import { Medicine} from "../../model/medicine";
 import { Cart} from "../../model/cart";
 import { Router, NavigationExtras} from "@angular/router";
+import { Subject } from 'rxjs/Subject';
+
+import { MedicineService} from "../../services/medicine.service";
+import {SearchService} from "../../services/search-service.service";
 
 @Component({
   selector: 'app-salesman-dashboard',
@@ -12,11 +15,21 @@ import { Router, NavigationExtras} from "@angular/router";
 })
 export class SalesmanDashboardComponent implements OnInit {
 
+
+  results: Object;
+  searchTerm$ = new Subject<string>();
+
   constructor(
     private medicineService: MedicineService,
     private pagerService: PagerServicesService,
-    private router: Router
-  ) { }
+    private router: Router,
+    private searchService: SearchService
+  ) {
+    this.searchService.search(this.searchTerm$)
+      .subscribe(results => {
+        this.results = results.data;
+      });
+  }
 
 
   print(): void {
@@ -111,6 +124,9 @@ export class SalesmanDashboardComponent implements OnInit {
         for (let i = 0; i < this.medicines.length; i++)
           if (this.medicines[i].name == medicine.name) {
             this.medicines[i].quantity = this.medicines[i].quantity + 1;
+            this.allItems[i].quantity--;
+
+            console.log('Quantity: '+this.allItems[i].quantity);
 
             // this.sum += this.medicines[i].quantity* this.medicines[i].price;
             // console.log(this.medicines[i].quantity)
@@ -122,6 +138,12 @@ export class SalesmanDashboardComponent implements OnInit {
       this.medicine.name = medicine.name;
       this.medicine.price = medicine.price;
       this.medicine.quantity = 1;
+
+      for (let i=0; i<this.allItems.length;i++)
+      {
+        if(this.medicine.name == this.allItems[i].name)
+          this.allItems[i].quantity--;
+      }
 
       // this.sum += this.medicine.quantity* this.medicine.price;
 

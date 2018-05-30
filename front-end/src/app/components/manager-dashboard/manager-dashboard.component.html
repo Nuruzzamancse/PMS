@@ -8,16 +8,20 @@
       </div>
       <ul class="nav navbar-nav">
         <li class="active" *ngIf="adminOrManager=='Admin'"><a href="#">Admin Home</a></li>
-        <li><a href="/pharmasist">Pharmasist</a></li>
+        <li class="active" *ngIf="adminOrManager=='Manager'"><a href="/mDashboard">Manger Dashboard</a></li>
         <li><a href="/manager">Manager</a></li>
+        <li><a href="/pharmasist">Pharmasist</a></li>
+
         <li><a href="/salesman">Salesman</a></li>
-        <li><a href="#">Sales Report</a></li>
+        <!--<li><a href="#">Sales Report</a></li>-->
       </ul>
 
       <form  class="navbar-form navbar-right" action="/action_page.php">
         <div class="input-group">
           <!--<input type="text" class="form-control" placeholder="Search" name="search">-->
-          <button style="text-decoration: none">Log Out</button>
+          <!--<button style="text-decoration: none">Log Out</button>-->
+
+          <button (click)="logout()" style="text-decoration: none" class="btn btn-warning">Log Out</button>
 
         </div>
       </form>
