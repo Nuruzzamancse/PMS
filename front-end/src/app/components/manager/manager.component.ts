@@ -18,8 +18,6 @@ export class ManagerComponent implements OnInit {
     private router: Router,
     private toasterService: ToasterServiceService
   ) {
-    if(this.adminOrManager=='Admin')
-      this.buttonDisabled = false;
   }
 
   adminOrManager : any;
@@ -31,6 +29,10 @@ export class ManagerComponent implements OnInit {
   ngOnInit() {
 
     this.adminOrManager = localStorage.getItem('category');
+
+
+    if(this.adminOrManager=='Admin')
+      this.buttonDisabled = false;
 
     this.authServiec.getAllUser().subscribe( res=>{
       for(let i=0; i<res.data.length; i++)

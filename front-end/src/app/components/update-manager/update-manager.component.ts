@@ -3,6 +3,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import { AuthService} from "../../services/auth.service";
 import {FormControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { User} from "../../model/user";
+import { ToasterServiceService} from "../../services/toaster-service.service";
+import { Location} from "@angular/common";
 
 @Component({
   selector: 'app-update-manager',
@@ -19,7 +21,9 @@ export class UpdateManagerComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location,
+    private toasterService: ToasterServiceService
   ) { }
 
   ngOnInit() {
@@ -35,6 +39,8 @@ export class UpdateManagerComponent implements OnInit {
 
   onUpdate(user){
       this.authService.updateUser(user).subscribe( res=>{
+        this.toasterService.Success("Successfully updated!");
+        this.location.back();
         console.log(res);
       })
   }

@@ -77,7 +77,7 @@ var routes = [
     { path: 'addUser/:id', component: __WEBPACK_IMPORTED_MODULE_5__components_add_user_add_user_component__["a" /* AddUserComponent */] },
     { path: 'pDashboard', component: __WEBPACK_IMPORTED_MODULE_6__components_pharmasist_dashboard_pharmasist_dashboard_component__["a" /* PharmasistDashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__gaurds_pharmasist_guard__["a" /* PharmasistGuard */]] },
     { path: 'aDashboard', component: __WEBPACK_IMPORTED_MODULE_7__components_admin_dashboard_admin_dashboard_component__["a" /* AdminDashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__gaurds_auth_gaurd__["a" /* AuthGaurd */]] },
-    { path: 'manager', component: __WEBPACK_IMPORTED_MODULE_8__components_manager_manager_component__["a" /* ManagerComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_15__gaurds_auth_gaurd__["a" /* AuthGaurd */]] },
+    { path: 'manager', component: __WEBPACK_IMPORTED_MODULE_8__components_manager_manager_component__["a" /* ManagerComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_16__gaurds_manager_gaurd__["a" /* ManagerGaurd */]] },
     { path: 'update-manager/:id', component: __WEBPACK_IMPORTED_MODULE_9__components_update_manager_update_manager_component__["a" /* UpdateManagerComponent */] },
     { path: 'pharmasist', component: __WEBPACK_IMPORTED_MODULE_10__components_pharmasist_pharmasist_component__["a" /* PharmasistComponent */] },
     { path: 'salesman', component: __WEBPACK_IMPORTED_MODULE_11__components_salesman_salesman_component__["a" /* SalesmanComponent */] },
@@ -184,12 +184,22 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__components_autocomplete_optgroup_example_autocomplete_optgroup_example_component__ = __webpack_require__("./src/app/components/autocomplete-optgroup-example/autocomplete-optgroup-example.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__gaurds_pharmasist_guard__ = __webpack_require__("./src/app/gaurds/pharmasist.guard.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__gaurds_salesman_gaurd__ = __webpack_require__("./src/app/gaurds/salesman.gaurd.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng4_auto_complete__ = __webpack_require__("./node_modules/ng4-auto-complete/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__services_search_service_service__ = __webpack_require__("./src/app/services/search-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_validation_service__ = __webpack_require__("./src/app/services/validation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__common_stripe_service__ = __webpack_require__("./src/app/common/stripe.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__components_home_home_component__ = __webpack_require__("./src/app/components/home/home.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
+
 
 
 
@@ -242,7 +252,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_19__components_update_medicine_update_medicine_component__["a" /* UpdateMedicineComponent */],
                 __WEBPACK_IMPORTED_MODULE_20__components_salesman_dashboard_salesman_dashboard_component__["a" /* SalesmanDashboardComponent */],
                 __WEBPACK_IMPORTED_MODULE_22__components_manager_dashboard_manager_dashboard_component__["a" /* ManagerDashboardComponent */],
-                __WEBPACK_IMPORTED_MODULE_28__components_autocomplete_optgroup_example_autocomplete_optgroup_example_component__["a" /* AutocompleteOptgroupExampleComponent */]
+                __WEBPACK_IMPORTED_MODULE_28__components_autocomplete_optgroup_example_autocomplete_optgroup_example_component__["a" /* AutocompleteOptgroupExampleComponent */],
+                __WEBPACK_IMPORTED_MODULE_35__components_home_home_component__["a" /* HomeComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -257,7 +268,8 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_26__angular_material__["c" /* MatFormFieldModule */],
                 __WEBPACK_IMPORTED_MODULE_7__angular_forms__["j" /* ReactiveFormsModule */],
                 __WEBPACK_IMPORTED_MODULE_27__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_27__angular_platform_browser_animations__["b" /* NoopAnimationsModule */]
+                __WEBPACK_IMPORTED_MODULE_27__angular_platform_browser_animations__["b" /* NoopAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_31_ng4_auto_complete__["a" /* AutoCompleteModule */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_6__services_medicine_service__["a" /* MedicineService */],
@@ -267,7 +279,10 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_23__gaurds_auth_gaurd__["a" /* AuthGaurd */],
                 __WEBPACK_IMPORTED_MODULE_24__gaurds_manager_gaurd__["a" /* ManagerGaurd */],
                 __WEBPACK_IMPORTED_MODULE_29__gaurds_pharmasist_guard__["a" /* PharmasistGuard */],
-                __WEBPACK_IMPORTED_MODULE_30__gaurds_salesman_gaurd__["a" /* SalesmanGaurd */]
+                __WEBPACK_IMPORTED_MODULE_30__gaurds_salesman_gaurd__["a" /* SalesmanGaurd */],
+                __WEBPACK_IMPORTED_MODULE_32__services_search_service_service__["a" /* SearchService */],
+                __WEBPACK_IMPORTED_MODULE_33__services_validation_service__["a" /* ValidationService */],
+                __WEBPACK_IMPORTED_MODULE_34__common_stripe_service__["a" /* StripeService */]
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
         })
@@ -279,30 +294,18 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/components/add-user/add-user.component.css":
-/***/ (function(module, exports) {
-
-module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(25, 207, 193, 0.7);\r\n  color: white;\r\n}\r\ntable tr:nth-child(odd) {\r\n  color: white;\r\n  background-color: rgba(145, 142, 176, 0.7);\r\n}\r\n.bg {\r\n  /* The image used */\r\n  /*background-image: url('../../../assets/images/medicine-background-7.jpg');*/\r\n\r\n  /* Full height */\r\n\r\n  height: 80%;\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: repeat;\r\n  background-size: cover;\r\n\r\n  /* Set rules to fill background */\r\n  min-height: 100%;\r\n  min-width: 1024px;\r\n\r\n  /* Set up proportionate scaling */\r\n  width: 100%;\r\n  height: auto;\r\n\r\n  /* Set up positioning */\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n}\r\n@media screen and (max-width: 1024px) { /* Specific to this particular image */\r\n  img.bg {\r\n    left: 50%;\r\n    margin-left: -512px;   /* 50% */\r\n  }\r\n\r\n}\r\n\r\n\r\n"
-
-/***/ }),
-
-/***/ "./src/app/components/add-user/add-user.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<div  class=\"bg\">\n  <div class=\"container\">\n\n    <h1 style=\"margin-top: 3%;text-align: center; font-family: 'Times New Roman'; color: azure\">Pharmacy Management System</h1>\n\n    <h3 style=\"text-align: center;font-family: Verdana; color: azure\">Add User</h3>\n    <div class=\"row\" style=\"margin-top:20px\">\n      <div style=\"margin-left: 15%\" class=\"col-xs-8 col-sm-8 col-md-8 \">\n        <form role=\"form\" [formGroup]=\"registerForm\" (ngSubmit)=\"registerUser(registerForm)\" novalidate autocomplete=\"off\">\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('firstName').invalid && registerForm.get('firstName').dirty}\">\n            <label style=\"color: white\" for=\"firstName\" class=\"col-sm-2 control-label\">First Name <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control\" [formControl]=\"firstName\" id=\"firstName\" placeholder=\"First Name\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('lastName').invalid && registerForm.get('lastName').dirty}\">\n            <label style=\"color: white\" for=\"lastName\" class=\"col-sm-2 control-label\">Last Name <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control\" [formControl]=\"lastName\" id=\"lastName\" placeholder=\"Last Name\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('staffId').invalid && registerForm.get('staffId').dirty}\">\n            <label style=\"color: white\" for=\"staffId\" class=\"col-sm-2 control-label\">Staff Id <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control\" [formControl]=\"staffId\" id=\"staffId\" placeholder=\"Staff Id\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('address').invalid && registerForm.get('address').dirty}\">\n            <label style=\"color: white\" for=\"address\" class=\"col-sm-2 control-label\">Address <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control\" [formControl]=\"address\" id=\"address\" placeholder=\"Address\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('phone').invalid && registerForm.get('phone').dirty}\">\n            <label style=\"color: white\" for=\"phone\" class=\"col-sm-2 control-label\">Phone <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control\" [formControl]=\"phone\" id=\"phone\" placeholder=\"Phone\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('email').invalid && registerForm.get('email').dirty}\">\n            <label style=\"color: white\" for=\"phone\" class=\"col-sm-2 control-label\">Email <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control\" [formControl]=\"email\" id=\"email\" placeholder=\"Email\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('username').invalid && registerForm.get('username').dirty}\">\n            <label style=\"color: white\" for=\"username\" class=\"col-sm-2 control-label\">Username <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control\" [formControl]=\"username\" id=\"username\" placeholder=\"Username\" required>\n            </div>\n          </div>\n\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('password').invalid && registerForm.get('password').dirty}\">\n            <label style=\"color: white\" for=\"password\" class=\"col-sm-2 control-label\">Password <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-key\"></i></div>\n              <input type=\"password\" class=\"form-control\" [formControl]=\"password\" id=\"password\" placeholder=\"Password\" required>\n            </div>\n          </div>\n\n          <!--<div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('category').invalid && registerForm.get('category').dirty}\">-->\n            <!--<label style=\"color: white\" for=\"category\" class=\"col-sm-2 control-label\">Category<sup>*</sup></label>-->\n            <!--<div class=\"input-group col-sm-10\">-->\n              <!--<div class=\"input-group-addon\"><i class=\"fas fa-key\"></i></div>-->\n              <!--&lt;!&ndash;<input type=\"password\" class=\"form-control\" [formControl]=\"category\" id=\"category\" placeholder=\"Category\" required>&ndash;&gt;-->\n\n              <!--<select type=\"text\" [formControl]=\"category\" id=\"category\" class=\"form-control\">-->\n\n                <!--<option *ngFor=\"let cat of Category\" >{{cat.category}}</option>-->\n\n              <!--</select>-->\n\n            <!--</div>-->\n          <!--</div>-->\n\n\n\n\n          <div class=\"text-center\">\n            <button style=\"margin-left: 3%\" type=\"submit\" class=\"btn btn-primary\">Register {{Category}}</button>\n          </div>\n\n        </form>\n      </div>\n    </div>\n\n\n\n  </div>\n\n  <div style=\"height:20px\">\n\n  </div>\n\n</div>\n\n"
-
-/***/ }),
-
-/***/ "./src/app/components/add-user/add-user.component.ts":
+/***/ "./src/app/common/stripe.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddUserComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return StripeService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_user__ = __webpack_require__("./src/app/model/user.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__("./node_modules/rxjs/_esm5/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_do__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/do.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_catch__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/catch.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__ = __webpack_require__("./node_modules/rxjs/_esm5/add/observable/throw.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -318,12 +321,99 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+var StripeService = /** @class */ (function () {
+    function StripeService(http) {
+        this.http = http;
+    }
+    StripeService.prototype.confirmPayment = function (stripeEmail, stripeToken, amount) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-Type', 'application/json');
+        var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["RequestOptions"]({ headers: headers });
+        var body = {
+            stripeEmail: stripeEmail,
+            stripeToken: stripeToken,
+            stripeAmount: amount
+        };
+        console.log('In conform payment');
+        return this.http.post("http://localhost:3000/stripe/charge", JSON.stringify(body), options)
+            .map(function (res) { return res.json(); })
+            .catch(this.handleError);
+    };
+    StripeService.prototype.handleError = function (error) {
+        if (error) {
+            console.log(error);
+            return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || 'Server Error');
+        }
+        else {
+            console.log('Unknown err');
+        }
+    };
+    StripeService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]])
+    ], StripeService);
+    return StripeService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/add-user/add-user.component.css":
+/***/ (function(module, exports) {
+
+module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(25, 207, 193, 0.7);\r\n  color: white;\r\n}\r\ntable tr:nth-child(odd) {\r\n  color: white;\r\n  background-color: rgba(145, 142, 176, 0.7);\r\n}\r\n\r\n\r\n\r\n\r\n"
+
+/***/ }),
+
+/***/ "./src/app/components/add-user/add-user.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div  class=\"bg\">\n  <div class=\"container\">\n\n    <h1 style=\"margin-top: 3%;text-align: center; font-family: 'Times New Roman'; color: azure\">Pharmacy Management System</h1>\n\n    <h3 style=\"text-align: center;font-family: Verdana; color: azure\">Add {{Category}}</h3>\n    <div class=\"row\" style=\"margin-top:20px\">\n      <div style=\"margin-left: 15%\" class=\"col-xs-8 col-sm-8 col-md-8 \">\n        <form role=\"form\" [formGroup]=\"registerForm\" (ngSubmit)=\"registerUser(registerForm)\" novalidate autocomplete=\"off\">\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('firstName').invalid && registerForm.get('firstName').dirty}\">\n            <label style=\"color: white\" for=\"firstName\" class=\"col-sm-2 control-label\">First Name <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control input-sm\" [formControl]=\"firstName\" id=\"firstName\" placeholder=\"First Name\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('lastName').invalid && registerForm.get('lastName').dirty}\">\n            <label style=\"color: white\" for=\"lastName\" class=\"col-sm-2 control-label\">Last Name <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control input-sm\" [formControl]=\"lastName\" id=\"lastName\" placeholder=\"Last Name\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('staffId').invalid && registerForm.get('staffId').dirty}\">\n            <label style=\"color: white\" for=\"staffId\" class=\"col-sm-2 control-label\">Staff Id <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control input-sm\" [formControl]=\"staffId\" id=\"staffId\" placeholder=\"Staff Id\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('address').invalid && registerForm.get('address').dirty}\">\n            <label style=\"color: white\" for=\"address\" class=\"col-sm-2 control-label\">Address <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control input-sm\" [formControl]=\"address\" id=\"address\" placeholder=\"Address\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('phone').invalid && registerForm.get('phone').dirty}\">\n            <label style=\"color: white\" for=\"phone\" class=\"col-sm-2 control-label\">Phone <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control input-sm\" [formControl]=\"phone\" id=\"phone\" placeholder=\"Phone\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('email').invalid && registerForm.get('email').dirty}\">\n            <label style=\"color: white\" for=\"phone\" class=\"col-sm-2 control-label\">Email <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control input-sm\" [formControl]=\"email\" id=\"email\" placeholder=\"Email\" required>\n            </div>\n          </div>\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('username').invalid && registerForm.get('username').dirty}\">\n            <label style=\"color: white\" for=\"username\" class=\"col-sm-2 control-label\">Username <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-user-md\"></i></div>\n              <input type=\"text\" class=\"form-control input-sm\" [formControl]=\"username\" id=\"username\" placeholder=\"Username\" required>\n            </div>\n          </div>\n\n\n          <div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('password').invalid && registerForm.get('password').dirty}\">\n            <label style=\"color: white\" for=\"password\" class=\"col-sm-2 control-label\">Password <sup>*</sup></label>\n            <div class=\"input-group col-sm-10\">\n              <div class=\"input-group-addon\"><i class=\"fas fa-key\"></i></div>\n              <input type=\"password\" class=\"form-control\" [formControl]=\"password\" id=\"password\" placeholder=\"Password\" required>\n            </div>\n          </div>\n\n          <!--<div class=\"form-group\" [ngClass]=\"{'has-error': registerForm.get('category').invalid && registerForm.get('category').dirty}\">-->\n            <!--<label style=\"color: white\" for=\"category\" class=\"col-sm-2 control-label\">Category<sup>*</sup></label>-->\n            <!--<div class=\"input-group col-sm-10\">-->\n              <!--<div class=\"input-group-addon\"><i class=\"fas fa-key\"></i></div>-->\n              <!--&lt;!&ndash;<input type=\"password\" class=\"form-control\" [formControl]=\"category\" id=\"category\" placeholder=\"Category\" required>&ndash;&gt;-->\n\n              <!--<select type=\"text\" [formControl]=\"category\" id=\"category\" class=\"form-control\">-->\n\n                <!--<option *ngFor=\"let cat of Category\" >{{cat.category}}</option>-->\n\n              <!--</select>-->\n\n            <!--</div>-->\n          <!--</div>-->\n\n\n\n\n          <div class=\"text-center\">\n            <button style=\"margin-left: 3%\" type=\"submit\" class=\"btn btn-primary\">Register {{Category}}</button>\n          </div>\n\n        </form>\n      </div>\n    </div>\n\n\n\n  </div>\n\n  <div style=\"height:20px\">\n\n  </div>\n\n</div>\n\n"
+
+/***/ }),
+
+/***/ "./src/app/components/add-user/add-user.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddUserComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_user__ = __webpack_require__("./src/app/model/user.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_validation_service__ = __webpack_require__("./src/app/services/validation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_toaster_service_service__ = __webpack_require__("./src/app/services/toaster-service.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
 var AddUserComponent = /** @class */ (function () {
-    function AddUserComponent(authService, router, formBuilder, route) {
+    function AddUserComponent(authService, router, formBuilder, route, location, validationService, toasterService) {
         this.authService = authService;
         this.router = router;
         this.formBuilder = formBuilder;
         this.route = route;
+        this.location = location;
+        this.validationService = validationService;
+        this.toasterService = toasterService;
         this.username = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required]);
         this.firstName = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required]);
         this.lastName = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required]);
@@ -354,6 +444,7 @@ var AddUserComponent = /** @class */ (function () {
         });
     };
     AddUserComponent.prototype.registerUser = function (formData) {
+        var _this = this;
         this.user = new __WEBPACK_IMPORTED_MODULE_2__model_user__["a" /* User */]();
         this.user.username = formData.value.username;
         this.user.password = formData.value.password;
@@ -364,8 +455,17 @@ var AddUserComponent = /** @class */ (function () {
         this.user.phone = formData.value.phone;
         this.user.email = formData.value.email;
         this.user.category = this.Category;
+        if (!this.validationService.validateRegister(this.user)) {
+            this.toasterService.Warning("Please fill all the fields.");
+            return false;
+        }
+        if (!this.validationService.validateEmail(this.user.email)) {
+            this.toasterService.Error("Please Enter Valid Email");
+            return false;
+        }
         this.authService.postUser(this.user).subscribe(function (res) {
-            console.log(res);
+            _this.toasterService.Success("Successfully added " + _this.Category);
+            _this.location.back();
         });
     };
     AddUserComponent = __decorate([
@@ -377,7 +477,10 @@ var AddUserComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
             __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */]])
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_common__["f" /* Location */],
+            __WEBPACK_IMPORTED_MODULE_6__services_validation_service__["a" /* ValidationService */],
+            __WEBPACK_IMPORTED_MODULE_7__services_toaster_service_service__["a" /* ToasterServiceService */]])
     ], AddUserComponent);
     return AddUserComponent;
 }());
@@ -389,14 +492,14 @@ var AddUserComponent = /** @class */ (function () {
 /***/ "./src/app/components/admin-dashboard/admin-dashboard.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(205, 195, 207, 0.7);\r\n  color: black;\r\n}\r\ntable tr:nth-child(odd) {\r\n  color: black;\r\n  background-color: rgba(176, 160, 173, 0.7);\r\n}\r\n.bg {\r\n  /* The image used */\r\n  /*background-image: url('../../../assets/images/medicine-background-7.jpg');*/\r\n\r\n  /* Full height */\r\n\r\n  height: 80%;\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: repeat;\r\n  background-size: cover;\r\n\r\n  /* Set rules to fill background */\r\n  min-height: 100%;\r\n  min-width: 1024px;\r\n\r\n  /* Set up proportionate scaling */\r\n  width: 100%;\r\n  height: auto;\r\n\r\n  /* Set up positioning */\r\n  position: relative;\r\n  top: 0;\r\n  left: 0;\r\n}\r\n@media screen and (max-width: 1024px) { /* Specific to this particular image */\r\n  img.bg {\r\n    left: 50%;\r\n    margin-left: -512px;   /* 50% */\r\n  }\r\n\r\n}\r\n.texto_grande {\r\n  font-size: 2rem;\r\n  color: white;\r\n}\r\n#icone_grande {\r\n  font-size: 4rem;\r\n  color:#fff;\r\n}\r\n\r\n\r\n"
+module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(205, 195, 207, 0.7);\r\n  color: black;\r\n}\r\ntable tr:nth-child(odd) {\r\n  color: black;\r\n  background-color: rgba(176, 160, 173, 0.7);\r\n}\r\n.texto_grande {\r\n  font-size: 2rem;\r\n  color: white;\r\n}\r\n#icone_grande {\r\n  font-size: 4rem;\r\n  color:#fff;\r\n}\r\n\r\n\r\n"
 
 /***/ }),
 
 /***/ "./src/app/components/admin-dashboard/admin-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"bg\">\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\" *ngIf=\"adminOrManager=='Admin'\"><a href=\"#\">Admin Home</a></li>\n        <li><a href=\"/pharmasist\">Pharmasist</a></li>\n        <li><a href=\"/manager\">Manager</a></li>\n        <li><a href=\"/salesman\">Salesman</a></li>\n        <li><a href=\"#\">Sales Report</a></li>\n      </ul>\n\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n          <button (click)=\"logout()\" style=\"text-decoration: none\" class=\"btn btn-warning\">Log Out</button>\n\n        </div>\n      </form>\n\n    </div>\n  </nav>\n\n  <div class=\"container\">\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-shopping-cart\" id=\"icone_grande\"></i><span> <b style=\"font-size: 48px; margin-left: 10px\"></b></span><br><br>\n        <span class=\"texto_grande\"> Total Sales</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fa fa-user\" id=\"icone_grande\"></i> <span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfManager}}</b></span><br><br>\n        <span class=\"texto_grande\"> Manager</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users\" id=\"icone_grande\"></i><span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfPharmasist}}</b></span> <br><br>\n        <span class=\"texto_grande\"> Pharmasist</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users\" id=\"icone_grande\"></i> <span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfSaleman}}</b></span><br><br>\n        <span class=\"texto_grande\"> Salesman</span></a>\n    </div>\n  </div>\n\n  <br><br>\n\n  <div class=\"container\" >\n    <div class=\"col-md-3 col-sm-3\" *ngIf=\"adminOrManager=='Admin'\">\n      <a (click)=\"managerAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Manager</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a (click)=\"pharmasistAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-user-md\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Pharmasist</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a (click)=\"salesManAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-user-tie\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Salesman</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a  class=\"btn btn-block btn-lg btn-danger\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-search\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"> Report</span></a>\n    </div>\n\n\n\n  </div>\n\n  <br><br>\n\n  <div  class=\"container\" style=\"background-color: ghostwhite\">\n\n    <nav class=\"navbar\" style=\"background-color: blue; margin-top: 1%\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'; color: white\">Out of Stock Medicines</span></a>\n        </div>\n\n      </div>\n    </nav>\n\n\n    <div class=\"table-responsice\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n          <th>#</th>\n          <th>Name</th>\n          <th>Generic</th>\n          <th>Type</th>\n          <th>Price</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let medicine of outOfStock; let i = index\">\n\n          <td>{{i+1}}</td>\n          <td>{{medicine.name}}</td>\n          <td>{{medicine.generic}}</td>\n          <td>{{medicine.type}}</td>\n          <td>{{medicine.price}}</td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n\n  </div>\n\n  <br><br>\n\n\n<div class=\"container\" style=\"background-color: azure\">\n    <nav class=\"navbar\" style=\"background-color: blue;margin-top: 1%\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'; color: white\">Medicines</span></a>\n        </div>\n\n        <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n          <div class=\"input-group\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">\n            <div class=\"input-group-btn\">\n              <button class=\"btn btn-default\" type=\"submit\">\n                <i class=\"glyphicon glyphicon-search\"></i>\n              </button>\n            </div>\n          </div>\n        </form>\n      </div>\n    </nav>\n\n\n  <div class=\"table-responsice\">\n    <table  class=\"table\">\n      <thead>\n      <tr style=\"background-color: azure;color: black\">\n        <th>#</th>\n        <th>Name</th>\n        <th>Generic</th>\n        <th>Type</th>\n        <th>Price</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let medicine of pagedItems; let i = index\">\n\n        <td>{{i+1}}</td>\n        <td>{{medicine.name}}</td>\n        <td>{{medicine.generic}}</td>\n        <td>{{medicine.type}}</td>\n        <td>{{medicine.price}}</td>\n      </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <!-- items being paged -->\n  <!--<div *ngFor=\"let item of pagedItems\">-->\n  <!--{{item.name}}-->\n  <!--</div>-->\n\n  <div class=\"text-center\">\n    <!-- pager -->\n    <ul *ngIf=\"pager.pages && pager.pages.length\" class=\"pagination\">\n      <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n        <a (click)=\"setPage(1)\">First</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n        <a (click)=\"setPage(pager.currentPage - 1)\">Previous</a>\n      </li>\n      <li *ngFor=\"let page of pager.pages\" [ngClass]=\"{active:pager.currentPage === page}\">\n        <a (click)=\"setPage(page)\">{{page}}</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n        <a (click)=\"setPage(pager.currentPage + 1)\">Next</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n        <a (click)=\"setPage(pager.totalPages)\">Last</a>\n      </li>\n    </ul>\n  </div>\n\n  </div>\n\n</div>\n\n"
+module.exports = "\n<div class=\"bg\">\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\" *ngIf=\"adminOrManager=='Admin'\"><a href=\"#\">Admin Home</a></li>\n        <li><a href=\"/manager\">Manager</a></li>\n        <li><a href=\"/pharmasist\">Pharmasist</a></li>\n        <li><a href=\"/salesman\">Salesman</a></li>\n        <!--<li><a href=\"#\">Sales Report</a></li>-->\n      </ul>\n\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n          <button (click)=\"logout()\" style=\"text-decoration: none\" class=\"btn btn-warning\">Log Out</button>\n\n        </div>\n      </form>\n\n    </div>\n  </nav>\n\n  <div class=\"container\">\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-shopping-cart\" id=\"icone_grande\"></i><span> <b style=\"font-size: 48px; margin-left: 10px\"></b></span><br><br>\n        <span class=\"texto_grande\"> Total Sales</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fa fa-user\" id=\"icone_grande\"></i> <span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfManager}}</b></span><br><br>\n        <span class=\"texto_grande\"> Manager</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users\" id=\"icone_grande\"></i><span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfPharmasist}}</b></span> <br><br>\n        <span class=\"texto_grande\"> Pharmasist</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users\" id=\"icone_grande\"></i> <span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfSaleman}}</b></span><br><br>\n        <span class=\"texto_grande\"> Salesman</span></a>\n    </div>\n  </div>\n\n  <br><br>\n\n  <div class=\"container\" >\n    <div class=\"col-md-3 col-sm-3\" *ngIf=\"adminOrManager=='Admin'\">\n      <a (click)=\"managerAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Manager</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a (click)=\"pharmasistAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-user-md\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Pharmasist</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a (click)=\"salesManAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-user-tie\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Salesman</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a  class=\"btn btn-block btn-lg btn-danger\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-search\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"> Report</span></a>\n    </div>\n\n\n\n  </div>\n\n  <br><br>\n\n  <div  class=\"container\" style=\"background-color: ghostwhite\">\n\n    <nav class=\"navbar\" style=\"background-color: blue; margin-top: 1%\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'; color: white\">Out of Stock Medicines</span></a>\n        </div>\n\n      </div>\n    </nav>\n\n\n    <div class=\"table-responsice\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n          <th>#</th>\n          <th>Name</th>\n          <th>Generic</th>\n          <th>Type</th>\n          <th>Price</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let medicine of outOfStock; let i = index\">\n\n          <td>{{i+1}}</td>\n          <td>{{medicine.name}}</td>\n          <td>{{medicine.generic}}</td>\n          <td>{{medicine.type}}</td>\n          <td>{{medicine.price}}</td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n\n  </div>\n\n  <br><br>\n\n\n<div class=\"container\" style=\"background-color: azure\">\n    <nav class=\"navbar\" style=\"background-color: blue;margin-top: 1%\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'; color: white\">Medicines</span></a>\n        </div>\n\n        <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n          <div class=\"input-group\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\" (keyup)=\"searchTerm$.next($event.target.value)\">\n            <div class=\"input-group-btn\">\n              <button class=\"btn btn-default\" type=\"submit\">\n                <i class=\"glyphicon glyphicon-search\"></i>\n              </button>\n            </div>\n          </div>\n        </form>\n      </div>\n    </nav>\n\n\n  <div *ngIf=\"results\" class=\"table-responsice\">\n    <table  class=\"table\">\n      <thead>\n      <tr style=\"background-color: azure;color: black\">\n        <th>#</th>\n        <th>Name</th>\n        <th>Generic</th>\n        <th>Type</th>\n        <th>Price</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let medicine of results; let i = index\">\n\n        <td>{{i+1}}</td>\n        <td>{{medicine.name}}</td>\n        <td>{{medicine.generic}}</td>\n        <td>{{medicine.type}}</td>\n        <td>{{medicine.price}}</td>\n      </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <div *ngIf=\"!results\" class=\"table-responsice\">\n    <table  class=\"table\">\n      <thead>\n      <tr style=\"background-color: azure;color: black\">\n        <th>#</th>\n        <th>Name</th>\n        <th>Generic</th>\n        <th>Type</th>\n        <th>Price</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let medicine of pagedItems; let i = index\">\n\n        <td>{{i+1}}</td>\n        <td>{{medicine.name}}</td>\n        <td>{{medicine.generic}}</td>\n        <td>{{medicine.type}}</td>\n        <td>{{medicine.price}}</td>\n      </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <!-- items being paged -->\n  <!--<div *ngFor=\"let item of pagedItems\">-->\n  <!--{{item.name}}-->\n  <!--</div>-->\n\n  <div class=\"text-center\">\n    <!-- pager -->\n    <ul *ngIf=\"pager.pages && pager.pages.length\" class=\"pagination\">\n      <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n        <a (click)=\"setPage(1)\">First</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n        <a (click)=\"setPage(pager.currentPage - 1)\">Previous</a>\n      </li>\n      <li *ngFor=\"let page of pager.pages\" [ngClass]=\"{active:pager.currentPage === page}\">\n        <a (click)=\"setPage(page)\">{{page}}</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n        <a (click)=\"setPage(pager.currentPage + 1)\">Next</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n        <a (click)=\"setPage(pager.totalPages)\">Last</a>\n      </li>\n    </ul>\n  </div>\n\n  </div>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -411,6 +514,8 @@ module.exports = "\n<div class=\"bg\">\n\n  <nav class=\"navbar navbar-inverse\"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_toaster_service_service__ = __webpack_require__("./src/app/services/toaster-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_search_service_service__ = __webpack_require__("./src/app/services/search-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_Subject__ = __webpack_require__("./node_modules/rxjs/_esm5/Subject.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -426,13 +531,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var AdminDashboardComponent = /** @class */ (function () {
-    function AdminDashboardComponent(medicineService, pagerService, router, authService, toasterService) {
+    function AdminDashboardComponent(medicineService, pagerService, router, authService, toasterService, searchService) {
+        var _this = this;
         this.medicineService = medicineService;
         this.pagerService = pagerService;
         this.router = router;
         this.authService = authService;
         this.toasterService = toasterService;
+        this.searchService = searchService;
+        this.searchTerm$ = new __WEBPACK_IMPORTED_MODULE_7_rxjs_Subject__["a" /* Subject */]();
         //Manager
         this.numberOfManager = 0;
         //Pharmasist
@@ -442,6 +552,10 @@ var AdminDashboardComponent = /** @class */ (function () {
         this.outOfStock = [];
         // pager object
         this.pager = {};
+        this.searchService.search(this.searchTerm$)
+            .subscribe(function (results) {
+            _this.results = results.data;
+        });
     }
     AdminDashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -452,7 +566,7 @@ var AdminDashboardComponent = /** @class */ (function () {
             _this.allItems = res.data;
             ;
             for (var i = 0; i < _this.allItems.length; i++)
-                if (_this.allItems[i].quantity == 0)
+                if (_this.allItems[i].quantity <= 0)
                     _this.outOfStock.push(_this.allItems[i]);
             // initialize to page 1
             _this.setPage(1);
@@ -512,7 +626,8 @@ var AdminDashboardComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_2__services_pager_services_service__["a" /* PagerServicesService */],
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
             __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_5__services_toaster_service_service__["a" /* ToasterServiceService */]])
+            __WEBPACK_IMPORTED_MODULE_5__services_toaster_service_service__["a" /* ToasterServiceService */],
+            __WEBPACK_IMPORTED_MODULE_6__services_search_service_service__["a" /* SearchService */]])
     ], AdminDashboardComponent);
     return AdminDashboardComponent;
 }());
@@ -524,14 +639,14 @@ var AdminDashboardComponent = /** @class */ (function () {
 /***/ "./src/app/components/autocomplete-optgroup-example/autocomplete-optgroup-example.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".example-form {\r\n  min-width: 150px;\r\n  max-width: 500px;\r\n  width: 100%;\r\n}\r\n\r\n.example-full-width {\r\n  width: 100%;\r\n}\r\n"
+module.exports = "/*.example-form {*/\r\n  /*min-width: 150px;*/\r\n  /*max-width: 500px;*/\r\n  /*width: 100%;*/\r\n  /*}*/\r\n  /*.example-full-width {*/\r\n  /*width: 100%;*/\r\n  /*}*/\r\n"
 
 /***/ }),
 
 /***/ "./src/app/components/autocomplete-optgroup-example/autocomplete-optgroup-example.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar\" style=\"background-color: blue;margin-top: 1%\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'; color: white\">Medicines</span></a>\n    </div>\n\n    <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n      <div class=\"input-group\">\n        <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n        <mat-form-field class=\"example-full-width input-group\">\n          <input style=\"background-color: white\" matInput aria-label=\"State\" [matAutocomplete]=\"auto\" [formControl]=\"stateCtrl\" type=\"text\" class=\"form-control\">\n          <mat-autocomplete #auto=\"matAutocomplete\">\n            <mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\">\n              <img style=\"vertical-align:middle;\" aria-hidden src=\"{{state.flag}}\" height=\"25\" />\n              <span>{{ state.name }}</span> |\n              <small>Price: {{state.price}}</small>\n            </mat-option>\n          </mat-autocomplete>\n        </mat-form-field>\n        <div class=\"input-group-btn\" style=\"margin-top: 1px\">\n          <button class=\"btn btn-default\" type=\"submit\">\n            <i class=\"glyphicon glyphicon-search\"></i>\n          </button>\n        </div>\n      </div>\n    </form>\n  </div>\n</nav>\n\n\n<!--<form class=\"example-form\">-->\n  <!--<mat-form-field class=\"example-full-width\">-->\n    <!--<input matInput placeholder=\"State\" aria-label=\"State\" [matAutocomplete]=\"auto\" [formControl]=\"stateCtrl\">-->\n    <!--<mat-autocomplete #auto=\"matAutocomplete\">-->\n      <!--<mat-option *ngFor=\"let state of filteredStates | async\" [value]=\"state.name\">-->\n        <!--<img style=\"vertical-align:middle;\" aria-hidden src=\"{{state.flag}}\" height=\"25\" />-->\n        <!--<span>{{ state.name }}</span> |-->\n        <!--<small>Price: {{state.price}}</small>-->\n      <!--</mat-option>-->\n    <!--</mat-autocomplete>-->\n  <!--</mat-form-field>-->\n\n  <!--<br />-->\n\n<!--</form>-->\n"
+module.exports = "<input (keyup)=\"searchTerm$.next($event.target.value)\">\n\n<ul *ngIf=\"results\">\n  <li *ngFor=\"let result of results | slice:0:9\">\n    <a href=\"{{ result.latest }}\" target=\"_blank\">\n      {{ result.name }}\n    </a>\n  </li>\n</ul>\n"
 
 /***/ }),
 
@@ -541,9 +656,9 @@ module.exports = "<nav class=\"navbar\" style=\"background-color: blue;margin-to
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AutocompleteOptgroupExampleComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_operators__ = __webpack_require__("./node_modules/rxjs/_esm5/operators.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_medicine_service__ = __webpack_require__("./src/app/services/medicine.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__ = __webpack_require__("./node_modules/rxjs/_esm5/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_medicine_service__ = __webpack_require__("./src/app/services/medicine.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_search_service_service__ = __webpack_require__("./src/app/services/search-service.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -557,56 +672,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// export class State {
-//   constructor(public name: string, public population: string, public flag: string) { }
-// }
 var AutocompleteOptgroupExampleComponent = /** @class */ (function () {
-    // states: State[] = [
-    //   {
-    //     name: 'Arkansas',
-    //     population: '2.978M',
-    //     // https://commons.wikimedia.org/wiki/File:Flag_of_Arkansas.svg
-    //     flag: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Flag_of_Arkansas.svg'
-    //   },
-    //   {
-    //     name: 'California',
-    //     population: '39.14M',
-    //     // https://commons.wikimedia.org/wiki/File:Flag_of_California.svg
-    //     flag: 'https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg'
-    //   },
-    //   {
-    //     name: 'Florida',
-    //     population: '20.27M',
-    //     // https://commons.wikimedia.org/wiki/File:Flag_of_Florida.svg
-    //     flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Florida.svg'
-    //   },
-    //   {
-    //     name: 'Texas',
-    //     population: '27.47M',
-    //     // https://commons.wikimedia.org/wiki/File:Flag_of_Texas.svg
-    //     flag: 'https://upload.wikimedia.org/wikipedia/commons/f/f7/Flag_of_Texas.svg'
-    //   }
-    // ];
-    function AutocompleteOptgroupExampleComponent(medicineService) {
+    function AutocompleteOptgroupExampleComponent(searchService, medicineService) {
         var _this = this;
+        this.searchService = searchService;
         this.medicineService = medicineService;
-        this.states = [];
-        this.stateCtrl = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]();
-        this.filteredStates = this.stateCtrl.valueChanges
-            .pipe(Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["b" /* startWith */])(''), Object(__WEBPACK_IMPORTED_MODULE_2_rxjs_operators__["a" /* map */])(function (state) { return state ? _this.filterStates(state) : _this.states.slice(); }));
+        this.searchTerm$ = new __WEBPACK_IMPORTED_MODULE_1_rxjs_Subject__["a" /* Subject */]();
+        this.searchService.search(this.searchTerm$)
+            .subscribe(function (results) {
+            _this.results = results.data;
+        });
     }
     AutocompleteOptgroupExampleComponent.prototype.ngOnInit = function () {
-        var _this = this;
         this.medicineService.getMedicine().subscribe(function (res) {
-            res.data.forEach(function (md) {
-                _this.states.push(md);
-            });
-            console.log(_this.states);
-        });
-    };
-    AutocompleteOptgroupExampleComponent.prototype.filterStates = function (name) {
-        return this.states.filter(function (state) {
-            return state.name.toLowerCase().indexOf(name.toLowerCase()) === 0;
         });
     };
     AutocompleteOptgroupExampleComponent = __decorate([
@@ -615,9 +693,201 @@ var AutocompleteOptgroupExampleComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/components/autocomplete-optgroup-example/autocomplete-optgroup-example.component.html"),
             styles: [__webpack_require__("./src/app/components/autocomplete-optgroup-example/autocomplete-optgroup-example.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_medicine_service__["a" /* MedicineService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_search_service_service__["a" /* SearchService */],
+            __WEBPACK_IMPORTED_MODULE_2__services_medicine_service__["a" /* MedicineService */]])
     ], AutocompleteOptgroupExampleComponent);
     return AutocompleteOptgroupExampleComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/home/home.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/components/home/home.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  home works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/components/home/home.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_pager_services_service__ = __webpack_require__("./src/app/services/pager-services.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_cart__ = __webpack_require__("./src/app/model/cart.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__ = __webpack_require__("./node_modules/rxjs/_esm5/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_medicine_service__ = __webpack_require__("./src/app/services/medicine.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_search_service_service__ = __webpack_require__("./src/app/services/search-service.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var HomeComponent = /** @class */ (function () {
+    function HomeComponent(medicineService, pagerService, router, searchService) {
+        var _this = this;
+        this.medicineService = medicineService;
+        this.pagerService = pagerService;
+        this.router = router;
+        this.searchService = searchService;
+        this.searchTerm$ = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__["a" /* Subject */]();
+        this.medicines = new Array();
+        this.medicine = new __WEBPACK_IMPORTED_MODULE_2__model_cart__["a" /* Cart */]();
+        this.sum = 0;
+        // pager object
+        this.pager = {};
+        this.searchService.search(this.searchTerm$)
+            .subscribe(function (results) {
+            _this.results = results.data;
+        });
+    }
+    HomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.medicineService.getMedicine().subscribe(function (res) {
+            _this.allItems = res.data;
+            ;
+            // initialize to page 1
+            _this.setPage(1);
+        });
+        if (localStorage.getItem('cart'))
+            this.medicines = JSON.parse(localStorage.getItem('cart'));
+        this.sum = 0;
+        if (this.medicines)
+            for (var i = 0; i < this.medicines.length; i++) {
+                this.sum = this.sum + this.medicines[i].price * this.medicines[i].quantity; //here price and quantity of type number
+            }
+    };
+    HomeComponent.prototype.setPage = function (page) {
+        // get pager object from service
+        this.pager = this.pagerService.getPager(this.allItems.length, page);
+        // get current page of items
+        this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    };
+    HomeComponent.prototype.addToCart = function (medicine) {
+        this.medicine = new __WEBPACK_IMPORTED_MODULE_2__model_cart__["a" /* Cart */]();
+        var found = this.medicines.find(function (element) {
+            return element.name == medicine.name;
+        });
+        //
+        // console.log('Found');
+        // console.log(found);
+        if (found) {
+            if (found.name == medicine.name) {
+                for (var i = 0; i < this.medicines.length; i++)
+                    if (this.medicines[i].name == medicine.name) {
+                        this.medicines[i].quantity = this.medicines[i].quantity + 1;
+                        this.allItems[i].quantity--;
+                        console.log('Quantity: ' + this.allItems[i].quantity);
+                        // this.sum += this.medicines[i].quantity* this.medicines[i].price;
+                        // console.log(this.medicines[i].quantity)
+                    }
+            }
+        }
+        else {
+            this.medicine._id = medicine._id;
+            this.medicine.name = medicine.name;
+            this.medicine.price = medicine.price;
+            this.medicine.quantity = 1;
+            for (var i = 0; i < this.allItems.length; i++) {
+                if (this.medicine.name == this.allItems[i].name)
+                    this.allItems[i].quantity--;
+            }
+            // this.sum += this.medicine.quantity* this.medicine.price;
+            this.medicines.push(this.medicine);
+        }
+        this.sum = 0;
+        for (var i = 0; i < this.medicines.length; i++) {
+            this.sum = this.sum + this.medicines[i].price * this.medicines[i].quantity; //here price and quantity of type number
+            console.log(typeof this.sum); //but this print NaN
+        }
+        // console.log(this.medicines);
+        localStorage.setItem('cart', JSON.stringify(this.medicines));
+    };
+    HomeComponent.prototype.removeFromCart = function (cnt, medicine) {
+        for (var i = 0; i < this.medicines.length; i++)
+            if (this.medicines[i].name == medicine.name) {
+                this.medicines[i].quantity--;
+                if (this.medicines[i].quantity <= 0)
+                    this.medicines.splice(i, 1);
+                // console.log(this.medicines[i].quantity)
+            }
+        this.sum = 0;
+        for (var i = 0; i < this.medicines.length; i++) {
+            this.sum = this.sum + this.medicines[i].price * this.medicines[i].quantity; //here price and quantity of type number
+            console.log(typeof this.sum); //but this print NaN
+        }
+        localStorage.setItem('cart', JSON.stringify(this.medicines));
+    };
+    HomeComponent.prototype.removeAllFromCart = function (medicine) {
+        for (var i = 0; i < this.medicines.length; i++)
+            if (this.medicines[i].name == medicine.name) {
+                this.medicines.splice(i, 1);
+                // console.log(this.medicines[i].quantity)
+            }
+        this.sum = 0;
+        for (var i = 0; i < this.medicines.length; i++) {
+            this.sum = this.sum + this.medicines[i].price * this.medicines[i].quantity; //here price and quantity of type number
+            console.log(typeof this.sum); //but this print NaN
+        }
+        localStorage.setItem('cart', JSON.stringify(this.medicines));
+    };
+    HomeComponent.prototype.updateTheMedicine = function (medicine) {
+        console.log(medicine._id);
+        var navigationExtras = {
+            queryParams: {
+                "_id": medicine._id,
+                "quantity": medicine.quantity
+            }
+        };
+        for (var i = 0; i < this.medicines.length; i++)
+            if (this.medicines[i].name == medicine.name) {
+                this.medicines[i].quantity = 0;
+                if (this.medicines[i].quantity <= 0)
+                    this.medicines.splice(i, 1);
+                // console.log(this.medicines[i].quantity)
+            }
+        this.sum = 0;
+        for (var i = 0; i < this.medicines.length; i++) {
+            this.sum = this.sum + this.medicines[i].price * this.medicines[i].quantity; //here price and quantity of type number
+            console.log(typeof this.sum); //but this print NaN
+        }
+        localStorage.setItem('cart', JSON.stringify(this.medicines));
+        this.router.navigate(['update-medicine'], navigationExtras);
+    };
+    HomeComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-home',
+            template: __webpack_require__("./src/app/components/home/home.component.html"),
+            styles: [__webpack_require__("./src/app/components/home/home.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__services_medicine_service__["a" /* MedicineService */],
+            __WEBPACK_IMPORTED_MODULE_1__services_pager_services_service__["a" /* PagerServicesService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_6__services_search_service_service__["a" /* SearchService */]])
+    ], HomeComponent);
+    return HomeComponent;
 }());
 
 
@@ -627,7 +897,7 @@ var AutocompleteOptgroupExampleComponent = /** @class */ (function () {
 /***/ "./src/app/components/login/login.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(25, 207, 193, 0.7);\r\n  color: white;\r\n}\r\ntable tr:nth-child(odd) {\r\n  color: white;\r\n  background-color: rgba(145, 142, 176, 0.7);\r\n}\r\n.bg {\r\n  /* The image used */\r\n  /*background-image: url('../../../assets/images/medicine-background-7.jpg');*/\r\n\r\n  /* Full height */\r\n\r\n  height: 80%;\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: repeat;\r\n  background-size: cover;\r\n\r\n  /* Set rules to fill background */\r\n  min-height: 100%;\r\n  min-width: 1024px;\r\n\r\n  /* Set up proportionate scaling */\r\n  width: 100%;\r\n  height: auto;\r\n\r\n  /* Set up positioning */\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n}\r\n@media screen and (max-width: 1024px) { /* Specific to this particular image */\r\n  img.bg {\r\n    left: 50%;\r\n    margin-left: -512px;   /* 50% */\r\n  }\r\n\r\n}\r\n\r\n\r\n"
+module.exports = "\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -726,14 +996,14 @@ var LoginComponent = /** @class */ (function () {
 /***/ "./src/app/components/manager-dashboard/manager-dashboard.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(205, 195, 207, 0.7);\r\n  color: black;\r\n}\r\ntable tr:nth-child(odd) {\r\n  color: black;\r\n  background-color: rgba(176, 160, 173, 0.7);\r\n}\r\n.bg {\r\n  /* The image used */\r\n  /*background-image: url('../../../assets/images/medicine-background-7.jpg');*/\r\n\r\n  /* Full height */\r\n\r\n  height: 80%;\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: repeat;\r\n  background-size: cover;\r\n\r\n  /* Set rules to fill background */\r\n  min-height: 100%;\r\n  min-width: 1024px;\r\n\r\n  /* Set up proportionate scaling */\r\n  width: 100%;\r\n  height: auto;\r\n\r\n  /* Set up positioning */\r\n  position: relative;\r\n  top: 0;\r\n  left: 0;\r\n}\r\n@media screen and (max-width: 1024px) { /* Specific to this particular image */\r\n  img.bg {\r\n    left: 50%;\r\n    margin-left: -512px;   /* 50% */\r\n  }\r\n\r\n}\r\n.texto_grande {\r\n  font-size: 2rem;\r\n  color: white;\r\n}\r\n#icone_grande {\r\n  font-size: 4rem;\r\n  color:#fff;\r\n}\r\n\r\n\r\n"
+module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(205, 195, 207, 0.7);\r\n  color: black;\r\n}\r\ntable tr:nth-child(odd) {\r\n  color: black;\r\n  background-color: rgba(176, 160, 173, 0.7);\r\n}\r\n.texto_grande {\r\n  font-size: 2rem;\r\n  color: white;\r\n}\r\n#icone_grande {\r\n  font-size: 4rem;\r\n  color:#fff;\r\n}\r\n\r\n\r\n"
 
 /***/ }),
 
 /***/ "./src/app/components/manager-dashboard/manager-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"bg\">\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\" *ngIf=\"adminOrManager=='Admin'\"><a href=\"#\">Admin Home</a></li>\n        <li><a href=\"/pharmasist\">Pharmasist</a></li>\n        <li><a href=\"/manager\">Manager</a></li>\n        <li><a href=\"/salesman\">Salesman</a></li>\n        <li><a href=\"#\">Sales Report</a></li>\n      </ul>\n\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n          <button style=\"text-decoration: none\">Log Out</button>\n\n        </div>\n      </form>\n\n    </div>\n  </nav>\n\n  <div class=\"container\">\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-shopping-cart\" id=\"icone_grande\"></i><span> <b style=\"font-size: 48px; margin-left: 10px\"></b></span><br><br>\n        <span class=\"texto_grande\"> Total Sales</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fa fa-user\" id=\"icone_grande\"></i> <span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfManager}}</b></span><br><br>\n        <span class=\"texto_grande\"> Manager</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users\" id=\"icone_grande\"></i><span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfPharmasist}}</b></span> <br><br>\n        <span class=\"texto_grande\"> Pharmasist</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users\" id=\"icone_grande\"></i> <span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfSaleman}}</b></span><br><br>\n        <span class=\"texto_grande\"> Salesman</span></a>\n    </div>\n  </div>\n\n  <br><br>\n\n  <div class=\"container\" >\n    <div class=\"col-md-3 col-sm-3\" *ngIf=\"adminOrManager=='Admin'\">\n      <a (click)=\"managerAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Manager</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a (click)=\"pharmasistAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-user-md\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Pharmasist</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a (click)=\"salesManAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-user-tie\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Salesman</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a  class=\"btn btn-block btn-lg btn-danger\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-search\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"> Report</span></a>\n    </div>\n\n\n\n  </div>\n\n  <br><br>\n\n  <div  class=\"container\" style=\"background-color: ghostwhite\">\n\n    <nav class=\"navbar\" style=\"background-color: blue; margin-top: 1%\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'; color: white\">Out of Stock Medicines</span></a>\n        </div>\n\n      </div>\n    </nav>\n\n\n    <div class=\"table-responsice\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n          <th>#</th>\n          <th>Name</th>\n          <th>Generic</th>\n          <th>Type</th>\n          <th>Price</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let medicine of outOfStock; let i = index\">\n\n          <td>{{i+1}}</td>\n          <td>{{medicine.name}}</td>\n          <td>{{medicine.generic}}</td>\n          <td>{{medicine.type}}</td>\n          <td>{{medicine.price}}</td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n\n  </div>\n\n  <br><br>\n\n\n  <div class=\"container\" style=\"background-color: azure\">\n    <nav class=\"navbar\" style=\"background-color: blue;margin-top: 1%\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'; color: white\">Medicines</span></a>\n        </div>\n\n        <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n          <div class=\"input-group\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">\n            <div class=\"input-group-btn\">\n              <button class=\"btn btn-default\" type=\"submit\">\n                <i class=\"glyphicon glyphicon-search\"></i>\n              </button>\n            </div>\n          </div>\n        </form>\n      </div>\n    </nav>\n\n\n    <div class=\"table-responsice\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n          <th>#</th>\n          <th>Name</th>\n          <th>Generic</th>\n          <th>Type</th>\n          <th>Price</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let medicine of pagedItems; let i = index\">\n\n          <td>{{i+1}}</td>\n          <td>{{medicine.name}}</td>\n          <td>{{medicine.generic}}</td>\n          <td>{{medicine.type}}</td>\n          <td>{{medicine.price}}</td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n\n    <!-- items being paged -->\n    <!--<div *ngFor=\"let item of pagedItems\">-->\n    <!--{{item.name}}-->\n    <!--</div>-->\n\n    <div class=\"text-center\">\n      <!-- pager -->\n      <ul *ngIf=\"pager.pages && pager.pages.length\" class=\"pagination\">\n        <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n          <a (click)=\"setPage(1)\">First</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n          <a (click)=\"setPage(pager.currentPage - 1)\">Previous</a>\n        </li>\n        <li *ngFor=\"let page of pager.pages\" [ngClass]=\"{active:pager.currentPage === page}\">\n          <a (click)=\"setPage(page)\">{{page}}</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n          <a (click)=\"setPage(pager.currentPage + 1)\">Next</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n          <a (click)=\"setPage(pager.totalPages)\">Last</a>\n        </li>\n      </ul>\n    </div>\n\n  </div>\n\n</div>\n\n"
+module.exports = "\n<div class=\"bg\">\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\" *ngIf=\"adminOrManager=='Admin'\"><a href=\"#\">Admin Home</a></li>\n        <li class=\"active\" *ngIf=\"adminOrManager=='Manager'\"><a href=\"/mDashboard\">Manger Dashboard</a></li>\n        <li><a href=\"/manager\">Manager</a></li>\n        <li><a href=\"/pharmasist\">Pharmasist</a></li>\n\n        <li><a href=\"/salesman\">Salesman</a></li>\n        <!--<li><a href=\"#\">Sales Report</a></li>-->\n      </ul>\n\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n          <!--<button style=\"text-decoration: none\">Log Out</button>-->\n\n          <button (click)=\"logout()\" style=\"text-decoration: none\" class=\"btn btn-warning\">Log Out</button>\n\n        </div>\n      </form>\n\n    </div>\n  </nav>\n\n  <div class=\"container\">\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-shopping-cart\" id=\"icone_grande\"></i><span> <b style=\"font-size: 48px; margin-left: 10px\"></b></span><br><br>\n        <span class=\"texto_grande\"> Total Sales</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fa fa-user\" id=\"icone_grande\"></i> <span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfManager}}</b></span><br><br>\n        <span class=\"texto_grande\"> Manager</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users\" id=\"icone_grande\"></i><span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfPharmasist}}</b></span> <br><br>\n        <span class=\"texto_grande\"> Pharmasist</span></a>\n    </div>\n    <div class=\"col-md-3 col-sm-3\">\n      <a class=\"btn btn-block btn-lg btn-primary\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users\" id=\"icone_grande\"></i> <span> <b style=\"font-size: 48px; margin-left: 10px\">{{numberOfSaleman}}</b></span><br><br>\n        <span class=\"texto_grande\"> Salesman</span></a>\n    </div>\n  </div>\n\n  <br><br>\n\n  <div class=\"container\" >\n    <div class=\"col-md-3 col-sm-3\" *ngIf=\"adminOrManager=='Admin'\">\n      <a (click)=\"managerAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Manager</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a (click)=\"pharmasistAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-user-md\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Pharmasist</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a (click)=\"salesManAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-user-tie\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i>Salesman</span></a>\n    </div>\n\n    <div class=\"col-md-3 col-sm-3\">\n      <a  class=\"btn btn-block btn-lg btn-danger\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-search\" id=\"icone_grande\"></i> <br><br>\n        <span class=\"texto_grande\"> Report</span></a>\n    </div>\n\n\n\n  </div>\n\n  <br><br>\n\n  <div  class=\"container\" style=\"background-color: ghostwhite\">\n\n    <nav class=\"navbar\" style=\"background-color: blue; margin-top: 1%\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'; color: white\">Out of Stock Medicines</span></a>\n        </div>\n\n      </div>\n    </nav>\n\n\n    <div class=\"table-responsice\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n          <th>#</th>\n          <th>Name</th>\n          <th>Generic</th>\n          <th>Type</th>\n          <th>Price</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let medicine of outOfStock; let i = index\">\n\n          <td>{{i+1}}</td>\n          <td>{{medicine.name}}</td>\n          <td>{{medicine.generic}}</td>\n          <td>{{medicine.type}}</td>\n          <td>{{medicine.price}}</td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n\n  </div>\n\n  <br><br>\n\n\n  <div class=\"container\" style=\"background-color: azure\">\n    <nav class=\"navbar\" style=\"background-color: blue;margin-top: 1%\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'; color: white\">Medicines</span></a>\n        </div>\n\n        <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n          <div class=\"input-group\">\n            <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\" (keyup)=\"searchTerm$.next($event.target.value)\">\n\n            <div class=\"input-group-btn\">\n              <button class=\"btn btn-default\" type=\"submit\">\n                <i class=\"glyphicon glyphicon-search\"></i>\n              </button>\n            </div>\n          </div>\n        </form>\n      </div>\n    </nav>\n\n\n    <div *ngIf=\"results\" class=\"table-responsice\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n          <th>#</th>\n          <th>Name</th>\n          <th>Generic</th>\n          <th>Type</th>\n          <th>Price</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let medicine of results; let i = index\">\n\n          <td>{{i+1}}</td>\n          <td>{{medicine.name}}</td>\n          <td>{{medicine.generic}}</td>\n          <td>{{medicine.type}}</td>\n          <td>{{medicine.price}}</td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n\n\n    <div *ngIf=\"!results\" class=\"table-responsice\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n          <th>#</th>\n          <th>Name</th>\n          <th>Generic</th>\n          <th>Type</th>\n          <th>Price</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let medicine of pagedItems; let i = index\">\n\n          <td>{{i+1}}</td>\n          <td>{{medicine.name}}</td>\n          <td>{{medicine.generic}}</td>\n          <td>{{medicine.type}}</td>\n          <td>{{medicine.price}}</td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n\n    <!-- items being paged -->\n    <!--<div *ngFor=\"let item of pagedItems\">-->\n    <!--{{item.name}}-->\n    <!--</div>-->\n\n    <div class=\"text-center\">\n      <!-- pager -->\n      <ul *ngIf=\"pager.pages && pager.pages.length\" class=\"pagination\">\n        <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n          <a (click)=\"setPage(1)\">First</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n          <a (click)=\"setPage(pager.currentPage - 1)\">Previous</a>\n        </li>\n        <li *ngFor=\"let page of pager.pages\" [ngClass]=\"{active:pager.currentPage === page}\">\n          <a (click)=\"setPage(page)\">{{page}}</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n          <a (click)=\"setPage(pager.currentPage + 1)\">Next</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n          <a (click)=\"setPage(pager.totalPages)\">Last</a>\n        </li>\n      </ul>\n    </div>\n\n  </div>\n\n</div>\n\n"
 
 /***/ }),
 
@@ -747,6 +1017,9 @@ module.exports = "\n<div class=\"bg\">\n\n  <nav class=\"navbar navbar-inverse\"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_pager_services_service__ = __webpack_require__("./src/app/services/pager-services.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_toaster_service_service__ = __webpack_require__("./src/app/services/toaster-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_search_service_service__ = __webpack_require__("./src/app/services/search-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_Subject__ = __webpack_require__("./node_modules/rxjs/_esm5/Subject.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -761,12 +1034,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var ManagerDashboardComponent = /** @class */ (function () {
-    function ManagerDashboardComponent(medicineService, pagerService, router, authService) {
+    function ManagerDashboardComponent(medicineService, pagerService, router, authService, toasterService, searchService) {
+        var _this = this;
         this.medicineService = medicineService;
         this.pagerService = pagerService;
         this.router = router;
         this.authService = authService;
+        this.toasterService = toasterService;
+        this.searchService = searchService;
+        this.searchTerm$ = new __WEBPACK_IMPORTED_MODULE_7_rxjs_Subject__["a" /* Subject */]();
         //Manager
         this.numberOfManager = 0;
         //Pharmasist
@@ -776,6 +1056,10 @@ var ManagerDashboardComponent = /** @class */ (function () {
         this.outOfStock = [];
         // pager object
         this.pager = {};
+        this.searchService.search(this.searchTerm$)
+            .subscribe(function (results) {
+            _this.results = results.data;
+        });
     }
     ManagerDashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -827,6 +1111,11 @@ var ManagerDashboardComponent = /** @class */ (function () {
         var id = "Salesman";
         this.router.navigate(["/addUser/" + id]);
     };
+    ManagerDashboardComponent.prototype.logout = function () {
+        this.authService.logout();
+        this.toasterService.Success('Successfully logout!');
+        this.router.navigate(['/login']);
+    };
     ManagerDashboardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-manager-dashboard',
@@ -836,7 +1125,9 @@ var ManagerDashboardComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_medicine_service__["a" /* MedicineService */],
             __WEBPACK_IMPORTED_MODULE_2__services_pager_services_service__["a" /* PagerServicesService */],
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
-            __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */]])
+            __WEBPACK_IMPORTED_MODULE_4__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_5__services_toaster_service_service__["a" /* ToasterServiceService */],
+            __WEBPACK_IMPORTED_MODULE_6__services_search_service_service__["a" /* SearchService */]])
     ], ManagerDashboardComponent);
     return ManagerDashboardComponent;
 }());
@@ -855,7 +1146,7 @@ module.exports = ""
 /***/ "./src/app/components/manager/manager.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li><a href=\"/aDashboard\">Admin Home</a></li>\n        <li><a href=\"/pharmasist\">Pharmasist</a></li>\n        <li class=\"active\"><a href=\"#\">Manager</a></li>\n        <li><a href=\"/salesman\">Salesman</a></li>\n        <li><a href=\"#\">Sales Report</a></li>\n      </ul>\n\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n          <button style=\"text-decoration: none\">Log Out</button>\n\n        </div>\n      </form>\n\n    </div>\n  </nav>\n\n  <div  class=\"container\" >\n\n    <div class=\"col-md-3 pull-right\">\n      <a (click)=\"managerAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i> Add Manager</span></a>\n    </div>\n\n    <h3 style=\"font-family: 'Times New Roman'\">List of Manager</h3>\n\n\n  </div>\n\n  <div class=\"container\">\n\n\n    <br>\n\n    <div class=\"table-responsice\" style=\"color: white\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n\n          <th>First Name</th>\n          <th>Last Name</th>\n          <th>Username</th>\n          <th>Update</th>\n          <th>Delete</th>\n        </tr>\n        </thead>\n        <tbody *ngFor=\"let manger of manager; let i = index\">\n        <tr *ngIf=\"manger.firstName\">\n          <td>{{manger.firstName}}</td>\n          <td>{{manger.lastName}}</td>\n          <td>{{manger.username}}</td>\n          <td>\n            <a (click)=\"updateManager(manger._id)\" class=\"btn  btn-sm btn-warning\">\n              <i class=\"fas fa-wrench\" id=\"icone_grande\"></i></a>\n          </td>\n          <td>\n            <a (click)=\"salesManAdd()\" class=\"btn  btn-sm btn-danger\">\n              <i class=\"fas fa-trash\" id=\"icone_grande\"></i></a>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div>\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li *ngIf=\"adminOrManager == 'Admin'\"><a href=\"/aDashboard\">Admin Home</a></li>\n        <li *ngIf=\"adminOrManager == 'Manager'\"><a href=\"/mDashboard\">Manger Dashboard</a></li>\n\n        <li class=\"active\"><a href=\"#\">Manager</a></li>\n        <li><a href=\"/pharmasist\">Pharmasist</a></li>\n        <li><a href=\"/salesman\">Salesman</a></li>\n        <!--<li><a href=\"#\">Sales Report</a></li>-->\n      </ul>\n\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n          <!--<button style=\"text-decoration: none\">Log Out</button>-->\n\n          <button (click)=\"logout()\" style=\"text-decoration: none\" class=\"btn btn-warning\">Log Out</button>\n\n        </div>\n      </form>\n\n    </div>\n  </nav>\n\n  <div  class=\"container\" >\n\n    <div  class=\"col-md-3 pull-right\">\n      <button [attr.disabled]=\"buttonDisabled? '' : null\" (click)=\"managerAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i> Add Manager</span></button>\n    </div>\n\n    <h3 style=\"font-family: 'Times New Roman'; color: white\">List of Manager</h3>\n\n\n  </div>\n\n  <div class=\"container\">\n\n\n    <br>\n\n    <div class=\"table-responsice\" style=\"color: white\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n\n          <th>First Name</th>\n          <th>Last Name</th>\n          <th>Username</th>\n          <th>Update</th>\n          <th>Delete</th>\n        </tr>\n        </thead>\n        <tbody *ngFor=\"let manger of manager; let i = index\">\n        <tr *ngIf=\"manger.firstName\">\n          <td>{{manger.firstName}}</td>\n          <td>{{manger.lastName}}</td>\n          <td>{{manger.username}}</td>\n          <td>\n            <a (click)=\"updateManager(manger._id)\" class=\"btn  btn-sm btn-warning\">\n              <i class=\"fas fa-wrench\" id=\"icone_grande\"></i></a>\n          </td>\n          <td>\n            <a (click)=\"salesManAdd()\" class=\"btn  btn-sm btn-danger\">\n              <i class=\"fas fa-trash\" id=\"icone_grande\"></i></a>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -868,6 +1159,7 @@ module.exports = "<div>\n\n  <nav class=\"navbar navbar-inverse\">\n    <div cla
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__model_user__ = __webpack_require__("./src/app/model/user.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_toaster_service_service__ = __webpack_require__("./src/app/services/toaster-service.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -881,14 +1173,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ManagerComponent = /** @class */ (function () {
-    function ManagerComponent(authServiec, router) {
+    function ManagerComponent(authServiec, router, toasterService) {
         this.authServiec = authServiec;
         this.router = router;
+        this.toasterService = toasterService;
         this.manager = [new __WEBPACK_IMPORTED_MODULE_3__model_user__["a" /* User */]()];
+        this.buttonDisabled = true;
     }
     ManagerComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.adminOrManager = localStorage.getItem('category');
+        if (this.adminOrManager == 'Admin')
+            this.buttonDisabled = false;
         this.authServiec.getAllUser().subscribe(function (res) {
             for (var i = 0; i < res.data.length; i++) {
                 if (res.data[i].category === 'Manager' && res.data[i].firstName) {
@@ -908,6 +1206,11 @@ var ManagerComponent = /** @class */ (function () {
     ManagerComponent.prototype.updateManager = function (id) {
         this.router.navigate(["/update-manager/" + id]);
     };
+    ManagerComponent.prototype.logout = function () {
+        this.authServiec.logout();
+        this.toasterService.Success('Successfully logout!');
+        this.router.navigate(['/login']);
+    };
     ManagerComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-manager',
@@ -915,7 +1218,8 @@ var ManagerComponent = /** @class */ (function () {
             styles: [__webpack_require__("./src/app/components/manager/manager.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__services_toaster_service_service__["a" /* ToasterServiceService */]])
     ], ManagerComponent);
     return ManagerComponent;
 }());
@@ -948,6 +1252,9 @@ module.exports = "<div  class=\"bg\">\n\n\n  <nav class=\"navbar navbar-inverse\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_medicine__ = __webpack_require__("./src/app/model/medicine.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_medicine_service__ = __webpack_require__("./src/app/services/medicine.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_toaster_service_service__ = __webpack_require__("./src/app/services/toaster-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_validation_service__ = __webpack_require__("./src/app/services/validation.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -962,11 +1269,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
 var MedicineComponent = /** @class */ (function () {
-    function MedicineComponent(formBuilder, medicineService, router) {
+    function MedicineComponent(formBuilder, medicineService, router, validationService, toasterService, location) {
         this.formBuilder = formBuilder;
         this.medicineService = medicineService;
         this.router = router;
+        this.validationService = validationService;
+        this.toasterService = toasterService;
+        this.location = location;
         this.name = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required]);
         this.generic = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required]);
         this.type = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["c" /* FormControl */]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["k" /* Validators */].required]);
@@ -986,6 +1299,7 @@ var MedicineComponent = /** @class */ (function () {
         });
     };
     MedicineComponent.prototype.createMedicine = function (formData) {
+        var _this = this;
         this.medicine = new __WEBPACK_IMPORTED_MODULE_2__model_medicine__["a" /* Medicine */]();
         this.medicine.name = formData.value.name;
         this.medicine.generic = formData.value.generic;
@@ -994,9 +1308,14 @@ var MedicineComponent = /** @class */ (function () {
         this.medicine.price = formData.value.price;
         this.medicine.quantity = formData.value.quantity;
         console.log(this.medicine);
+        if (!this.validationService.validateMedicine(this.medicine)) {
+            this.toasterService.Warning("Please fill all the fields!");
+            return false;
+        }
         this.medicineService.createMedicine(this.medicine)
             .subscribe(function (resopnse) {
-            console.log(resopnse);
+            _this.toasterService.Success("successfully Added Medicine!");
+            _this.location.back();
         });
     };
     MedicineComponent = __decorate([
@@ -1007,7 +1326,10 @@ var MedicineComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* FormBuilder */],
             __WEBPACK_IMPORTED_MODULE_3__services_medicine_service__["a" /* MedicineService */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_6__services_validation_service__["a" /* ValidationService */],
+            __WEBPACK_IMPORTED_MODULE_5__services_toaster_service_service__["a" /* ToasterServiceService */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_common__["f" /* Location */]])
     ], MedicineComponent);
     return MedicineComponent;
 }());
@@ -1019,14 +1341,14 @@ var MedicineComponent = /** @class */ (function () {
 /***/ "./src/app/components/pharmasist-dashboard/pharmasist-dashboard.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(25, 207, 193, 0.7);\r\n  color: white;\r\n}\r\ntable tr:nth-child(odd) {\r\n  color: white;\r\n  background-color: rgba(145, 142, 176, 0.7);\r\n}\r\n.bg {\r\n  /* The image used */\r\n  /*background-image: url('../../../assets/images/medicine-background-7.jpg');*/\r\n\r\n  /* Full height */\r\n\r\n  height: 80%;\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: repeat;\r\n  background-size: cover;\r\n\r\n  /* Set rules to fill background */\r\n  min-height: 100%;\r\n  min-width: 1024px;\r\n\r\n  /* Set up proportionate scaling */\r\n  width: 100%;\r\n  height: auto;\r\n\r\n  /* Set up positioning */\r\n  /*position: fixed;*/\r\n  top: 0;\r\n  left: 0;\r\n}\r\n@media screen and (max-width: 1024px) { /* Specific to this particular image */\r\n  img.bg {\r\n    left: 50%;\r\n    margin-left: -512px;   /* 50% */\r\n  }\r\n\r\n}\r\n\r\n\r\n"
+module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(25, 207, 193, 0.7);\r\n  color: white;\r\n}\r\n\r\ntable tr:nth-child(odd) {\r\n  color: white;\r\n  background-color: rgba(145, 142, 176, 0.7);\r\n}"
 
 /***/ }),
 
 /***/ "./src/app/components/pharmasist-dashboard/pharmasist-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"bg\">\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a href=\"#\">Home</a></li>\n        <li><a href=\"/medicine\">Medicine</a></li>\n\n      </ul>\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">\n          <div class=\"input-group-btn\">\n            <button class=\"btn btn-default\" type=\"submit\">\n              <i class=\"glyphicon glyphicon-search\"></i>\n            </button>\n          </div>\n        </div>\n      </form>\n    </div>\n  </nav>\n\n  <div  class=\"container\">\n\n    <div class=\"col-md-3 pull-right\">\n      <a (click)=\"medicineAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i> Add Medicine</span></a>\n    </div>\n\n\n  </div>\n\n\n  <div  class=\"container\">\n\n\n    <br>\n\n    <!--<h1>Angular 2 - Pagination Example with logic like Google</h1>-->\n\n    <div class=\"table-responsice\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: blue; color: white\">\n          <th>#</th>\n          <th>Name</th>\n          <th>Generic</th>\n          <th>Type</th>\n          <th>Quantity</th>\n          <th>Edit</th>\n          <th>Delete</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let medicine of pagedItems; let i = index\">\n\n          <td>{{i+1}}</td>\n          <td>{{medicine.name}}</td>\n          <td>{{medicine.generic}}</td>\n          <td>{{medicine.type}}</td>\n          <td>{{medicine.quantity}}</td>\n          <td>\n            <a (click)=\"updateMedicine(medicine._id)\" class=\"btn  btn-sm btn-warning\">\n              <i class=\"fas fa-wrench\" id=\"icone_grande\"></i></a>\n          </td>\n          <td>\n            <a (click)=\"salesManAdd()\" class=\"btn  btn-sm btn-danger\">\n              <i class=\"fas fa-trash\" id=\"icone_grande\"></i></a>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n\n    <!-- items being paged -->\n    <!--<div *ngFor=\"let item of pagedItems\">-->\n    <!--{{item.name}}-->\n    <!--</div>-->\n\n    <div class=\"text-center\">\n      <!-- pager -->\n      <ul *ngIf=\"pager.pages && pager.pages.length\" class=\"pagination\">\n        <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n          <a (click)=\"setPage(1)\">First</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n          <a (click)=\"setPage(pager.currentPage - 1)\">Previous</a>\n        </li>\n        <li *ngFor=\"let page of pager.pages\" [ngClass]=\"{active:pager.currentPage === page}\">\n          <a (click)=\"setPage(page)\">{{page}}</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n          <a (click)=\"setPage(pager.currentPage + 1)\">Next</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n          <a (click)=\"setPage(pager.totalPages)\">Last</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div class=\"bg\">\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a href=\"#\">Home</a></li>\n        <li><a href=\"/medicine\">Medicine</a></li>\n\n      </ul>\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">\n          <div  class=\"input-group-btn\">\n            <button style=\"margin-right: 10px\" class=\"btn btn-default\" type=\"submit\">\n              <i class=\"glyphicon glyphicon-search\"></i>\n            </button>\n            <button  (click)=\"logout()\" style=\"text-decoration: none\" class=\"btn btn-warning\">Log Out</button>\n\n          </div>\n\n\n\n        </div>\n      </form>\n    </div>\n  </nav>\n\n  <div  class=\"container\">\n\n    <div class=\"col-md-3 pull-right\">\n      <a (click)=\"medicineAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i> Add Medicine</span></a>\n    </div>\n\n\n  </div>\n\n\n  <div  class=\"container\">\n\n\n    <br>\n\n    <!--<h1>Angular 2 - Pagination Example with logic like Google</h1>-->\n\n    <div class=\"table-responsice\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: blue; color: white\">\n          <th>#</th>\n          <th>Name</th>\n          <th>Generic</th>\n          <th>Type</th>\n          <th>Quantity</th>\n          <th>Edit</th>\n          <th>Delete</th>\n        </tr>\n        </thead>\n        <tbody>\n        <tr *ngFor=\"let medicine of pagedItems; let i = index\">\n\n          <td>{{i+1}}</td>\n          <td>{{medicine.name}}</td>\n          <td>{{medicine.generic}}</td>\n          <td>{{medicine.type}}</td>\n          <td>{{medicine.quantity}}</td>\n          <td>\n            <a (click)=\"updateMedicine(medicine._id)\" class=\"btn  btn-sm btn-warning\">\n              <i class=\"fas fa-wrench\" id=\"icone_grande\"></i></a>\n          </td>\n          <td>\n            <a (click)=\"salesManAdd()\" class=\"btn  btn-sm btn-danger\">\n              <i class=\"fas fa-trash\" id=\"icone_grande\"></i></a>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n\n    <!-- items being paged -->\n    <!--<div *ngFor=\"let item of pagedItems\">-->\n    <!--{{item.name}}-->\n    <!--</div>-->\n\n    <div class=\"text-center\">\n      <!-- pager -->\n      <ul *ngIf=\"pager.pages && pager.pages.length\" class=\"pagination\">\n        <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n          <a (click)=\"setPage(1)\">First</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n          <a (click)=\"setPage(pager.currentPage - 1)\">Previous</a>\n        </li>\n        <li *ngFor=\"let page of pager.pages\" [ngClass]=\"{active:pager.currentPage === page}\">\n          <a (click)=\"setPage(page)\">{{page}}</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n          <a (click)=\"setPage(pager.currentPage + 1)\">Next</a>\n        </li>\n        <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n          <a (click)=\"setPage(pager.totalPages)\">Last</a>\n        </li>\n      </ul>\n    </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -1041,6 +1363,8 @@ module.exports = "<div class=\"bg\">\n\n  <nav class=\"navbar navbar-inverse\">\
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_pager_services_service__ = __webpack_require__("./src/app/services/pager-services.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_medicine_service__ = __webpack_require__("./src/app/services/medicine.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__services_toaster_service_service__ = __webpack_require__("./src/app/services/toaster-service.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1056,12 +1380,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var PharmasistDashboardComponent = /** @class */ (function () {
-    function PharmasistDashboardComponent(http, pagerService, medicineService, router) {
+    function PharmasistDashboardComponent(http, pagerService, medicineService, router, authService, toasterService) {
         this.http = http;
         this.pagerService = pagerService;
         this.medicineService = medicineService;
         this.router = router;
+        this.authService = authService;
+        this.toasterService = toasterService;
         // pager object
         this.pager = {};
     }
@@ -1087,6 +1415,11 @@ var PharmasistDashboardComponent = /** @class */ (function () {
     PharmasistDashboardComponent.prototype.medicineAdd = function () {
         this.router.navigate(['/medicine']);
     };
+    PharmasistDashboardComponent.prototype.logout = function () {
+        this.authService.logout();
+        this.toasterService.Success('Successfully logout!');
+        this.router.navigate(['/login']);
+    };
     PharmasistDashboardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-pharmasist-dashboard',
@@ -1096,7 +1429,9 @@ var PharmasistDashboardComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"],
             __WEBPACK_IMPORTED_MODULE_3__services_pager_services_service__["a" /* PagerServicesService */],
             __WEBPACK_IMPORTED_MODULE_4__services_medicine_service__["a" /* MedicineService */],
-            __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_6__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_7__services_toaster_service_service__["a" /* ToasterServiceService */]])
     ], PharmasistDashboardComponent);
     return PharmasistDashboardComponent;
 }());
@@ -1115,7 +1450,7 @@ module.exports = ""
 /***/ "./src/app/components/pharmasist/pharmasist.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li><a href=\"/aDashboard\">Admin Home</a></li>\n        <li class=\"active\"><a href=\"#\">Pharmasist</a></li>\n        <li ><a href=\"/manager\">Manager</a></li>\n        <li><a href=\"/salesman\">Salesman</a></li>\n        <li><a href=\"#\">Sales Report</a></li>\n      </ul>\n\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n          <button style=\"text-decoration: none\">Log Out</button>\n\n        </div>\n      </form>\n\n    </div>\n  </nav>\n\n  <div  class=\"container\">\n\n    <div *ngIf=\"adminOrManager=='Admin' || adminOrManager=='Manager'\" class=\"col-md-3 pull-right\">\n      <a (click)=\"managerAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i> Add {{category}} </span></a>\n    </div>\n\n    <h3 style=\"font-family: 'Times New Roman'\">List of {{category}}</h3>\n    <br><br>\n\n  </div>\n\n  <div class=\"container\">\n\n\n    <div class=\"table-responsice\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n\n          <th>First Name</th>\n          <th>Last Name</th>\n          <th>Username</th>\n          <th>Update</th>\n          <th>Delete</th>\n        </tr>\n        </thead>\n        <tbody *ngFor=\"let manger of manager; let i = index\">\n        <tr *ngIf=\"manger.firstName\">\n          <td>{{manger.firstName}}</td>\n          <td>{{manger.lastName}}</td>\n          <td>{{manger.username}}</td>\n          <td>\n            <a (click)=\"updateManager(manger._id)\" class=\"btn  btn-sm btn-warning\">\n              <i class=\"fas fa-wrench\" id=\"icone_grande\"></i></a>\n          </td>\n          <td>\n            <a (click)=\"salesManAdd()\" class=\"btn  btn-sm btn-danger\">\n              <i class=\"fas fa-trash\" id=\"icone_grande\"></i></a>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div>\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li *ngIf=\"adminOrManager=='Admin'\"><a href=\"/aDashboard\">Admin Home</a></li>\n        <li *ngIf=\"adminOrManager=='Manager'\"><a href=\"/mDashboard\">Manger Dashboard</a></li>\n        <li *ngIf=\"adminOrManager=='Admin' || adminOrManager=='Manager'\"><a href=\"/manager\">Manager</a></li>\n        <li class=\"active\"><a href=\"/pharmasist\">Pharmasist</a></li>\n        <li><a href=\"/salesman\">Salesman</a></li>\n        <!--<li><a href=\"#\">Sales Report</a></li>-->\n      </ul>\n\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n          <!--<button style=\"text-decoration: none\">Log Out</button>-->\n\n          <button (click)=\"logout()\" style=\"text-decoration: none\" class=\"btn btn-warning\">Log Out</button>\n\n        </div>\n      </form>\n\n    </div>\n  </nav>\n\n  <div  class=\"container\">\n\n    <div *ngIf=\"adminOrManager=='Admin' || adminOrManager=='Manager'\" class=\"col-md-3 pull-right\">\n      <a (click)=\"managerAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i> Add {{category}} </span></a>\n    </div>\n\n    <h3 style=\"font-family: 'Times New Roman'; color: white\">List of {{category}}</h3>\n    <br>\n\n  </div>\n\n  <div class=\"container\">\n\n    <br>\n\n    <div class=\"table-responsice\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n\n          <th>First Name</th>\n          <th>Last Name</th>\n          <th>Username</th>\n          <th>Update</th>\n          <th>Delete</th>\n        </tr>\n        </thead>\n        <tbody *ngFor=\"let manger of manager; let i = index\">\n        <tr *ngIf=\"manger.firstName\" style=\"color: white\">\n          <td>{{manger.firstName}}</td>\n          <td>{{manger.lastName}}</td>\n          <td>{{manger.username}}</td>\n          <td>\n            <a (click)=\"updateManager(manger._id)\" class=\"btn  btn-sm btn-warning\">\n              <i class=\"fas fa-wrench\" id=\"icone_grande\"></i></a>\n          </td>\n          <td>\n            <a (click)=\"salesManAdd()\" class=\"btn  btn-sm btn-danger\">\n              <i class=\"fas fa-trash\" id=\"icone_grande\"></i></a>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -1128,6 +1463,7 @@ module.exports = "<div>\n\n  <nav class=\"navbar navbar-inverse\">\n    <div cla
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__model_user__ = __webpack_require__("./src/app/model/user.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_toaster_service_service__ = __webpack_require__("./src/app/services/toaster-service.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1141,10 +1477,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var PharmasistComponent = /** @class */ (function () {
-    function PharmasistComponent(authServiec, router) {
+    function PharmasistComponent(authServiec, router, toasterService) {
         this.authServiec = authServiec;
         this.router = router;
+        this.toasterService = toasterService;
         this.manager = [new __WEBPACK_IMPORTED_MODULE_3__model_user__["a" /* User */]()];
     }
     PharmasistComponent.prototype.ngOnInit = function () {
@@ -1170,6 +1508,11 @@ var PharmasistComponent = /** @class */ (function () {
     PharmasistComponent.prototype.updateManager = function (id) {
         this.router.navigate(["/update-manager/" + id]);
     };
+    PharmasistComponent.prototype.logout = function () {
+        this.authServiec.logout();
+        this.toasterService.Success('Successfully logout!');
+        this.router.navigate(['/login']);
+    };
     PharmasistComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-pharmasist',
@@ -1177,7 +1520,8 @@ var PharmasistComponent = /** @class */ (function () {
             styles: [__webpack_require__("./src/app/components/pharmasist/pharmasist.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__services_toaster_service_service__["a" /* ToasterServiceService */]])
     ], PharmasistComponent);
     return PharmasistComponent;
 }());
@@ -1196,7 +1540,7 @@ module.exports = ""
 /***/ "./src/app/components/salesman-dashboard/salesman-dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <!--<li ><a href=\"#\">Home</a></li>-->\n      <li class=\"active\"><a href=\"/sDashboard\">Salesman</a></li>\n    </ul>\n  </div>\n</nav>\n<div class=\"container\" style=\"background-color: white\" >\n\n  <h3 style=\"text-align: center\">Item Buy List</h3>\n  <div class=\"table-responsive\">\n    <table class=\"table\">\n\n      <thead>\n      <tr style=\"background-color: blue; color: white\" >\n        <th>#</th>\n        <th>Name</th>\n        <th>Quantity</th>\n        <th>Price</th>\n        <th>Add/Remove/Remove All</th>\n      </tr>\n      </thead>\n\n      <tbody *ngFor=\"let medicine of medicines; let i = index\">\n\n      <tr *ngIf=\"medicine.name\">\n\n        <td>{{i+1}}</td>\n        <td>{{medicine.name}}</td>\n        <td>{{medicine.quantity}}</td>\n        <td>{{medicine.price*medicine.quantity}}</td>\n        <!--<td><i style=\"font-size: 16px\" class=\"fas fa-plus-square\"></i></td>-->\n        <td>\n          <a (click)=\"addToCart(medicine)\" class=\"btn  btn-sm btn-success\">\n            <i style=\"font-size: 18px\" class=\"fas fa-plus-circle\"></i></a>\n\n          <a (click)=\"removeFromCart(1 , medicine)\" class=\"btn  btn-sm btn-warning\">\n            <i style=\"font-size: 18px\" class=\"fas fa-minus-circle\"></i></a>\n\n\n          <a (click)=\"removeAllFromCart(medicine)\" class=\"btn  btn-sm btn-danger\">\n            <i style=\"font-size: 18px\" class=\"fas fa-times-circle\"></i></a>\n          <button (click)=\"updateTheMedicine(medicine)\"  type=\"button\" class=\"btn btn-info\">Update</button>\n        </td>\n\n\n\n      </tr>\n      </tbody>\n      <tr>\n        <td><b style=\"font-size: 14px\">Total</b></td>\n        <td></td>\n        <td></td>\n        <td><b style=\"font-size: 14px\">${{sum}}</b></td>\n      </tr>\n    </table>\n\n    <label for=\"name\" class=\"pull-left\">Customer Name:</label>\n    <input type=\"text\" [(ngModel)]=\"customerName\" placeholder=\"Customer Name\" id=\"name\" class=\"pull-left\">\n    <input type=\"text\" [(ngModel)]=\"customerNumber\" placeholder=\"Mobile Number\" class=\"pull-right\">\n    <label class=\"pull-right\">Mobile Number:</label>\n\n\n  </div>\n  <br>\n  <div style=\"margin-left: 10%\"><button type=\"button\" style=\"text-align: center\" class=\"btn btn-primary\" (click)=\"print()\">Print</button></div>\n\n  <br>\n</div>\n\n<br>\n\n<div class=\"container\" style=\"background-color: white\" id=\"print-section\">\n<br>\n  <div class=\"table-responsive\" style=\"text-align: left\">\n    <table class=\"table\">\n\n      <thead>\n      <tr style=\"background-color: blue; color: white\" >\n        <th>#</th>\n        <th>Name</th>\n        <th>Quantity</th>\n        <th>Price</th>\n      </tr>\n      </thead>\n\n      <tbody *ngFor=\"let medicine of medicines; let i = index\">\n\n      <tr *ngIf=\"medicine.name\">\n\n        <td>{{i+1}}</td>\n        <td>{{medicine.name}}</td>\n        <td>{{medicine.quantity}}</td>\n        <td>{{medicine.price*medicine.quantity}}</td>\n        <!--<td><i style=\"font-size: 16px\" class=\"fas fa-plus-square\"></i></td>-->\n\n      </tr>\n      </tbody>\n      <tr>\n        <td><b style=\"font-size: 14px\">Total</b></td>\n        <td></td>\n        <td></td>\n        <td><b style=\"font-size: 14px\">${{sum}}</b></td>\n      </tr>\n    </table>\n\n    <label>Customer Name: <span style=\"font-family: 'Times New Roman'\">{{customerName}}</span></label>\n    <br>\n    <label>Mobile Number: <span style=\"font-family: 'Times New Roman'\">{{customerNumber}}</span></label>\n\n    <!--<button type=\"button\" (click)=\"print()\">Print</button>-->\n\n  </div>\n\n</div>\n\n<br><br>\n\n<div class=\"container\" style=\"background-color: white\">\n\n  <br>\n\n  <div class=\"table-responsice\">\n    <nav class=\"navbar navbar-inverse\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">Medicines</span></a>\n        </div>\n\n\n        <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n          <div class=\"input-group\">\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">\n            <div class=\"input-group-btn\">\n              <button class=\"btn btn-default\" type=\"submit\">\n                <i class=\"glyphicon glyphicon-search\"></i>\n              </button>\n            </div>\n          </div>\n        </form>\n      </div>\n    </nav>\n    <table  class=\"table\">\n      <thead>\n      <tr style=\"background-color: blue; color: white\">\n        <th>#</th>\n        <th>Name</th>\n        <th>Generic</th>\n        <th>Type</th>\n        <th>Price</th>\n        <th>Quantity</th>\n        <th>Add To Cart</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let medicine of pagedItems; let i = index\">\n\n        <td>{{i+1}}</td>\n        <td>{{medicine.name}}</td>\n        <td>{{medicine.generic}}</td>\n        <td>{{medicine.type}}</td>\n        <td>{{medicine.price}}</td>\n        <td>{{medicine.quantity}}</td>\n        <td>\n          <a (click)=\"addToCart(medicine)\" class=\"btn  btn-sm btn-info\">\n            <i style=\"font-size: 18px\" class=\"fa fa-plus-circle\"></i></a>\n        </td>\n\n      </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <!-- items being paged -->\n  <!--<div *ngFor=\"let item of pagedItems\">-->\n  <!--{{item.name}}-->\n  <!--</div>-->\n\n  <div class=\"text-center\">\n    <!-- pager -->\n    <ul *ngIf=\"pager.pages && pager.pages.length\" class=\"pagination\">\n      <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n        <a (click)=\"setPage(1)\">First</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n        <a (click)=\"setPage(pager.currentPage - 1)\">Previous</a>\n      </li>\n      <li *ngFor=\"let page of pager.pages\" [ngClass]=\"{active:pager.currentPage === page}\">\n        <a (click)=\"setPage(page)\">{{page}}</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n        <a (click)=\"setPage(pager.currentPage + 1)\">Next</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n        <a (click)=\"setPage(pager.totalPages)\">Last</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n"
+module.exports = "\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"container-fluid\">\n    <div class=\"navbar-header\">\n      <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n    </div>\n    <ul class=\"nav navbar-nav\">\n      <!--<li ><a href=\"#\">Home</a></li>-->\n      <li class=\"active\"><a href=\"/sDashboard\">Salesman</a></li>\n    </ul>\n  </div>\n</nav>\n<div class=\"container\" style=\"background-color: white\" >\n\n  <h3 style=\"text-align: center\">Item Buy List</h3>\n  <div class=\"table-responsive\">\n    <table class=\"table\">\n\n      <thead>\n      <tr style=\"background-color: blue; color: white\" >\n        <th>#</th>\n        <th>Name</th>\n        <th>Quantity</th>\n        <th>Price</th>\n        <th>Add/Remove/Remove All</th>\n      </tr>\n      </thead>\n\n      <tbody *ngFor=\"let medicine of medicines; let i = index\">\n\n      <tr *ngIf=\"medicine.name\">\n\n        <td>{{i+1}}</td>\n        <td>{{medicine.name}}</td>\n        <td>{{medicine.quantity}}</td>\n        <td>{{medicine.price*medicine.quantity}}</td>\n        <!--<td><i style=\"font-size: 16px\" class=\"fas fa-plus-square\"></i></td>-->\n        <td>\n          <a (click)=\"addToCart(medicine)\" class=\"btn  btn-sm btn-success\">\n            <i style=\"font-size: 18px\" class=\"fas fa-plus-circle\"></i></a>\n\n          <a (click)=\"removeFromCart(1 , medicine)\" class=\"btn  btn-sm btn-warning\">\n            <i style=\"font-size: 18px\" class=\"fas fa-minus-circle\"></i></a>\n\n\n          <a (click)=\"removeAllFromCart(medicine)\" class=\"btn  btn-sm btn-danger\">\n            <i style=\"font-size: 18px\" class=\"fas fa-times-circle\"></i></a>\n          <button (click)=\"updateTheMedicine(medicine)\"  type=\"button\" class=\"btn btn-info\">Update</button>\n        </td>\n\n\n\n      </tr>\n      </tbody>\n      <tr>\n        <td><b style=\"font-size: 14px\">Total</b></td>\n        <td></td>\n        <td></td>\n        <td><b style=\"font-size: 14px\">${{sum}}</b></td>\n      </tr>\n    </table>\n\n    <label for=\"name\" class=\"pull-left\">Customer Name:</label>\n    <input type=\"text\" [(ngModel)]=\"customerName\" placeholder=\"Customer Name\" id=\"name\" class=\"pull-left\">\n    <input type=\"text\" [(ngModel)]=\"customerNumber\" placeholder=\"Mobile Number\" class=\"pull-right\">\n    <label class=\"pull-right\">Mobile Number:</label>\n\n\n  </div>\n  <br>\n  <div style=\"margin-left: 10%\"><button type=\"button\" style=\"text-align: center\" class=\"btn btn-primary\" (click)=\"print()\">Print</button></div>\n\n  <br>\n</div>\n\n<br>\n\n<div class=\"container\" style=\"background-color: white\" id=\"print-section\">\n<br>\n  <div class=\"table-responsive\" style=\"text-align: left\">\n    <table class=\"table\">\n\n      <thead>\n      <tr style=\"background-color: blue; color: white\" >\n        <th>#</th>\n        <th>Name</th>\n        <th>Quantity</th>\n        <th>Price</th>\n      </tr>\n      </thead>\n\n      <tbody *ngFor=\"let medicine of medicines; let i = index\">\n\n      <tr *ngIf=\"medicine.name\">\n\n        <td>{{i+1}}</td>\n        <td>{{medicine.name}}</td>\n        <td>{{medicine.quantity}}</td>\n        <td>{{medicine.price*medicine.quantity}}</td>\n        <!--<td><i style=\"font-size: 16px\" class=\"fas fa-plus-square\"></i></td>-->\n\n      </tr>\n      </tbody>\n      <tr>\n        <td><b style=\"font-size: 14px\">Total</b></td>\n        <td></td>\n        <td></td>\n        <td><b style=\"font-size: 14px\">${{sum}}</b></td>\n      </tr>\n    </table>\n\n    <label>Customer Name: <span style=\"font-family: 'Times New Roman'\">{{customerName}}</span></label>\n    <br>\n    <label>Mobile Number: <span style=\"font-family: 'Times New Roman'\">{{customerNumber}}</span></label>\n\n    <!--<button type=\"button\" (click)=\"print()\">Print</button>-->\n\n  </div>\n\n</div>\n\n<br><br>\n\n<div class=\"container\" style=\"background-color: white\">\n\n  <br>\n\n  <div class=\"table-responsice\">\n    <nav class=\"navbar navbar-inverse\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">Medicines</span></a>\n        </div>\n\n\n        <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n          <div class=\"input-group\">\n            <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n            <input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\" (keyup)=\"searchTerm$.next($event.target.value)\">\n\n            <div class=\"input-group-btn\">\n              <button class=\"btn btn-default\" type=\"submit\">\n                <i class=\"glyphicon glyphicon-search\"></i>\n              </button>\n            </div>\n          </div>\n        </form>\n      </div>\n    </nav>\n\n    <!--<ul *ngIf=\"results\">-->\n      <!--<li *ngFor=\"let result of results | slice:0:9\">-->\n        <!--<a href=\"{{ result.latest }}\" target=\"_blank\">-->\n          <!--{{ result.name }}-->\n        <!--</a>-->\n      <!--</li>-->\n    <!--</ul>-->\n\n\n    <table *ngIf=\"results\"  class=\"table\">\n      <thead>\n      <tr style=\"background-color: blue; color: white\">\n        <th>#</th>\n        <th>Name</th>\n        <th>Generic</th>\n        <th>Type</th>\n        <th>Price</th>\n        <th>Quantity</th>\n        <th>Add To Cart</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let medicine of results | slice:0:9; let i = index\">\n\n        <td>{{i+1}}</td>\n        <td>{{medicine.name}}</td>\n        <td>{{medicine.generic}}</td>\n        <td>{{medicine.type}}</td>\n        <td>{{medicine.price}}</td>\n        <td>{{medicine.quantity}}</td>\n        <td>\n          <a (click)=\"addToCart(medicine)\" class=\"btn  btn-sm btn-info\">\n            <i style=\"font-size: 18px\" class=\"fa fa-plus-circle\"></i></a>\n        </td>\n\n      </tr>\n      </tbody>\n    </table>\n\n    <table *ngIf=\"!results\" class=\"table\">\n      <thead>\n      <tr style=\"background-color: blue; color: white\">\n        <th>#</th>\n        <th>Name</th>\n        <th>Generic</th>\n        <th>Type</th>\n        <th>Price</th>\n        <th>Quantity</th>\n        <th>Add To Cart</th>\n      </tr>\n      </thead>\n      <tbody>\n      <tr *ngFor=\"let medicine of pagedItems; let i = index\">\n\n        <td>{{i+1}}</td>\n        <td>{{medicine.name}}</td>\n        <td>{{medicine.generic}}</td>\n        <td>{{medicine.type}}</td>\n        <td>{{medicine.price}}</td>\n        <td>{{medicine.quantity}}</td>\n        <td *ngIf=\"medicine.quantity\">\n          <a (click)=\"addToCart(medicine)\" class=\"btn  btn-sm btn-info\">\n            <i style=\"font-size: 18px\" class=\"fa fa-plus-circle\"></i></a>\n        </td>\n\n      </tr>\n      </tbody>\n    </table>\n  </div>\n\n  <!-- items being paged -->\n  <!--<div *ngFor=\"let item of pagedItems\">-->\n  <!--{{item.name}}-->\n  <!--</div>-->\n\n  <div class=\"text-center\">\n    <!-- pager -->\n    <ul *ngIf=\"pager.pages && pager.pages.length\" class=\"pagination\">\n      <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n        <a (click)=\"setPage(1)\">First</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === 1}\">\n        <a (click)=\"setPage(pager.currentPage - 1)\">Previous</a>\n      </li>\n      <li *ngFor=\"let page of pager.pages\" [ngClass]=\"{active:pager.currentPage === page}\">\n        <a (click)=\"setPage(page)\">{{page}}</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n        <a (click)=\"setPage(pager.currentPage + 1)\">Next</a>\n      </li>\n      <li [ngClass]=\"{disabled:pager.currentPage === pager.totalPages}\">\n        <a (click)=\"setPage(pager.totalPages)\">Last</a>\n      </li>\n    </ul>\n  </div>\n</div>\n\n"
 
 /***/ }),
 
@@ -1206,10 +1550,12 @@ module.exports = "\n<nav class=\"navbar navbar-inverse\">\n  <div class=\"contai
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SalesmanDashboardComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_medicine_service__ = __webpack_require__("./src/app/services/medicine.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_pager_services_service__ = __webpack_require__("./src/app/services/pager-services.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__model_cart__ = __webpack_require__("./src/app/model/cart.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_pager_services_service__ = __webpack_require__("./src/app/services/pager-services.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__model_cart__ = __webpack_require__("./src/app/model/cart.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__ = __webpack_require__("./node_modules/rxjs/_esm5/Subject.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_medicine_service__ = __webpack_require__("./src/app/services/medicine.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_search_service_service__ = __webpack_require__("./src/app/services/search-service.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1224,17 +1570,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var SalesmanDashboardComponent = /** @class */ (function () {
-    function SalesmanDashboardComponent(medicineService, pagerService, router) {
+    function SalesmanDashboardComponent(medicineService, pagerService, router, searchService) {
+        var _this = this;
         this.medicineService = medicineService;
         this.pagerService = pagerService;
         this.router = router;
+        this.searchService = searchService;
+        this.searchTerm$ = new __WEBPACK_IMPORTED_MODULE_4_rxjs_Subject__["a" /* Subject */]();
         //medicines = [new Cart()];
         this.medicines = new Array();
-        this.medicine = new __WEBPACK_IMPORTED_MODULE_3__model_cart__["a" /* Cart */]();
+        this.medicine = new __WEBPACK_IMPORTED_MODULE_2__model_cart__["a" /* Cart */]();
         this.sum = 0;
         // pager object
         this.pager = {};
+        this.searchService.search(this.searchTerm$)
+            .subscribe(function (results) {
+            _this.results = results.data;
+        });
     }
     SalesmanDashboardComponent.prototype.print = function () {
         var printContents, popupWin;
@@ -1267,7 +1622,7 @@ var SalesmanDashboardComponent = /** @class */ (function () {
         this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
     };
     SalesmanDashboardComponent.prototype.addToCart = function (medicine) {
-        this.medicine = new __WEBPACK_IMPORTED_MODULE_3__model_cart__["a" /* Cart */]();
+        this.medicine = new __WEBPACK_IMPORTED_MODULE_2__model_cart__["a" /* Cart */]();
         var found = this.medicines.find(function (element) {
             return element.name == medicine.name;
         });
@@ -1279,6 +1634,8 @@ var SalesmanDashboardComponent = /** @class */ (function () {
                 for (var i = 0; i < this.medicines.length; i++)
                     if (this.medicines[i].name == medicine.name) {
                         this.medicines[i].quantity = this.medicines[i].quantity + 1;
+                        this.allItems[i].quantity--;
+                        console.log('Quantity: ' + this.allItems[i].quantity);
                         // this.sum += this.medicines[i].quantity* this.medicines[i].price;
                         // console.log(this.medicines[i].quantity)
                     }
@@ -1289,6 +1646,10 @@ var SalesmanDashboardComponent = /** @class */ (function () {
             this.medicine.name = medicine.name;
             this.medicine.price = medicine.price;
             this.medicine.quantity = 1;
+            for (var i = 0; i < this.allItems.length; i++) {
+                if (this.medicine.name == this.allItems[i].name)
+                    this.allItems[i].quantity--;
+            }
             // this.sum += this.medicine.quantity* this.medicine.price;
             this.medicines.push(this.medicine);
         }
@@ -1357,9 +1718,10 @@ var SalesmanDashboardComponent = /** @class */ (function () {
             template: __webpack_require__("./src/app/components/salesman-dashboard/salesman-dashboard.component.html"),
             styles: [__webpack_require__("./src/app/components/salesman-dashboard/salesman-dashboard.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_medicine_service__["a" /* MedicineService */],
-            __WEBPACK_IMPORTED_MODULE_2__services_pager_services_service__["a" /* PagerServicesService */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__services_medicine_service__["a" /* MedicineService */],
+            __WEBPACK_IMPORTED_MODULE_1__services_pager_services_service__["a" /* PagerServicesService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_6__services_search_service_service__["a" /* SearchService */]])
     ], SalesmanDashboardComponent);
     return SalesmanDashboardComponent;
 }());
@@ -1371,14 +1733,14 @@ var SalesmanDashboardComponent = /** @class */ (function () {
 /***/ "./src/app/components/salesman/salesman.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(205, 195, 207, 0.7);\r\n  color: black;\r\n}\r\ntable tr:nth-child(odd) {\r\n  color: black;\r\n  background-color: rgba(176, 160, 173, 0.7);\r\n}\r\n.bg {\r\n  /* The image used */\r\n  /*background-image: url('../../../assets/images/medicine-background-7.jpg');*/\r\n\r\n  /* Full height */\r\n\r\n  height: 80%;\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: repeat;\r\n  background-size: cover;\r\n\r\n  /* Set rules to fill background */\r\n  min-height: 100%;\r\n  min-width: 1024px;\r\n\r\n  /* Set up proportionate scaling */\r\n  width: 100%;\r\n  height: auto;\r\n\r\n  /* Set up positioning */\r\n  position: relative;\r\n  top: 0;\r\n  left: 0;\r\n}\r\n@media screen and (max-width: 1024px) { /* Specific to this particular image */\r\n  img.bg {\r\n    left: 50%;\r\n    margin-left: -512px;   /* 50% */\r\n  }\r\n\r\n}\r\n.texto_grande {\r\n  font-size: 2rem;\r\n  color: white;\r\n}\r\n#icone_grande {\r\n  font-size: 4rem;\r\n  color:#fff;\r\n}\r\n\r\n\r\n"
+module.exports = ""
 
 /***/ }),
 
 /***/ "./src/app/components/salesman/salesman.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li><a href=\"/aDashboard\">Admin Home</a></li>\n        <li><a href=\"/pharmasist\">Pharmasist</a></li>\n        <li ><a href=\"/manager\">Manager</a></li>\n        <li class=\"active\"><a href=\"#\">Salesman</a></li>\n        <li><a href=\"#\">Sales Report</a></li>\n      </ul>\n\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n          <button style=\"text-decoration: none\">Log Out</button>\n\n        </div>\n      </form>\n\n    </div>\n  </nav>\n\n  <div  class=\"container\" >\n\n\n    <div class=\"col-md-3 pull-right\">\n      <a (click)=\"managerAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i> Add {{manager[1].category}}</span></a>\n    </div>\n\n    <h3 style=\"font-family: 'Times New Roman'\">List of {{manager[1].category}}</h3>\n    <br>\n\n  </div>\n\n  <div class=\"container\">\n\n    <br>\n\n    <div class=\"table-responsice\" style=\"color: white\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n\n          <th>First Name</th>\n          <th>Last Name</th>\n          <th>Username</th>\n          <th>Update</th>\n          <th>Delete</th>\n        </tr>\n        </thead>\n        <tbody *ngFor=\"let manger of manager; let i = index\">\n        <tr *ngIf=\"manger.firstName\">\n          <td>{{manger.firstName}}</td>\n          <td>{{manger.lastName}}</td>\n          <td>{{manger.username}}</td>\n          <td>\n            <a (click)=\"updateManager(manger._id)\" class=\"btn  btn-sm btn-warning\">\n              <i class=\"fas fa-wrench\" id=\"icone_grande\"></i></a>\n          </td>\n          <td>\n            <a (click)=\"salesManAdd()\" class=\"btn  btn-sm btn-danger\">\n              <i class=\"fas fa-trash\" id=\"icone_grande\"></i></a>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n\n</div>\n"
+module.exports = "<div>\n\n  <nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" href=\"#\"><span style=\"font-family: 'Times New Roman'\">PMS</span></a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li *ngIf=\"adminOrManager=='Admin'\"><a href=\"/aDashboard\">Admin Home</a></li>\n        <li *ngIf=\"adminOrManager=='Manager'\"><a href=\"/mDashboard\">Manager Dashboard</a></li>\n        <li *ngIf=\"adminOrManager=='Admin' || adminOrManager=='Manager'\"><a href=\"/manager\">Manager</a></li>\n        <li><a href=\"/pharmasist\">Pharmasist</a></li>\n        <li class=\"active\"><a href=\"#\">Salesman</a></li>\n        <!--<li><a href=\"#\">Sales Report</a></li>-->\n      </ul>\n\n      <form  class=\"navbar-form navbar-right\" action=\"/action_page.php\">\n        <div class=\"input-group\">\n          <!--<input type=\"text\" class=\"form-control\" placeholder=\"Search\" name=\"search\">-->\n          <!--<button style=\"text-decoration: none\">Log Out</button>-->\n\n          <button (click)=\"logout()\" style=\"text-decoration: none\" class=\"btn btn-warning\">Log Out</button>\n\n        </div>\n      </form>\n\n    </div>\n  </nav>\n\n  <div  class=\"container\" >\n\n\n    <div class=\"col-md-3 pull-right\">\n      <a (click)=\"managerAdd()\" class=\"btn btn-block btn-lg btn-success\" data-toggle=\"modal\" data-target=\"#mymodal\">\n        <i class=\"fas fa-users-cog\" id=\"icone_grande\"></i> <br><br>\n        <span  class=\"texto_grande\"><i class=\"fa fa-plus-circle\"></i> Add Salesman</span></a>\n    </div>\n\n    <h3 style=\"font-family: 'Times New Roman'; color: white\">List of Salesman</h3>\n    <br>\n\n  </div>\n\n  <div class=\"container\">\n\n    <br>\n\n    <div class=\"table-responsice\" style=\"color: white\">\n      <table  class=\"table\">\n        <thead>\n        <tr style=\"background-color: azure;color: black\">\n\n          <th>First Name</th>\n          <th>Last Name</th>\n          <th>Username</th>\n          <th>Update</th>\n          <th>Delete</th>\n        </tr>\n        </thead>\n        <tbody *ngFor=\"let manger of manager; let i = index\">\n        <tr *ngIf=\"manger.firstName\">\n          <td>{{manger.firstName}}</td>\n          <td>{{manger.lastName}}</td>\n          <td>{{manger.username}}</td>\n          <td>\n            <a (click)=\"updateManager(manger._id)\" class=\"btn  btn-sm btn-warning\">\n              <i class=\"fas fa-wrench\" id=\"icone_grande\"></i></a>\n          </td>\n          <td>\n            <a (click)=\"salesManAdd()\" class=\"btn  btn-sm btn-danger\">\n              <i class=\"fas fa-trash\" id=\"icone_grande\"></i></a>\n          </td>\n        </tr>\n        </tbody>\n      </table>\n    </div>\n  </div>\n\n</div>\n"
 
 /***/ }),
 
@@ -1391,6 +1753,7 @@ module.exports = "<div>\n\n  <nav class=\"navbar navbar-inverse\">\n    <div cla
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__model_user__ = __webpack_require__("./src/app/model/user.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_toaster_service_service__ = __webpack_require__("./src/app/services/toaster-service.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1404,14 +1767,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var SalesmanComponent = /** @class */ (function () {
-    function SalesmanComponent(authServiec, router) {
+    function SalesmanComponent(authServiec, router, toasterService) {
         this.authServiec = authServiec;
         this.router = router;
+        this.toasterService = toasterService;
         this.manager = [new __WEBPACK_IMPORTED_MODULE_3__model_user__["a" /* User */]()];
     }
     SalesmanComponent.prototype.ngOnInit = function () {
         var _this = this;
+        if (localStorage.getItem('category'))
+            this.adminOrManager = localStorage.getItem('category');
         this.authServiec.getAllUser().subscribe(function (res) {
             for (var i = 0; i < res.data.length; i++) {
                 if (res.data[i].category === 'Salesman' && res.data[i].firstName) {
@@ -1431,6 +1798,11 @@ var SalesmanComponent = /** @class */ (function () {
     SalesmanComponent.prototype.updateManager = function (id) {
         this.router.navigate(["/update-manager/" + id]);
     };
+    SalesmanComponent.prototype.logout = function () {
+        this.authServiec.logout();
+        this.toasterService.Success('Successfully logout!');
+        this.router.navigate(['/login']);
+    };
     SalesmanComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'app-salesman',
@@ -1438,7 +1810,8 @@ var SalesmanComponent = /** @class */ (function () {
             styles: [__webpack_require__("./src/app/components/salesman/salesman.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__services_toaster_service_service__["a" /* ToasterServiceService */]])
     ], SalesmanComponent);
     return SalesmanComponent;
 }());
@@ -1471,6 +1844,8 @@ module.exports = "<div  class=\"bg\">\n  <div *ngIf=\"user\" class=\"container\"
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__model_user__ = __webpack_require__("./src/app/model/user.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_toaster_service_service__ = __webpack_require__("./src/app/services/toaster-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1485,12 +1860,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var UpdateManagerComponent = /** @class */ (function () {
-    function UpdateManagerComponent(authService, router, formBuilder, route) {
+    function UpdateManagerComponent(authService, router, formBuilder, route, location, toasterService) {
         this.authService = authService;
         this.router = router;
         this.formBuilder = formBuilder;
         this.route = route;
+        this.location = location;
+        this.toasterService = toasterService;
         this.user = new __WEBPACK_IMPORTED_MODULE_4__model_user__["a" /* User */]();
     }
     UpdateManagerComponent.prototype.ngOnInit = function () {
@@ -1502,7 +1881,10 @@ var UpdateManagerComponent = /** @class */ (function () {
         });
     };
     UpdateManagerComponent.prototype.onUpdate = function (user) {
+        var _this = this;
         this.authService.updateUser(user).subscribe(function (res) {
+            _this.toasterService.Success("Successfully updated!");
+            _this.location.back();
             console.log(res);
         });
     };
@@ -1515,7 +1897,9 @@ var UpdateManagerComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
             __WEBPACK_IMPORTED_MODULE_3__angular_forms__["b" /* FormBuilder */],
-            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */]])
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_6__angular_common__["f" /* Location */],
+            __WEBPACK_IMPORTED_MODULE_5__services_toaster_service_service__["a" /* ToasterServiceService */]])
     ], UpdateManagerComponent);
     return UpdateManagerComponent;
 }());
@@ -1547,6 +1931,8 @@ module.exports = "<div  class=\"bg\">\n  <div *ngIf=\"medicine\" class=\"contain
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__model_medicine__ = __webpack_require__("./src/app/model/medicine.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_medicine_service__ = __webpack_require__("./src/app/services/medicine.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_toaster_service_service__ = __webpack_require__("./src/app/services/toaster-service.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1560,11 +1946,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var UpdateMedicineComponent = /** @class */ (function () {
-    function UpdateMedicineComponent(medicienService, route, router) {
+    function UpdateMedicineComponent(medicienService, route, router, toasterService, location) {
         this.medicienService = medicienService;
         this.route = route;
         this.router = router;
+        this.toasterService = toasterService;
+        this.location = location;
         this.medicine = new __WEBPACK_IMPORTED_MODULE_1__model_medicine__["a" /* Medicine */]();
         this.quantity = 0;
     }
@@ -1593,6 +1983,7 @@ var UpdateMedicineComponent = /** @class */ (function () {
         var _this = this;
         this.medicienService.updateMedicine(medicine).subscribe(function (res) {
             // console.log('In update' + res.data);
+            _this.toasterService.Success("Successfully Updated!");
             _this.router.navigate(['/pDashboard']);
         });
     };
@@ -1604,7 +1995,9 @@ var UpdateMedicineComponent = /** @class */ (function () {
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_medicine_service__["a" /* MedicineService */],
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__services_toaster_service_service__["a" /* ToasterServiceService */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_common__["f" /* Location */]])
     ], UpdateMedicineComponent);
     return UpdateMedicineComponent;
 }());
@@ -1616,7 +2009,7 @@ var UpdateMedicineComponent = /** @class */ (function () {
 /***/ "./src/app/components/view-medicine/view-medicine.component.css":
 /***/ (function(module, exports) {
 
-module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(25, 207, 193, 0.7);\r\n  color: white;\r\n}\r\ntable tr:nth-child(odd) {\r\n  color: white;\r\n  background-color: rgba(145, 142, 176, 0.7);\r\n}\r\n.bg {\r\n  /* The image used */\r\n  /*background-image: url('../../../assets/images/medicine-background-7.jpg');*/\r\n\r\n  /* Full height */\r\n\r\n  height: 80%;\r\n\r\n  /* Center and scale the image nicely */\r\n  background-position: center;\r\n  background-repeat: repeat;\r\n  background-size: cover;\r\n\r\n  /* Set rules to fill background */\r\n  min-height: 100%;\r\n  min-width: 1024px;\r\n\r\n  /* Set up proportionate scaling */\r\n  width: 100%;\r\n  height: auto;\r\n\r\n  /* Set up positioning */\r\n  /*position: fixed;*/\r\n  top: 0;\r\n  left: 0;\r\n}\r\n@media screen and (max-width: 1024px) { /* Specific to this particular image */\r\n  img.bg {\r\n    left: 50%;\r\n    margin-left: -512px;   /* 50% */\r\n  }\r\n\r\n}\r\n\r\n\r\n"
+module.exports = "table tr:nth-child(even) {\r\n  background-color: rgba(25, 207, 193, 0.7);\r\n  color: white;\r\n}\r\ntable tr:nth-child(odd) {\r\n  color: white;\r\n  background-color: rgba(145, 142, 176, 0.7);\r\n}\r\n\r\n\r\n\r\n\r\n"
 
 /***/ }),
 
@@ -1754,11 +2147,11 @@ var ManagerGaurd = /** @class */ (function () {
         this.router = router;
     }
     ManagerGaurd.prototype.canActivate = function () {
-        if (this.authService.loggedIn() && localStorage.getItem('category') == 'Manager') {
+        if (this.authService.loggedIn() && localStorage.getItem('category') == 'Manager' || localStorage.getItem('category') == 'Admin') {
             return true;
         }
         else {
-            window.alert("You don't have permission to view this page, Login as Manager first");
+            window.alert("You don't have permission to view this page, Login as Manager or Admin first");
             this.router.navigate(['/login']);
             return false;
         }
@@ -2142,6 +2535,72 @@ var PagerServicesService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/search-service.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SearchService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_debounceTime__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/debounceTime.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_distinctUntilChanged__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/distinctUntilChanged.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_switchMap__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/switchMap.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+var SearchService = /** @class */ (function () {
+    function SearchService(http) {
+        this.http = http;
+        this.baseUrl = 'https://api.cdnjs.com/libraries';
+        this.queryUrl = '?search=';
+        this.query = {
+            searchKey: String
+        };
+    }
+    SearchService.prototype.search = function (terms) {
+        var _this = this;
+        return terms.debounceTime(400)
+            .distinctUntilChanged()
+            .switchMap(function (term) { return _this.searchEntries2(term); });
+    };
+    SearchService.prototype.searchEntries = function (term) {
+        if (term === void 0) { term = 'null'; }
+        return this.http
+            .get(this.baseUrl + this.queryUrl + term)
+            .map(function (res) { return res.json(); });
+    };
+    SearchService.prototype.searchEntries2 = function (term) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        headers.append('Content-type', 'application/json');
+        return this.http.get(__WEBPACK_IMPORTED_MODULE_6__environments_environment__["a" /* environment */].baseUrl + "/medicine/search/" + term, { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    SearchService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["Http"]])
+    ], SearchService);
+    return SearchService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/services/toaster-service.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2184,6 +2643,56 @@ var ToasterServiceService = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "./src/app/services/validation.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ValidationService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var ValidationService = /** @class */ (function () {
+    function ValidationService() {
+    }
+    ValidationService.prototype.validateRegister = function (user) {
+        if (user.firstName == '' || user.email == '' || user.username == '') {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    ValidationService.prototype.validateMedicine = function (medicine) {
+        if (medicine.name == '' || medicine.company == '' || medicine.price == '' || medicine.quantity == '' || medicine.type == '') {
+            return false;
+        }
+        else {
+            return true;
+        }
+    };
+    ValidationService.prototype.validateEmail = function (email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    };
+    ValidationService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [])
+    ], ValidationService);
+    return ValidationService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/environments/environment.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2195,7 +2704,8 @@ var ToasterServiceService = /** @class */ (function () {
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
     production: false,
-    baseUrl: 'http://localhost:3000/api'
+    baseUrl: '/api'
+    // baseUrl: '/api'
 };
 
 

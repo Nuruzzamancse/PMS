@@ -34,6 +34,9 @@ import {PharmasistGuard} from "./gaurds/pharmasist.guard";
 import {SalesmanGaurd} from "./gaurds/salesman.gaurd";
 import { AutoCompleteModule} from "ng4-auto-complete";
 import {SearchService} from "./services/search-service.service";
+import {ValidationService} from "./services/validation.service";
+import { StripeService} from "./common/stripe.service";
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -52,7 +55,8 @@ import {SearchService} from "./services/search-service.service";
     UpdateMedicineComponent,
     SalesmanDashboardComponent,
     ManagerDashboardComponent,
-    AutocompleteOptgroupExampleComponent
+    AutocompleteOptgroupExampleComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +83,9 @@ import {SearchService} from "./services/search-service.service";
     ManagerGaurd,
     PharmasistGuard,
     SalesmanGaurd,
-    SearchService
+    SearchService,
+    ValidationService,
+    StripeService
   ],
   bootstrap: [AppComponent]
 })

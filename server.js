@@ -38,6 +38,10 @@ app.use('/api/user',user);
 var auth = require('./routes/auth');
 app.use('/api/auth',auth);
 
+
+var stripe = require('./routes/stripe');
+app.use('/stripe', stripe);
+
 app.use('*', (req, res, next) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });

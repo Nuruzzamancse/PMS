@@ -4,7 +4,9 @@ import {User} from "../../model/user";
 import {Router, Routes} from "@angular/router";
 import { ActivatedRoute} from "@angular/router";
 import {AuthService} from "../../services/auth.service";
-
+import { Location } from '@angular/common';
+import { ValidationService} from "../../services/validation.service";
+import { ToasterServiceService} from "../../services/toaster-service.service";
 
 
 @Component({
@@ -36,7 +38,10 @@ export class AddUserComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private formBuilder: FormBuilder,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private location: Location,
+    private validationService: ValidationService,
+    private toasterService: ToasterServiceService
   ) { }
 
   ngOnInit() {
@@ -75,8 +80,19 @@ export class AddUserComponent implements OnInit {
     this.user.email = formData.value.email;
     this.user.category = this.Category;
 
+    if(!this.validationService.validateRegister(this.user)){
+      this.toasterService.Warning("Please fill all the fields.");
+      return false;
+    }
+
+    if(!this.validationService.validateEmail(this.user.email)){
+      this.toasterService.Error("Please Enter Valid Email");
+      return false;
+    }
+
     this.authService.postUser(this.user).subscribe(res=>{
-      console.log(res);
+      this.toasterService.Success("Successfully added "+ this.Category);
+      this.location.back();
     })
 
   }

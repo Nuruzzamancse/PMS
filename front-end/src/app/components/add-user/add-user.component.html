@@ -3,7 +3,7 @@
 
     <h1 style="margin-top: 3%;text-align: center; font-family: 'Times New Roman'; color: azure">Pharmacy Management System</h1>
 
-    <h3 style="text-align: center;font-family: Verdana; color: azure">Add User</h3>
+    <h3 style="text-align: center;font-family: Verdana; color: azure">Add {{Category}}</h3>
     <div class="row" style="margin-top:20px">
       <div style="margin-left: 15%" class="col-xs-8 col-sm-8 col-md-8 ">
         <form role="form" [formGroup]="registerForm" (ngSubmit)="registerUser(registerForm)" novalidate autocomplete="off">
@@ -12,7 +12,7 @@
             <label style="color: white" for="firstName" class="col-sm-2 control-label">First Name <sup>*</sup></label>
             <div class="input-group col-sm-10">
               <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
-              <input type="text" class="form-control" [formControl]="firstName" id="firstName" placeholder="First Name" required>
+              <input type="text" class="form-control input-sm" [formControl]="firstName" id="firstName" placeholder="First Name" required>
             </div>
           </div>
 
@@ -20,7 +20,7 @@
             <label style="color: white" for="lastName" class="col-sm-2 control-label">Last Name <sup>*</sup></label>
             <div class="input-group col-sm-10">
               <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
-              <input type="text" class="form-control" [formControl]="lastName" id="lastName" placeholder="Last Name" required>
+              <input type="text" class="form-control input-sm" [formControl]="lastName" id="lastName" placeholder="Last Name" required>
             </div>
           </div>
 
@@ -28,7 +28,7 @@
             <label style="color: white" for="staffId" class="col-sm-2 control-label">Staff Id <sup>*</sup></label>
             <div class="input-group col-sm-10">
               <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
-              <input type="text" class="form-control" [formControl]="staffId" id="staffId" placeholder="Staff Id" required>
+              <input type="text" class="form-control input-sm" [formControl]="staffId" id="staffId" placeholder="Staff Id" required>
             </div>
           </div>
 
@@ -36,7 +36,7 @@
             <label style="color: white" for="address" class="col-sm-2 control-label">Address <sup>*</sup></label>
             <div class="input-group col-sm-10">
               <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
-              <input type="text" class="form-control" [formControl]="address" id="address" placeholder="Address" required>
+              <input type="text" class="form-control input-sm" [formControl]="address" id="address" placeholder="Address" required>
             </div>
           </div>
 
@@ -44,7 +44,7 @@
             <label style="color: white" for="phone" class="col-sm-2 control-label">Phone <sup>*</sup></label>
             <div class="input-group col-sm-10">
               <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
-              <input type="text" class="form-control" [formControl]="phone" id="phone" placeholder="Phone" required>
+              <input type="text" class="form-control input-sm" [formControl]="phone" id="phone" placeholder="Phone" required>
             </div>
           </div>
 
@@ -52,7 +52,7 @@
             <label style="color: white" for="phone" class="col-sm-2 control-label">Email <sup>*</sup></label>
             <div class="input-group col-sm-10">
               <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
-              <input type="text" class="form-control" [formControl]="email" id="email" placeholder="Email" required>
+              <input type="text" class="form-control input-sm" [formControl]="email" id="email" placeholder="Email" required>
             </div>
           </div>
 
@@ -60,7 +60,7 @@
             <label style="color: white" for="username" class="col-sm-2 control-label">Username <sup>*</sup></label>
             <div class="input-group col-sm-10">
               <div class="input-group-addon"><i class="fas fa-user-md"></i></div>
-              <input type="text" class="form-control" [formControl]="username" id="username" placeholder="Username" required>
+              <input type="text" class="form-control input-sm" [formControl]="username" id="username" placeholder="Username" required>
             </div>
           </div>
 

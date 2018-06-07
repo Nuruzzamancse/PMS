@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Medicine} from "../../model/medicine";
 import { MedicineService} from "../../services/medicine.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import { ToasterServiceService} from "../../services/toaster-service.service";
+import { Location} from "@angular/common";
 
 @Component({
   selector: 'app-update-medicine',
@@ -13,7 +15,9 @@ export class UpdateMedicineComponent implements OnInit {
   constructor(
     private medicienService: MedicineService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private toasterService: ToasterServiceService,
+    private location: Location
   ) { }
 
   medicine =  new Medicine();
@@ -53,6 +57,7 @@ export class UpdateMedicineComponent implements OnInit {
     this.medicienService.updateMedicine(medicine).subscribe(res=>{
       // console.log('In update' + res.data);
 
+      this.toasterService.Success("Successfully Updated!");
       this.router.navigate(['/pDashboard']);
     })
   }

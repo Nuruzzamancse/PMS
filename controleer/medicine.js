@@ -79,15 +79,12 @@ let searchMedicine = (req, res, next) =>{
         if(err){
             console.log('Here the '+err);
             return res.status(500).json({ success: false, message: 'Fatal Server Error: ' + err});
-
-
         }
         else
         {
             console.log(medicines);
 
             return res.status(201).json({ success: true, message: 'Successfully get the searched medicine.', data: medicines });
-
         }
     })
     else

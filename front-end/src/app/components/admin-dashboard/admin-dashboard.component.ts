@@ -4,6 +4,9 @@ import { PagerServicesService} from "../../services/pager-services.service";
 import {Router} from "@angular/router";
 import { AuthService} from "../../services/auth.service";
 import { ToasterServiceService} from "../../services/toaster-service.service";
+import {SearchService} from "../../services/search-service.service";
+import {Subject} from "rxjs/Subject";
+
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -12,13 +15,24 @@ import { ToasterServiceService} from "../../services/toaster-service.service";
 })
 export class AdminDashboardComponent implements OnInit {
 
+
+  results: Object;
+  searchTerm$ = new Subject<string>();
+
   constructor(
     private medicineService: MedicineService,
     private pagerService: PagerServicesService,
     private router: Router,
     private authService: AuthService,
-    private toasterService: ToasterServiceService
-  ) { }
+    private toasterService: ToasterServiceService,
+    private searchService: SearchService
+
+  ) {
+    this.searchService.search(this.searchTerm$)
+      .subscribe(results => {
+        this.results = results.data;
+      });
+  }
 
 
  private adminOrManager:any;
