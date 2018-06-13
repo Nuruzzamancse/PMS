@@ -65,5 +65,24 @@ export class SalesmanComponent implements OnInit {
   }
 
 
+  deleteManager(manager){
+
+    var r = confirm("Are you sure!");
+    if (r == true) {
+      this.manager.splice(this.manager.indexOf(manager), 1);
+      this.authServiec.deleteUser(manager)
+        .subscribe(res=>{
+          this.toasterService.Info("Successfully Deleted!!");
+
+        })
+    } else {
+      this.toasterService.Warning("You have cancelled deletion!!");
+    }
+
+    // console.log(manager);
+
+  }
+
+
 
 }

@@ -68,4 +68,19 @@ export class PharmasistDashboardComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  medicineDelete(medicine){
+    var r = confirm("Are you sure!");
+    if (r == true) {
+      this.allItems.splice(this.allItems.indexOf(medicine), 1);
+      this.medicineService.deleteMedicine(medicine._id)
+        .subscribe(res=>{
+          this.toasterService.Info("Successfully Deleted!!");
+          this.setPage(1);
+
+        })
+    } else {
+      this.toasterService.Warning("You have cancelled deletion!!");
+    }
+  }
+
 }

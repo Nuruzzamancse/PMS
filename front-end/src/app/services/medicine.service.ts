@@ -38,6 +38,15 @@ export class MedicineService {
       .map(res => res.json());
   }
 
+ deleteMedicine(id){
+
+    let headers = new Headers();
+    headers.append('Content-type','application/json');
+
+    return this.http.delete(`${environment.baseUrl}/medicine/${id}`,{headers:headers})
+      .map(res => res.json());
+  }
+
   updateMedicine(medicine)
   {
 

@@ -80,6 +80,16 @@ export class AuthService {
 
   }
 
+  deleteUser(user){
+    let headers = new Headers();
+
+    headers.append('Content-type','application/json');
+
+    return this.http.delete(`${environment.baseUrl}/user/${user._id}`,{headers:headers})
+      .map(res => res.json());
+
+  }
+
 
   storeUserData(token,user){
     localStorage.setItem('id_token', token);

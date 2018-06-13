@@ -64,12 +64,12 @@
           <td>{{manger.lastName}}</td>
           <td>{{manger.username}}</td>
           <td>
-            <a (click)="updateManager(manger._id)" class="btn  btn-sm btn-warning">
-              <i class="fas fa-wrench" id="icone_grande"></i></a>
+            <button [attr.disabled]="buttonDisabled? '' : null" (click)="updateManager(manger._id)" class="btn  btn-sm btn-warning">
+              <i class="fas fa-wrench" id="icone_grande"></i></button>
           </td>
           <td>
-            <a (click)="salesManAdd()" class="btn  btn-sm btn-danger">
-              <i class="fas fa-trash" id="icone_grande"></i></a>
+            <button [attr.disabled]="buttonDisabled? '' : null" (click)="deleteManager(manger)" class="btn  btn-sm btn-danger">
+              <i class="fas fa-trash" id="icone_grande"></i></button>
           </td>
         </tr>
         </tbody>

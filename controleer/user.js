@@ -119,8 +119,8 @@ var updateUser = (req, res, next) => {
             User.lastName = lastName || User.lastName;
             User.staffId = staffId || User.staffId;
             User.address = address || User.address;
-            User.phone = staffId || User.phone;
-            User.email = staffId || User.email;
+            User.phone = phone || User.phone;
+            User.email = email || User.email;
             User.username = username || User.username;
             User.password = password || User.password;
             User.category = category || User.category;

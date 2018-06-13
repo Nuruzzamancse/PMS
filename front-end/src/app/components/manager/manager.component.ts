@@ -5,6 +5,7 @@ import {User} from "../../model/user";
 import { ToasterServiceService} from "../../services/toaster-service.service";
 import { ReactiveFormsModule} from "@angular/forms";
 import { FormsModule} from "@angular/forms";
+import { Location} from "@angular/common";
 
 @Component({
   selector: 'app-manager',
@@ -16,7 +17,8 @@ export class ManagerComponent implements OnInit {
   constructor(
     private authServiec: AuthService,
     private router: Router,
-    private toasterService: ToasterServiceService
+    private toasterService: ToasterServiceService,
+    private location: Location
   ) {
   }
 
@@ -67,6 +69,24 @@ export class ManagerComponent implements OnInit {
     this.authServiec.logout();
     this.toasterService.Success('Successfully logout!');
     this.router.navigate(['/login']);
+  }
+
+  deleteManager(manager){
+
+    var r = confirm("Are you sure!");
+    if (r == true) {
+      this.manager.splice(this.manager.indexOf(manager), 1);
+      this.authServiec.deleteUser(manager)
+        .subscribe(res=>{
+          this.toasterService.Info("Successfully Deleted!!");
+
+        })
+    } else {
+      this.toasterService.Warning("You have cancelled deletion!!");
+    }
+
+    // console.log(manager);
+
   }
 
 }
