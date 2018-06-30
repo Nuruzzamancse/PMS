@@ -113,18 +113,27 @@ export class SalesmanDashboardComponent implements OnInit {
     this.medicine  = new Cart();
 
     var found = this.medicines.find(function(element) {
-      return element.name == medicine.name;
+      return element.name === medicine.name;
+    });
+
+    var allItemfound = this.allItems.find(function(element) {
+      console.log('Elemnt Info');
+      console.log(element);
+      if (element.name === medicine.name) {
+        element.quantity--;
+      }
+      return element.name === medicine.name;
     });
     //
-    // console.log('Found');
-    // console.log(found);
+    console.log('Found');
+    console.log(found);
 
     if(found) {
-      if (found.name == medicine.name) {
+      if (found.name === medicine.name) {
         for (let i = 0; i < this.medicines.length; i++)
-          if (this.medicines[i].name == medicine.name) {
+          if (this.medicines[i].name === medicine.name) {
             this.medicines[i].quantity = this.medicines[i].quantity + 1;
-            this.allItems[i].quantity--;
+            // this.allItems[i].quantity--;
 
             console.log('Quantity: '+this.allItems[i].quantity);
 
@@ -139,11 +148,11 @@ export class SalesmanDashboardComponent implements OnInit {
       this.medicine.price = medicine.price;
       this.medicine.quantity = 1;
 
-      for (let i=0; i<this.allItems.length;i++)
-      {
-        if(this.medicine.name == this.allItems[i].name)
-          this.allItems[i].quantity--;
-      }
+      // for (let i=0; i<this.allItems.length;i++)
+      // {
+      //   if(this.medicine.name === this.allItems[i].name)
+      //     this.allItems[i].quantity--;
+      // }
 
       // this.sum += this.medicine.quantity* this.medicine.price;
 
